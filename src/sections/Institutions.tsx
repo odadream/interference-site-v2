@@ -63,7 +63,7 @@ export default function Institutions({ onNavigate: _onNavigate }: InstitutionsPr
         </div>
 
         {/* CTA */}
-        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+        <div className={`flex flex-col sm:flex-row items-start sm:items-center ${s.gapMd}`}>
           <QuantumButton href="mailto:daler.ai@gmail.com?subject=Show inquiry / Запрос на показ">
             {institutionsCTA[lang]}
           </QuantumButton>

@@ -11,7 +11,7 @@ export default function Context() {
   return (
     <section ref={revealRef} id="context" className={`${s.section} bg-bg-primary reveal`}>
       <div className={`max-w-5xl mx-auto ${s.container}`}>
-        <SectionTag number="03">Контекст</SectionTag>
+        <SectionTag number="04">Контекст</SectionTag>
 
         <h2 className={`${t.h2} ${s.mbSm}`}>
           <span className="text-peach">Теория</span>{' '}

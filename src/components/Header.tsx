@@ -11,16 +11,15 @@ interface HeaderProps {
 }
 
 const NAV_LINKS = [
-  { id: 'hero', label: { ru: 'Спектакль', en: 'Performance' }, hideBelow: 'none' as const },
   { id: 'about', label: { ru: 'О проекте', en: 'About' }, hideBelow: 'none' as const },
-  { id: 'program', label: { ru: 'Программа', en: 'Programme' }, hideBelow: 'none' as const },
+  { id: 'program', label: { ru: 'Программа', en: 'Programme' }, hideBelow: 'lg' as const },
   { id: 'context', label: { ru: 'Контекст', en: 'Context' }, hideBelow: 'xl' as const },
-  { id: 'interference', label: { ru: 'Лаборатория', en: 'Lab' }, hideBelow: 'lg' as const },
+  { id: 'interference', label: { ru: 'Лаборатория', en: 'Lab' }, hideBelow: 'xl' as const },
   { id: 'faq', label: { ru: 'FAQ', en: 'FAQ' }, hideBelow: 'xl' as const },
-  { id: 'authors', label: { ru: 'Авторы', en: 'Team' }, hideBelow: 'none' as const },
+  { id: 'authors', label: { ru: 'Авторы', en: 'Team' }, hideBelow: 'lg' as const },
   {
     id: 'institutions',
-    label: { ru: 'Институциям', en: 'For Institutions' },
+    label: { ru: 'Институциям', en: 'Institutions' },
     hideBelow: 'none' as const,
   },
   { id: 'chronicle', label: { ru: 'Хроника', en: 'Chronicle' }, hideBelow: 'lg' as const },
@@ -65,10 +64,7 @@ export default function Header({ menuOpen, setMenuOpen, onNavigate }: HeaderProp
             onClick={() => onNavigate('hero')}
             className={`${t.navLinkLarge} text-text-primary hover:text-accent-primary transition-colors whitespace-nowrap`}
           >
-            {lang === 'ru' ? 'ИР' : 'IR'}{' '}
-            <span className={`${t.caption} text-text-muted font-normal`}>
-              · {lang === 'ru' ? '16 МАЯ · ИКЦ · КАЛУГА' : 'MAY 16 · ICC · KALUGA'}
-            </span>
+            {lang === 'ru' ? 'ИР' : 'IR'}
           </button>
 
           <nav className={`hidden md:flex items-center ${s.gapLg}`}>

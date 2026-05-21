@@ -16,7 +16,7 @@ export default function About() {
       className={`pt-12 md:pt-16 pb-20 md:pb-32 bg-bg-primary reveal`}
     >
       <div className={`max-w-5xl mx-auto ${s.container}`}>
-        <SectionTag number="01">О спектакле</SectionTag>
+        <SectionTag number="02">О спектакле</SectionTag>
 
         <h2 className={`${t.h2} ${s.mbMd}`}>
           <span className="text-peach">Интерференция</span>{' '}

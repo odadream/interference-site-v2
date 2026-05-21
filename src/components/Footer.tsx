@@ -4,12 +4,13 @@ import { s } from '../styles/spacing';
 import { SHOW_MEDIA } from '../data/features';
 
 const NAV_LINKS = [
-  { id: 'hero', label: 'Спектакль' },
   { id: 'about', label: 'О проекте' },
   { id: 'program', label: 'Программа' },
   { id: 'context', label: 'Контекст' },
   { id: 'faq', label: 'FAQ' },
   { id: 'authors', label: 'Авторы' },
+  { id: 'institutions', label: 'Институциям' },
+  { id: 'chronicle', label: 'Хроника' },
   ...(SHOW_MEDIA ? [{ id: 'materials', label: 'Медиа' }] : []),
 ];
 
@@ -36,12 +37,6 @@ const EXTERNAL_GROUPS: ExternalGroup[] = [
       { label: 'Сайт', href: 'https://odadream.art/' },
       { label: 'Telegram', href: 'https://t.me/odadream' },
       { label: 'Dzen', href: 'https://dzen.ru/odadream' },
-    ],
-  },
-  {
-    title: 'Регистрация',
-    links: [
-      { label: 'Timepad', href: 'https://tsiolkovskiy-fest-event.timepad.ru/event/3937269/' },
     ],
   },
 ];
@@ -128,8 +123,14 @@ export default function Footer({ onNavigate }: FooterProps) {
               <span className={`${t.highlight} text-text-primary ${s.mbSm} block`}>Контакты</span>
               <div className={`flex flex-col ${s.stack}`}>
                 <a
+                  href="mailto:daler.ai@gmail.com?subject=Show inquiry / Запрос на показ"
+                  className={`${t.navLink} text-accent-primary hover:text-accent-secondary transition-colors break-all`}
+                >
+                  Заказать показ →
+                </a>
+                <a
                   href="mailto:hi@odadream.art"
-                  className={`${t.navLink} text-text-muted hover:text-accent-primary transition-colors break-all`}
+                  className={`${t.caption} text-text-muted hover:text-accent-primary transition-colors break-all`}
                 >
                   hi@odadream.art
                 </a>
@@ -183,7 +184,7 @@ export default function Footer({ onNavigate }: FooterProps) {
             Исходный код на GitHub
           </a>
           <span className={`${t.label} text-text-subtle`}>
-            16 мая 2026 · ИКЦ Калуга · XIV Циолковский Фест
+            Премьера · 16 мая 2026 · ИКЦ, Калуга
           </span>
         </div>
       </div>

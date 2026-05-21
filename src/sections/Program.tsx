@@ -11,7 +11,7 @@ export default function Program() {
   return (
     <section ref={revealRef} id="program" className={`${s.section} bg-bg-secondary reveal`}>
       <div className={`max-w-5xl mx-auto ${s.container}`}>
-        <SectionTag number="02">Программа</SectionTag>
+        <SectionTag number="03">Программа</SectionTag>
 
         <h2 className={`${t.h2} ${s.mbSm}`}>
           <span className="text-text-primary">Ход</span> <span className="text-peach">вечера</span>

@@ -13,7 +13,7 @@ export default function Authors() {
   return (
     <section ref={revealRef} id="authors" className={`${s.section} bg-bg-primary reveal`}>
       <div className={`max-w-5xl mx-auto ${s.container}`}>
-        <SectionTag number="06">Авторы</SectionTag>
+        <SectionTag number="07">Авторы</SectionTag>
 
         <h2 className={`${t.h2} ${s.mbSm}`}>
           <span className="text-peach">Творческая</span>{' '}

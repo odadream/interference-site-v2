@@ -26,13 +26,20 @@ export default function PhotoGallery() {
   const { lang } = useLang();
 
   return (
-    <section ref={revealRef} id="gallery" className={`${s.sectionCompact} reveal`}>
+    <section ref={revealRef} id="gallery" className={`${s.section} bg-bg-primary reveal`}>
       <div className={`max-w-5xl mx-auto ${s.container}`}>
-        <div className={s.mbMd}>
-          <SectionTag number="00">{lang === 'ru' ? 'Фотографии' : 'Photography'}</SectionTag>
+        <div className={s.mbSm}>
+          <SectionTag number="01">{lang === 'ru' ? 'Фотографии' : 'Photography'}</SectionTag>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-3 auto-rows-[180px] md:auto-rows-[200px]">
+        <h2 className={`${t.h2} ${s.mbSm}`}>
+          <span className="text-text-primary">{lang === 'ru' ? 'Хроника' : 'Chronicle'}</span>{' '}
+          <span className="text-peach">{lang === 'ru' ? 'момента' : 'of the moment'}</span>
+        </h2>
+
+        <div
+          className={`grid grid-cols-2 md:grid-cols-4 ${s.gapSm} auto-rows-[180px] md:auto-rows-[200px] ${s.mbLg}`}
+        >
           {galleryPhotos.map((photo, i) => (
             <div
               key={photo.src}
