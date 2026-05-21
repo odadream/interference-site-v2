@@ -141,7 +141,9 @@ export default function Footer({ onNavigate }: FooterProps) {
           <div className={`lg:col-span-1 flex flex-col ${s.gapMd6}`}>
             {EXTERNAL_GROUPS.filter((g) => g.title !== 'ODA.dream').map((group) => (
               <div key={group.title}>
-                <span className={`${t.highlight} text-text-primary ${s.mbSm} block`}>{group.title}</span>
+                <span className={`${t.highlight} text-text-primary ${s.mbSm} block`}>
+                  {group.title}
+                </span>
                 <div className={`flex flex-col ${s.stack}`}>
                   {group.links.map((link) => (
                     <a
@@ -163,7 +165,9 @@ export default function Footer({ onNavigate }: FooterProps) {
         <Divider />
 
         {/* Bottom bar */}
-        <div className={`${s.footerBar} flex flex-col sm:flex-row items-center justify-center ${s.footerBarGap}`}>
+        <div
+          className={`${s.footerBar} flex flex-col sm:flex-row items-center justify-center ${s.footerBarGap}`}
+        >
           <span className={`${t.label} text-text-subtle`}>
             © {currentYear} ODA.dream. Все права защищены.
           </span>

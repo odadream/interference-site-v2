@@ -85,7 +85,9 @@ function LogoRow({ items }: { items: LogoItem[] }) {
 
 export default function PartnerLogos() {
   return (
-    <div className={`flex flex-col md:flex-row items-center md:items-start justify-center ${s.gapLgXl} w-full`}>
+    <div
+      className={`flex flex-col md:flex-row items-center md:items-start justify-center ${s.gapLgXl} w-full`}
+    >
       {/* Организаторы */}
       <div className={`flex flex-col items-center ${s.gapSm}`}>
         <span className={`${t.label} text-text-muted`}>Организаторы</span>

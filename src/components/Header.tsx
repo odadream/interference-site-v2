@@ -1,6 +1,8 @@
 import { t } from '../styles/typography';
 import { s } from '../styles/spacing';
 import { SHOW_MEDIA } from '../data/features';
+import { useLang } from '../hooks/useLang';
+import type { Lang } from '../context/LangContext';
 
 interface HeaderProps {
   menuOpen: boolean;
@@ -9,17 +11,50 @@ interface HeaderProps {
 }
 
 const NAV_LINKS = [
-  { id: 'hero', label: 'Спектакль', hideBelow: 'none' as const },
-  { id: 'about', label: 'О проекте', hideBelow: 'none' as const },
-  { id: 'program', label: 'Программа', hideBelow: 'none' as const },
-  { id: 'context', label: 'Контекст', hideBelow: 'xl' as const },
-  { id: 'interference', label: 'Лаборатория', hideBelow: 'lg' as const },
-  { id: 'faq', label: 'FAQ', hideBelow: 'xl' as const },
-  { id: 'authors', label: 'Авторы', hideBelow: 'none' as const },
-  ...(SHOW_MEDIA ? [{ id: 'materials', label: 'Медиа', hideBelow: 'lg' as const }] : []),
+  { id: 'hero', label: { ru: 'Спектакль', en: 'Performance' }, hideBelow: 'none' as const },
+  { id: 'about', label: { ru: 'О проекте', en: 'About' }, hideBelow: 'none' as const },
+  { id: 'program', label: { ru: 'Программа', en: 'Programme' }, hideBelow: 'none' as const },
+  { id: 'context', label: { ru: 'Контекст', en: 'Context' }, hideBelow: 'xl' as const },
+  { id: 'interference', label: { ru: 'Лаборатория', en: 'Lab' }, hideBelow: 'lg' as const },
+  { id: 'faq', label: { ru: 'FAQ', en: 'FAQ' }, hideBelow: 'xl' as const },
+  { id: 'authors', label: { ru: 'Авторы', en: 'Team' }, hideBelow: 'none' as const },
+  {
+    id: 'institutions',
+    label: { ru: 'Институциям', en: 'For Institutions' },
+    hideBelow: 'none' as const,
+  },
+  { id: 'chronicle', label: { ru: 'Хроника', en: 'Chronicle' }, hideBelow: 'lg' as const },
+  ...(SHOW_MEDIA
+    ? [{ id: 'materials', label: { ru: 'Медиа', en: 'Media' }, hideBelow: 'lg' as const }]
+    : []),
 ];
 
+function LangToggle() {
+  const { lang, setLang } = useLang();
+  const toggle = (l: Lang) => setLang(l);
+
+  return (
+    <div className={`hidden md:flex items-center ${s.gapSm}`}>
+      <button
+        onClick={() => toggle('ru')}
+        className={`${t.label} transition-colors ${lang === 'ru' ? 'text-accent-primary' : 'text-text-subtle hover:text-text-muted'}`}
+      >
+        RU
+      </button>
+      <span className={`${t.label} text-text-subtle`}>/</span>
+      <button
+        onClick={() => toggle('en')}
+        className={`${t.label} transition-colors ${lang === 'en' ? 'text-accent-primary' : 'text-text-subtle hover:text-text-muted'}`}
+      >
+        EN
+      </button>
+    </div>
+  );
+}
+
 export default function Header({ menuOpen, setMenuOpen, onNavigate }: HeaderProps) {
+  const { lang, setLang } = useLang();
+
   return (
     <>
       <header className="fixed top-0 left-0 w-full z-50 bg-bg-primary/80 backdrop-blur-md border-b border-border">
@@ -30,9 +65,9 @@ export default function Header({ menuOpen, setMenuOpen, onNavigate }: HeaderProp
             onClick={() => onNavigate('hero')}
             className={`${t.navLinkLarge} text-text-primary hover:text-accent-primary transition-colors whitespace-nowrap`}
           >
-            ИР{' '}
+            {lang === 'ru' ? 'ИР' : 'IR'}{' '}
             <span className={`${t.caption} text-text-muted font-normal`}>
-              · 16 МАЯ · 19:00 · ИКЦ · КАЛУГА
+              · {lang === 'ru' ? '16 МАЯ · ИКЦ · КАЛУГА' : 'MAY 16 · ICC · KALUGA'}
             </span>
           </button>
 
@@ -49,26 +84,29 @@ export default function Header({ menuOpen, setMenuOpen, onNavigate }: HeaderProp
                       : ''
                 }`}
               >
-                {link.label}
+                {link.label[lang]}
               </button>
             ))}
           </nav>
 
-          <button
-            onClick={() => setMenuOpen(!menuOpen)}
-            className="md:hidden relative w-10 h-10 flex flex-col items-center justify-center gap-1.5"
-            aria-label={menuOpen ? 'Закрыть меню' : 'Открыть меню'}
-          >
-            <span
-              className={`block w-6 h-[2px] bg-text-primary transition-transform duration-300 ${menuOpen ? 'rotate-45 translate-y-[5px]' : ''}`}
-            />
-            <span
-              className={`block w-6 h-[2px] bg-text-primary transition-opacity duration-300 ${menuOpen ? 'opacity-0' : ''}`}
-            />
-            <span
-              className={`block w-6 h-[2px] bg-text-primary transition-transform duration-300 ${menuOpen ? '-rotate-45 -translate-y-[5px]' : ''}`}
-            />
-          </button>
+          <div className={`flex items-center ${s.gapSm}`}>
+            <LangToggle />
+            <button
+              onClick={() => setMenuOpen(!menuOpen)}
+              className="md:hidden relative w-10 h-10 flex flex-col items-center justify-center gap-1.5"
+              aria-label={menuOpen ? 'Закрыть меню' : 'Открыть меню'}
+            >
+              <span
+                className={`block w-6 h-[2px] bg-text-primary transition-transform duration-300 ${menuOpen ? 'rotate-45 translate-y-[5px]' : ''}`}
+              />
+              <span
+                className={`block w-6 h-[2px] bg-text-primary transition-opacity duration-300 ${menuOpen ? 'opacity-0' : ''}`}
+              />
+              <span
+                className={`block w-6 h-[2px] bg-text-primary transition-transform duration-300 ${menuOpen ? '-rotate-45 -translate-y-[5px]' : ''}`}
+              />
+            </button>
+          </div>
         </div>
       </header>
 
@@ -83,9 +121,24 @@ export default function Header({ menuOpen, setMenuOpen, onNavigate }: HeaderProp
               className={`${t.navLinkLarge} text-text-primary hover:text-accent-primary transition-colors`}
               style={{ transitionDelay: menuOpen ? `${i * 50}ms` : '0ms' }}
             >
-              {link.label}
+              {link.label[lang]}
             </button>
           ))}
+          <div className={`flex items-center ${s.gapSm} mt-4`}>
+            <button
+              onClick={() => setLang('ru')}
+              className={`${t.navLink} transition-colors ${lang === 'ru' ? 'text-accent-primary' : 'text-text-subtle'}`}
+            >
+              RU
+            </button>
+            <span className={`${t.navLink} text-text-subtle`}>/</span>
+            <button
+              onClick={() => setLang('en')}
+              className={`${t.navLink} transition-colors ${lang === 'en' ? 'text-accent-primary' : 'text-text-subtle'}`}
+            >
+              EN
+            </button>
+          </div>
         </nav>
       </div>
     </>

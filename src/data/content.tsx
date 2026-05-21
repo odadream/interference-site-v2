@@ -1,5 +1,7 @@
 import type { ReactNode } from 'react';
 
+export type I18nString = { ru: string; en: string };
+
 export interface Layer {
   number: string;
   title: string;
@@ -473,3 +475,230 @@ export const organizers: Organizer[] = [
     logo: '/partners/ODA.svg',
   },
 ];
+
+// ---------------------------------------------------------------------------
+// PHOTO GALLERY
+// ---------------------------------------------------------------------------
+
+export interface GalleryPhoto {
+  src: string;
+  alt: I18nString;
+  size: 'featured' | 'landscape' | 'portrait' | 'small';
+}
+
+// TODO: replace with Интерференция реальностей photos when ready from Yandex Disk
+export const galleryPhotos: GalleryPhoto[] = [
+  {
+    src: '/photos/8.webp',
+    alt: { ru: 'Сцена из спектакля', en: 'Performance scene' },
+    size: 'featured',
+  },
+  {
+    src: '/photos/3.webp',
+    alt: { ru: 'Актриса с нейроинтерфейсом', en: 'Actress with neural interface' },
+    size: 'landscape',
+  },
+  {
+    src: '/photos/6.webp',
+    alt: { ru: 'Визуализация нейроданных', en: 'Neural data visualisation' },
+    size: 'small',
+  },
+  {
+    src: '/photos/2.webp',
+    alt: { ru: 'Актёры на сцене', en: 'Actors on stage' },
+    size: 'small',
+  },
+  {
+    src: '/photos/5.webp',
+    alt: { ru: 'Танцор с нейрогарнитурой', en: 'Dancer with EEG headset' },
+    size: 'portrait',
+  },
+  {
+    src: '/photos/7.webp',
+    alt: { ru: 'Художник на сцене', en: 'Artist on stage' },
+    size: 'small',
+  },
+  {
+    src: '/photos/1.webp',
+    alt: { ru: 'Выступление на сцене', en: 'Stage performance' },
+    size: 'landscape',
+  },
+  {
+    src: '/photos/4.webp',
+    alt: { ru: 'Нейроинтерфейсы', en: 'Neural interfaces' },
+    size: 'small',
+  },
+];
+
+// ---------------------------------------------------------------------------
+// CHRONICLE
+// ---------------------------------------------------------------------------
+
+export interface ChronicleEvent {
+  year: string;
+  label: I18nString;
+  description: I18nString;
+  type: 'origin' | 'show' | 'award';
+  link?: string;
+  isPrehistory?: boolean;
+}
+
+export const chronicleEvents: ChronicleEvent[] = [
+  {
+    year: '2024',
+    label: { ru: 'Конференция «КОД провинции»', en: '"Code of Province" Conference' },
+    description: {
+      ru: 'Рождение идеи коллаборации ODA Dream × Neiry на стыке нейронауки и перформанса.',
+      en: 'Birth of the ODA Dream × Neiry collaboration idea at the intersection of neuroscience and performance.',
+    },
+    type: 'origin',
+    link: 'https://odadream.art/',
+    isPrehistory: true,
+  },
+  {
+    year: '2025',
+    label: { ru: 'Закрытая лаборатория', en: 'Closed Laboratory' },
+    description: {
+      ru: 'Первые эксперименты с ЭЭГ и коллективным вниманием. Вошла в документальный фильм.',
+      en: 'First EEG and collective attention experiments. Featured in a documentary film.',
+    },
+    type: 'origin',
+    link: 'https://odadream.art/',
+    isPrehistory: true,
+  },
+  {
+    year: '2025',
+    label: { ru: 'Проект Шрёдингер', en: 'Project Schrödinger' },
+    description: {
+      ru: 'Первый публичный спектакль. XIII Циолковский Фест, Калуга.',
+      en: 'First public performance. XIII Tsiolkovsky Fest, Kaluga.',
+    },
+    type: 'show',
+    link: 'https://odadream.art/',
+    isPrehistory: true,
+  },
+  {
+    year: 'Апрель 2026 / April 2026',
+    label: { ru: 'Интерференция — Анонс', en: 'Interference — Announcement' },
+    description: {
+      ru: 'Открытие сайта, старт регистрации на XIV Циолковский Фест.',
+      en: 'Site launch, registration opens for XIV Tsiolkovsky Fest.',
+    },
+    type: 'show',
+    link: 'https://kaluga-2026.interference.odadream.art',
+  },
+  {
+    year: '16 мая 2026 / May 16, 2026',
+    label: { ru: 'Интерференция — Премьера', en: 'Interference — World Premiere' },
+    description: {
+      ru: 'XIV Циолковский Фест, ИКЦ, Калуга. Первый показ с полной системой ЭЭГ и MoCap.',
+      en: 'XIV Tsiolkovsky Fest, ICC, Kaluga. First performance with full EEG and MoCap system.',
+    },
+    type: 'show',
+  },
+];
+
+// ---------------------------------------------------------------------------
+// INSTITUTIONS
+// ---------------------------------------------------------------------------
+
+export interface InstitutionFormat {
+  number: string;
+  title: I18nString;
+  description: I18nString;
+}
+
+export const institutionsHeadline: I18nString = {
+  ru: 'Для институций',
+  en: 'For Institutions',
+};
+
+export const institutionsPitch: I18nString = {
+  ru: '«Интерференция реальностей» — готовый к гастролям иммерсивный нейроспектакль. Технология, команда и производственный пакет позволяют адаптировать показ под площадку партнёра в течение нескольких недель.',
+  en: '"Interference of Realities" is a tour-ready immersive neuro-performance. The technology, team, and production package allow adaptation to a partner venue within a few weeks.',
+};
+
+export const institutionFormats: InstitutionFormat[] = [
+  {
+    number: '01',
+    title: { ru: 'Корпоративные события', en: 'Corporate Events' },
+    description: {
+      ru: 'Внутренние и внешние мероприятия компаний — от стратегических сессий до презентаций для клиентов. Спектакль создаёт незабываемый опыт коллективного взаимодействия.',
+      en: 'Internal and external corporate events — from strategic sessions to client presentations. The performance creates an unforgettable collective experience.',
+    },
+  },
+  {
+    number: '02',
+    title: { ru: 'Государственные фестивали и биеннале', en: 'State Festivals & Biennales' },
+    description: {
+      ru: 'Фестивали современного искусства, культурные биеннале, региональные программы. Опыт участия в Циолковском Фесте (Минкульт КО) и работа с институтом театра балета.',
+      en: 'Contemporary art festivals, cultural biennales, regional programmes. Experience at Tsiolkovsky Fest (Ministry of Culture) and collaboration with a ballet theatre institute.',
+    },
+  },
+  {
+    number: '03',
+    title: { ru: 'Международные площадки', en: 'International Venues' },
+    description: {
+      ru: 'Музеи, арт-центры, медиа-фестивали. Готовим документацию для Ars Electronica и аналогичных платформ. Возможна адаптация под международный контекст.',
+      en: 'Museums, art centres, media festivals. Preparing documentation for Ars Electronica and similar platforms. Adaptation to international context is possible.',
+    },
+  },
+];
+
+export const institutionsTechSpecs: I18nString = {
+  ru: 'Технические требования: зал от 50 м², затемнение, аудиосистема. Нейрогарнитуры — до 30 зрителей одновременно. Монтаж — 1 день. Команда — 6–8 человек.',
+  en: 'Technical requirements: venue from 50 m², blackout, audio system. EEG headsets — up to 30 simultaneous audience members. Setup — 1 day. Team — 6–8 people.',
+};
+
+export const institutionsCTA: I18nString = {
+  ru: 'Обсудить показ',
+  en: 'Discuss a Show',
+};
+
+// ---------------------------------------------------------------------------
+// HERO (bilingual strings for post-premiere mode)
+// ---------------------------------------------------------------------------
+
+export const heroFormat: I18nString = {
+  ru: 'Нейроспектакль · Импровизация · Эксперимент',
+  en: 'Neuro-performance · Improvisation · Experiment',
+};
+
+export const heroPremiereBadge: I18nString = {
+  ru: 'Спектакль состоялся · 16 мая 2026 · Калуга',
+  en: 'Performance completed · May 16, 2026 · Kaluga',
+};
+
+export const heroQuote: I18nString = {
+  ru: '«Что если спектакль полностью рождается только в момент, когда вы направляете на него внимание?»',
+  en: '"What if a performance only fully comes into being in the moment you direct your attention to it?"',
+};
+
+export const heroCTAPrimary: I18nString = {
+  ru: 'Заказать показ',
+  en: 'Book a Show',
+};
+
+export const heroCTASecondary: I18nString = {
+  ru: 'Узнать больше',
+  en: 'Learn more',
+};
+
+// ---------------------------------------------------------------------------
+// MEDIA (bilingual)
+// ---------------------------------------------------------------------------
+
+export const mediaTitle: I18nString = {
+  ru: 'Медиа',
+  en: 'Media',
+};
+
+export const mediaSubtitle: I18nString = {
+  ru: 'Документация перформанса',
+  en: 'Performance Documentation',
+};
+
+export const mediaDescription: I18nString = {
+  ru: 'Фото, видео и архивные материалы с премьеры 16 мая 2026. Полная запись — для коллекционеров и музеев.',
+  en: 'Photos, video and archival materials from the May 16, 2026 premiere. Full recording — for collectors and museums.',
+};

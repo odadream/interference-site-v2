@@ -1,4 +1,5 @@
 import { useState, useEffect, lazy, Suspense } from 'react';
+import { LangProvider } from './context/LangContext';
 import Header from './components/Header';
 import ScrollProgress from './components/ScrollProgress';
 import Hero from './sections/Hero';
@@ -9,7 +10,9 @@ import FAQ from './sections/FAQ';
 import Authors from './sections/Authors';
 import InterferenceLab from './sections/InterferenceLab';
 import PartnersStrip from './sections/PartnersStrip';
-import PhotoArchive from './sections/PhotoArchive';
+import PhotoGallery from './sections/PhotoGallery';
+import Institutions from './sections/Institutions';
+import Chronicle from './sections/Chronicle';
 import Footer from './components/Footer';
 import StyleGuide from './components/StyleGuide';
 import { SHOW_MEDIA } from './data/features';
@@ -39,30 +42,34 @@ function App() {
   };
 
   return (
-    <div className="relative min-h-screen bg-bg-primary text-text-primary font-mono">
-      <div className="scanlines" />
-      <div className="vignette" />
-      <ScrollProgress />
-      <Header menuOpen={menuOpen} setMenuOpen={setMenuOpen} onNavigate={scrollToSection} />
-      <main className="relative z-10">
-        {import.meta.env.DEV && <StyleGuide />}
-        <Hero onNavigate={scrollToSection} />
-        <PartnersStrip />
-        <PhotoArchive />
-        <About />
-        <Program />
-        <Context />
-        <InterferenceLab />
-        <FAQ />
-        <Authors />
-        {SHOW_MEDIA && (
-          <Suspense fallback={null}>
-            <Media />
-          </Suspense>
-        )}
-      </main>
-      <Footer onNavigate={scrollToSection} />
-    </div>
+    <LangProvider>
+      <div className="relative min-h-screen bg-bg-primary text-text-primary font-mono">
+        <div className="scanlines" />
+        <div className="vignette" />
+        <ScrollProgress />
+        <Header menuOpen={menuOpen} setMenuOpen={setMenuOpen} onNavigate={scrollToSection} />
+        <main className="relative z-10">
+          {import.meta.env.DEV && <StyleGuide />}
+          <Hero onNavigate={scrollToSection} />
+          <PartnersStrip />
+          <PhotoGallery />
+          <About />
+          <Program />
+          <Context />
+          <InterferenceLab />
+          <FAQ />
+          <Authors />
+          <Institutions onNavigate={scrollToSection} />
+          <Chronicle />
+          {SHOW_MEDIA && (
+            <Suspense fallback={null}>
+              <Media />
+            </Suspense>
+          )}
+        </main>
+        <Footer onNavigate={scrollToSection} />
+      </div>
+    </LangProvider>
   );
 }
 

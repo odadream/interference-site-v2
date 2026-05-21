@@ -1,6 +1,14 @@
 import { useRef } from 'react';
 import { useParticles } from '../hooks/useParticles';
 import QuantumButton from '../components/QuantumButton';
+import { useLang } from '../hooks/useLang';
+import {
+  heroFormat,
+  heroPremiereBadge,
+  heroQuote,
+  heroCTAPrimary,
+  heroCTASecondary,
+} from '../data/content';
 import { t } from '../styles/typography';
 import { s } from '../styles/spacing';
 
@@ -24,6 +32,7 @@ export default function Hero({ onNavigate }: HeroProps) {
   const bgCanvasRef = useRef<HTMLCanvasElement>(null);
   const fgCanvasRef = useRef<HTMLCanvasElement>(null);
   const cardRef = useRef<HTMLDivElement>(null);
+  const { lang } = useLang();
 
   // Background particles — flow around card
   useParticles(bgCanvasRef, {
@@ -64,7 +73,9 @@ export default function Hero({ onNavigate }: HeroProps) {
         style={{ willChange: 'transform' }}
       />
 
-      <div className={`relative z-10 w-full max-w-xl mx-auto text-center flex flex-col items-center ${s.heroInner}`}>
+      <div
+        className={`relative z-10 w-full max-w-xl mx-auto text-center flex flex-col items-center ${s.heroInner}`}
+      >
         <div
           ref={cardRef}
           className={`bg-bg-primary/60 backdrop-blur-md ${s.cardLg} border border-border w-full`}
@@ -72,7 +83,9 @@ export default function Hero({ onNavigate }: HeroProps) {
           {/* 1. Festival name */}
           <div className={s.mbMd}>
             <span className={`${t.label} text-peach/80 block mb-1`}>
-              XIV Фестиваль современного искусства
+              {lang === 'ru'
+                ? 'XIV Фестиваль современного искусства'
+                : 'XIV Contemporary Art Festival'}
             </span>
             <a
               href="https://t-fest.online/"
@@ -80,41 +93,37 @@ export default function Hero({ onNavigate }: HeroProps) {
               rel="noopener noreferrer"
               className={`${t.navLinkLarge} text-peach hover:text-accent-primary transition-colors`}
             >
-              «Циолковский Фест»
+              {lang === 'ru' ? '«Циолковский Фест»' : 'Tsiolkovsky Fest'}
             </a>
           </div>
 
           {/* 2. Format */}
-          <p className={`${t.label} text-text-muted mb-5`}>
-            Нейроспектакль · Импровизация · Эксперимент
-          </p>
+          <p className={`${t.label} text-text-muted mb-5`}>{heroFormat[lang]}</p>
 
           {/* 3. Title */}
           <InterferenceTitle />
 
-          {/* 4. Date / location */}
-          <p className={`${t.eventDate} text-peach mt-5 mb-5`}>16 мая 2026 · Калуга · 19:00</p>
+          {/* 4. Premiere badge */}
+          <div className="mt-5 mb-5 flex items-center justify-center gap-2">
+            <span className="relative flex h-[5px] w-[5px]">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 bg-accent-primary" />
+              <span className="relative inline-flex rounded-full h-[5px] w-[5px] bg-accent-primary" />
+            </span>
+            <p className={`${t.eventDate} text-peach`}>{heroPremiereBadge[lang]}</p>
+          </div>
 
           {/* 5. Flavour quote */}
           <p className={`${t.quote} text-text-primary/70 ${s.mbMd} max-w-md mx-auto`}>
-            «Что если спектакль полностью рождается только в момент, когда вы направляете на него
-            внимание?»
+            {heroQuote[lang]}
           </p>
 
-          {/* 6. Entry + buttons */}
-          <p className={`${t.label} text-text-muted ${s.mbSm}`}>
-            Вход свободный, по регистрации · 12+
-          </p>
-
+          {/* 6. Buttons */}
           <div className={`flex flex-col sm:flex-row items-center justify-center ${s.gapSm}`}>
-            <QuantumButton
-              href="https://tsiolkovskiy-fest-event.timepad.ru/event/3937269/"
-              external
-            >
-              Зарегистрироваться
+            <QuantumButton onClick={() => onNavigate('institutions')}>
+              {heroCTAPrimary[lang]}
             </QuantumButton>
             <QuantumButton variant="ghost" onClick={() => onNavigate('about')}>
-              Узнать больше
+              {heroCTASecondary[lang]}
             </QuantumButton>
           </div>
         </div>
