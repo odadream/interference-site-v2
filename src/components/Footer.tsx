@@ -123,10 +123,18 @@ export default function Footer({ onNavigate }: FooterProps) {
               <span className={`${t.highlight} text-text-primary ${s.mbSm} block`}>Контакты</span>
               <div className={`flex flex-col ${s.stack}`}>
                 <a
-                  href="mailto:daler.ai@gmail.com?subject=Show inquiry / Запрос на показ"
+                  href="mailto:hi@odadream.art?subject=Show inquiry / Запрос на показ"
                   className={`${t.navLink} text-accent-primary hover:text-accent-secondary transition-colors break-all`}
                 >
                   Заказать показ →
+                </a>
+                <a
+                  href="https://t.me/odadream_info"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`${t.caption} text-text-muted hover:text-accent-primary transition-colors break-all`}
+                >
+                  Telegram: @odadream_info
                 </a>
                 <a
                   href="mailto:hi@odadream.art"

@@ -5,6 +5,7 @@ import ScrollProgress from './components/ScrollProgress';
 import Hero from './sections/Hero';
 import About from './sections/About';
 import Program from './sections/Program';
+import Backstage from './sections/Backstage';
 import Context from './sections/Context';
 import FAQ from './sections/FAQ';
 import Authors from './sections/Authors';
@@ -55,6 +56,7 @@ function App() {
           <PhotoGallery />
           <About />
           <Program />
+          <Backstage />
           <Context />
           <InterferenceLab />
           <FAQ />

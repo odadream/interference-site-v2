@@ -23,14 +23,14 @@ export default function Institutions({ onNavigate: _onNavigate }: InstitutionsPr
   return (
     <section ref={revealRef} id="institutions" className={`${s.section} bg-bg-secondary reveal`}>
       <div className={`max-w-5xl mx-auto ${s.container}`}>
-        <SectionTag number="08">{institutionsHeadline[lang]}</SectionTag>
+        <SectionTag number="09">{institutionsHeadline[lang]}</SectionTag>
 
         <h2 className={`${t.h2} ${s.mbSm}`}>
           <span className="text-text-primary">{lang === 'ru' ? 'Заказать' : 'Book'}</span>{' '}
           <span className="text-peach">{lang === 'ru' ? 'показ' : 'a show'}</span>
         </h2>
 
-        <p className={`${t.bodySecondary} text-text-muted ${s.mbLg} max-w-2xl`}>
+        <p className={`${t.bodyPrimary} text-text-primary ${s.mbLg} max-w-2xl`}>
           {institutionsPitch[lang]}
         </p>
 
@@ -64,10 +64,20 @@ export default function Institutions({ onNavigate: _onNavigate }: InstitutionsPr
 
         {/* CTA */}
         <div className={`flex flex-col sm:flex-row items-start sm:items-center ${s.gapMd}`}>
-          <QuantumButton href="mailto:daler.ai@gmail.com?subject=Show inquiry / Запрос на показ">
+          <QuantumButton href="mailto:hi@odadream.art?subject=Show inquiry / Запрос на показ">
             {institutionsCTA[lang]}
           </QuantumButton>
-          <span className={`${t.caption} text-text-subtle`}>daler.ai@gmail.com</span>
+          <div className={`flex flex-col ${s.gapSm}`}>
+            <span className={`${t.caption} text-text-subtle`}>hi@odadream.art</span>
+            <a
+              href="https://t.me/odadream_info"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`${t.caption} text-text-subtle hover:text-accent-primary transition-colors`}
+            >
+              Telegram: @odadream_info
+            </a>
+          </div>
         </div>
       </div>
     </section>

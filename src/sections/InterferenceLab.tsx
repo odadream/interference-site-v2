@@ -11,7 +11,7 @@ export default function InterferenceLab() {
   return (
     <section ref={revealRef} id="interference" className={`${s.section} bg-bg-primary reveal`}>
       <div className={`max-w-5xl mx-auto ${s.container}`}>
-        <SectionTag number="05">Лаборатория</SectionTag>
+        <SectionTag number="06">Лаборатория</SectionTag>
 
         <h2 className={`${t.h2} ${s.mbSm}`}>
           <span className="text-peach">Интерференция</span>{' '}

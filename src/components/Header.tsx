@@ -11,8 +11,10 @@ interface HeaderProps {
 }
 
 const NAV_LINKS = [
+  { id: 'gallery', label: { ru: 'Фото', en: 'Photos' }, hideBelow: 'none' as const },
   { id: 'about', label: { ru: 'О проекте', en: 'About' }, hideBelow: 'none' as const },
-  { id: 'program', label: { ru: 'Программа', en: 'Programme' }, hideBelow: 'lg' as const },
+  { id: 'program', label: { ru: 'Пять фаз', en: 'Five Phases' }, hideBelow: 'lg' as const },
+  { id: 'backstage', label: { ru: 'Кухня', en: 'Backstage' }, hideBelow: 'xl' as const },
   { id: 'context', label: { ru: 'Контекст', en: 'Context' }, hideBelow: 'xl' as const },
   { id: 'interference', label: { ru: 'Лаборатория', en: 'Lab' }, hideBelow: 'xl' as const },
   { id: 'faq', label: { ru: 'FAQ', en: 'FAQ' }, hideBelow: 'xl' as const },

@@ -13,7 +13,7 @@ export default function Chronicle() {
   return (
     <section ref={revealRef} id="chronicle" className={`${s.section} bg-bg-primary reveal`}>
       <div className={`max-w-5xl mx-auto ${s.container}`}>
-        <SectionTag number="09">{lang === 'ru' ? 'Хроника' : 'Chronicle'}</SectionTag>
+        <SectionTag number="10">{lang === 'ru' ? 'Хроника' : 'Chronicle'}</SectionTag>
 
         <h2 className={`${t.h2} ${s.mbSm}`}>
           <span className="text-text-primary">{lang === 'ru' ? 'История' : 'History of'}</span>{' '}

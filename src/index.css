@@ -77,6 +77,19 @@ body {
   color: var(--text-primary);
 }
 
+/* Adjacent sections with same background share one padding gap */
+section.bg-bg-primary + section.bg-bg-primary,
+section.bg-bg-secondary + section.bg-bg-secondary {
+  padding-top: 0;
+}
+
+@media (min-width: 768px) {
+  section.bg-bg-primary + section.bg-bg-primary,
+  section.bg-bg-secondary + section.bg-bg-secondary {
+    padding-top: 0;
+  }
+}
+
 /* Scroll reveal animations */
 .reveal {
   opacity: 0;

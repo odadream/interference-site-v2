@@ -12,7 +12,7 @@ export default function Media() {
   return (
     <section ref={revealRef} id="materials" className={`${s.section} bg-bg-secondary reveal`}>
       <div className={`max-w-5xl mx-auto ${s.container}`}>
-        <SectionTag number="10">{mediaTitle[lang]}</SectionTag>
+        <SectionTag number="11">{mediaTitle[lang]}</SectionTag>
 
         <h2 className={`${t.h2} ${s.mbSm}`}>
           <span className="text-text-primary">{lang === 'ru' ? 'Архив' : 'Archive:'}</span>{' '}
@@ -69,7 +69,7 @@ export default function Media() {
               </p>
             </div>
             <a
-              href="mailto:daler.ai@gmail.com?subject=Full recording inquiry"
+              href="mailto:hi@odadream.art?subject=Full recording inquiry"
               className={`${t.label} text-accent-primary hover:underline mt-4 inline-block`}
             >
               {lang === 'ru' ? 'Запросить →' : 'Inquire →'}

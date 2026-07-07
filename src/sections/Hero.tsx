@@ -122,7 +122,7 @@ export default function Hero({ onNavigate }: HeroProps) {
             <QuantumButton onClick={() => onNavigate('institutions')}>
               {heroCTAPrimary[lang]}
             </QuantumButton>
-            <QuantumButton variant="ghost" onClick={() => onNavigate('about')}>
+            <QuantumButton variant="ghost" onClick={() => onNavigate('gallery')}>
               {heroCTASecondary[lang]}
             </QuantumButton>
           </div>

@@ -11,14 +11,14 @@ export default function Program() {
   return (
     <section ref={revealRef} id="program" className={`${s.section} bg-bg-secondary reveal`}>
       <div className={`max-w-5xl mx-auto ${s.container}`}>
-        <SectionTag number="03">Программа</SectionTag>
+        <SectionTag number="03">Структура</SectionTag>
 
         <h2 className={`${t.h2} ${s.mbSm}`}>
-          <span className="text-text-primary">Ход</span> <span className="text-peach">вечера</span>
+          <span className="text-text-primary">Пять</span> <span className="text-peach">фаз</span>
         </h2>
 
         <p className={`${t.bodySecondary} text-text-muted ${s.mbLg} max-w-xl`}>
-          16 мая 2026,{' '}
+          Так спектакль прошёл 16 мая 2026 в{' '}
           <a
             href="https://www.icc40.ru/"
             target="_blank"
@@ -27,7 +27,8 @@ export default function Program() {
           >
             ИКЦ
           </a>
-          , Калуга. Время указано приблизительно — спектакль-импровизация не привязана к минутам.
+          , Калуга — и так он устроен: структура фаз фиксирована, а их содержание рождается заново
+          на каждом показе вместе с залом.
         </p>
 
         <Timeline items={programTimeline} />

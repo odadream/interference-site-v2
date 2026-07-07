@@ -46,13 +46,13 @@ export interface Organizer {
 }
 
 export const showDescription =
-  '«Интерференция реальностей» — нейроспектакль-импровизация и живой эксперимент научного искусства, в котором зритель становится соавтором происходящего. Действие создаётся в реальном времени и не повторяется.';
+  '«Интерференция реальностей» — нейроспектакль-импровизация и живой эксперимент научного искусства. Премьера состоялась 16 мая 2026 года на открытии XIV Циолковского Феста в Калуге: спектакль был создан вместе со зрителями в реальном времени — и в таком виде не повторится уже никогда.';
 
 export const showLead =
-  'Нейротехнологии считывают внутренние состояния участников — внимание, уровень возбуждения, нейрофизиологические паттерны — и вплетают их в развитие действия. Сценография, звук и поведение актёров откликаются на эти изменения, формируя замкнутый контур обратной связи между залом и сценой.';
+  'На сцене действуют две системы отражения. Внешняя — компьютерное зрение считывает движение танцовщиков по навигационным маркерам, встроенным в костюм. Внутренняя — ЭЭГ-гиперсканирование двенадцати участников: танцовщиков и зрителей. На экране рождается виртуальная сцена: частицы, исходящие от объектов-двойников, и линии нейросинхронизации — видимые связи между людьми, вошедшими в общее состояние.';
 
 export const showQuestion =
-  'Может ли коллективное состояние зрителей влиять на ход событий? Мы взяли вопросы, которые ставит квантовая физика и феноменология сознания, и перенесли их в театральное пространство. Не для того, чтобы доказать, — для того, чтобы пережить.';
+  'Мы не называем эти отражения цифровыми двойниками. Это параллельная реальность, где альтер-эго живут по своим законам и лишь иногда откликаются на то, что происходит здесь. Две реальности сходятся и расходятся, и зритель никогда не знает точно, в какой момент — он может только наблюдать и интерпретировать. А наблюдение уже есть взаимодействие: ты смотришь на сцену, и сцена смотрит на тебя.';
 
 export const layers: Layer[] = [
   {
@@ -88,10 +88,10 @@ export const layers: Layer[] = [
 ];
 
 export const conceptQuote = {
-  text: 'Коллективное внимание и синхронизация — это ресурс. Спектакль создаёт пространство, в котором участники исследуют, как формируется их общий опыт.',
+  text: 'Это спектакль о спектакле: мы показываем бэкстейдж сборки сценической вселенной — волшебного мира, который рождается, когда зритель отдаёт ему своё внимание. А внимание — всегда двустороннее взаимодействие.',
   source: (
     <>
-      Из концепции проекта /{' '}
+      Из рефлексии после премьеры /{' '}
       <a
         href="https://odadream.art/"
         target="_blank"
@@ -107,24 +107,34 @@ export const conceptQuote = {
 
 export const programTimeline: ProgramItem[] = [
   {
-    time: '~18:30',
-    title: 'Открытие пространства',
-    description: 'Вход зрителей, знакомство с нейрогарнитурами, короткая вводная беседа.',
+    time: 'Фаза 01',
+    title: 'Загрузка',
+    description:
+      'Заставка-скринсейвер в духе «Матрицы» — отсылка к гипотезе вычислимого мира. Артисты, неотличимые от публики, проявляются в зрительном зале и выходят на сцену, «включая» и «выключая» танец. Под верхней одеждой — крупные навигационные маркеры: публичное предъявление себя системе, желание быть считанным, понятым, оцифрованным.',
   },
   {
-    time: '~19:00',
-    title: 'Премьера',
-    description: 'Начало спектакля-импровизации. Зрители надевают нейроинтерфейсы.',
+    time: 'Фаза 02',
+    title: 'Калибровка',
+    description:
+      'Восемь строгих фигур — линия, пары, диагонали, клин. На экране-зазеркалье выстраиваются те же фигуры: реальный и виртуальный миры принудительно синхронизируются, и зритель учится читать связь между ними.',
   },
   {
-    time: '~19:45',
-    title: 'Интерактивный акт',
-    description: 'Коллективное состояние зала начинает влиять на сценографию и звук.',
+    time: 'Фаза 03',
+    title: 'Теория',
+    description:
+      'Восемь сольных эпизодов: свет, звук, тело, мозг, технологии, волны, реальность, драматургия. Голос спектакля описывает сам язык постановки, а танцовщик переводит слова в пластику. Рядом работает переводчик русского жестового языка — ещё одна форма трансформации информации.',
   },
   {
-    time: '~20:30',
-    title: 'Финал и обсуждение',
-    description: 'Завершение спектакля, демонтаж оборудования, разговор с авторами.',
+    time: 'Фаза 04',
+    title: 'Практика',
+    description:
+      'Зал вместе с труппой собирает мини-спектакль из пяти сцен по законам драматургии: темы, истории, музыка, свет и роли выбираются здесь и сейчас. Композитор и художник по свету строят партитуру в реальном времени, а в эксперименте четвёртой сцены продолжение выбирает «мозг зала» — по данным нейрогарнитур. В финале весь созданный спектакль воспроизводится целиком.',
+  },
+  {
+    time: 'Фаза 05',
+    title: 'Рефлексия',
+    description:
+      'Открытый разговор со зрителями: вопросы, пояснения, комментарии к увиденному. Интеграция пережитого опыта — обязательная часть спектакля.',
   },
 ];
 
@@ -270,7 +280,7 @@ export const faqItems: ContextItem[] = [
     id: 'what-is',
     title: 'Что такое нейроспектакль?',
     content:
-      'Это спектакль, в котором нейротехнологии считывают состояние зрителей — внимание, возбуждение, нейрофизиологические паттерны — и передают их в медиасистему. Электроэнцефалограмма фиксирует ритмы мозга: от медленной дельты (1–4 Гц) до быстрой гаммы (30–100 Гц). Каждый ритм отражает своё состояние — расслабление, концентрацию, вовлечённость. Эти данные в реальном времени управляют сценографией, звуком и поведением актёров.',
+      'Это спектакль, в котором нейротехнологии считывают состояние зрителей — внимание, возбуждение, нейрофизиологические паттерны — и передают их в медиасистему. ЭЭГ фиксирует ритмы мозга от дельты до гаммы, каждый из которых отражает своё состояние. Эти данные в реальном времени влияют на сценографию, звук и действие.',
   },
   {
     id: 'knowledge',
@@ -307,7 +317,7 @@ export const faqItems: ContextItem[] = [
     id: 'duration',
     title: 'Сколько длится спектакль?',
     content:
-      'Примерно 60–70 минут без антракта. Начало в 19:00, рекомендуем приходить к 18:30 — будет короткая вводная беседа и знакомство с оборудованием.',
+      'Премьерный показ длился около 70 минут без антракта — включая финальную рефлексию, открытый разговор со зрителями, который является обязательной частью спектакля.',
   },
   {
     id: 'children',
@@ -329,10 +339,19 @@ export const faqItems: ContextItem[] = [
         Спектакль готов к гастролям. Монтаж — 1 день, площадка от 50 м² с затемнением и
         аудиосистемой. Команда 6–8 человек, нейрогарнитуры на 30 зрителей. Напишите нам на{' '}
         <a
-          href="mailto:daler.ai@gmail.com?subject=Show inquiry / Запрос на показ"
+          href="mailto:hi@odadream.art?subject=Show inquiry / Запрос на показ"
           className="text-accent-primary hover:underline"
         >
-          daler.ai@gmail.com
+          hi@odadream.art
+        </a>{' '}
+        или в{' '}
+        <a
+          href="https://t.me/odadream_info"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-accent-primary hover:underline"
+        >
+          Telegram
         </a>{' '}
         — обсудим формат и даты.
       </>
@@ -472,52 +491,175 @@ export const organizers: Organizer[] = [
 export interface GalleryPhoto {
   src: string;
   alt: I18nString;
-  size: 'featured' | 'landscape' | 'portrait' | 'small';
+  size: 'featured' | 'landscape' | 'portrait' | 'small' | 'wide';
 }
 
-// TODO: replace with Интерференция реальностей photos when ready from Yandex Disk
+// Премьера 16.05.2026, ИКЦ, Калуга · фотограф — Юлия Дударева
 export const galleryPhotos: GalleryPhoto[] = [
   {
-    src: '/photos/8.webp',
-    alt: { ru: 'Сцена из спектакля', en: 'Performance scene' },
+    src: '/photos/premiere/scene4-comp1.webp',
+    alt: {
+      ru: 'Фаза «Практика» · танец на фоне виртуальной сцены: частицы и интерфейс системы',
+      en: '"Practice" phase · dance against the virtual stage: particles and system interface',
+    },
     size: 'featured',
   },
   {
-    src: '/photos/3.webp',
-    alt: { ru: 'Актриса с нейроинтерфейсом', en: 'Actress with neural interface' },
-    size: 'landscape',
-  },
-  {
-    src: '/photos/6.webp',
-    alt: { ru: 'Визуализация нейроданных', en: 'Neural data visualisation' },
-    size: 'small',
-  },
-  {
-    src: '/photos/2.webp',
-    alt: { ru: 'Актёры на сцене', en: 'Actors on stage' },
-    size: 'small',
-  },
-  {
-    src: '/photos/5.webp',
-    alt: { ru: 'Танцор с нейрогарнитурой', en: 'Dancer with EEG headset' },
+    src: '/photos/premiere/theory-reality.webp',
+    alt: {
+      ru: 'Фаза «Теория» · эпизод «Реальность»: соло на фоне карты уровней реальности',
+      en: '"Theory" phase · "Reality" episode: solo against the reality-levels map',
+    },
     size: 'portrait',
   },
   {
-    src: '/photos/7.webp',
-    alt: { ru: 'Художник на сцене', en: 'Artist on stage' },
+    src: '/photos/premiere/theory-waves.webp',
+    alt: {
+      ru: 'Фаза «Теория» · эпизод «Волны»: восприятие как волновой процесс',
+      en: '"Theory" phase · "Waves" episode: perception as a wave process',
+    },
+    size: 'portrait',
+  },
+  {
+    src: '/photos/premiere/headsets.webp',
+    alt: {
+      ru: 'Эксперимент · зрителям надевают нейрогарнитуры Neiry',
+      en: 'Experiment · fitting Neiry EEG headsets on the audience',
+    },
     size: 'small',
   },
   {
-    src: '/photos/1.webp',
-    alt: { ru: 'Выступление на сцене', en: 'Stage performance' },
+    src: '/photos/premiere/audience-mic.webp',
+    alt: {
+      ru: 'Со-авторство · зритель предлагает историю для следующей сцены',
+      en: 'Co-authorship · a spectator offers a story for the next scene',
+    },
+    size: 'small',
+  },
+  {
+    src: '/photos/premiere/scene5-final.webp',
+    alt: {
+      ru: 'Финал · линии нейросинхронизации между зрителями и танцовщиками',
+      en: 'Finale · neural synchronisation lines between audience and dancers',
+    },
     size: 'landscape',
   },
   {
-    src: '/photos/4.webp',
-    alt: { ru: 'Нейроинтерфейсы', en: 'Neural interfaces' },
-    size: 'small',
+    src: '/photos/premiere/scene2-play.webp',
+    alt: {
+      ru: 'Сцена 2 · на экране — пультовая: свет и звук собираются live',
+      en: 'Scene 2 · on screen — the control desks: light and sound assembled live',
+    },
+    size: 'landscape',
+  },
+  {
+    src: '/photos/premiere/scene4-comp2.webp',
+    alt: {
+      ru: 'Сцена 4 · красная световая партитура, силуэты в контровом свете',
+      en: 'Scene 4 · red light score, silhouettes in backlight',
+    },
+    size: 'landscape',
+  },
+  {
+    src: '/photos/premiere/bows.webp',
+    alt: {
+      ru: 'Поклоны · труппа и постановщики; на экране — кадры спектакля',
+      en: 'Bows · the company and creators; performance footage on screen',
+    },
+    size: 'wide',
   },
 ];
+
+// ---------------------------------------------------------------------------
+// BACKSTAGE («Кухня»)
+// ---------------------------------------------------------------------------
+
+export interface BackstagePhoto {
+  src: string;
+  alt: I18nString;
+  orientation: 'landscape' | 'portrait';
+}
+
+export interface BackstageQuote {
+  text: I18nString;
+  source: I18nString;
+  href: string;
+}
+
+export const backstageTitle: I18nString = {
+  ru: 'Кухня',
+  en: 'Backstage',
+};
+
+export const backstageIntro: I18nString = {
+  ru: 'Месяц постановки: методология драматургии, физика процесса, нейрофизиология и философия природы реальности. Двенадцать нейрогарнитур Neiry, live-состав — композитор и художник по свету, работающие в реальном времени, — и труппа, готовившаяся к многовариантности событий, к которой невозможно подготовиться до конца.',
+  en: 'A month of staging: dramaturgy methodology, process physics, neurophysiology and the philosophy of the nature of reality. Twelve Neiry EEG headsets, a live crew — a composer and a light artist working in real time — and a company preparing for a multiplicity of outcomes that no one can fully prepare for.',
+};
+
+export const backstagePhotos: BackstagePhoto[] = [
+  {
+    src: '/photos/kitchen/rehearsal-plan.webp',
+    alt: {
+      ru: 'Репетиция финала: поэтапный план на проекторе',
+      en: 'Final rehearsal: the stage-by-stage plan projected',
+    },
+    orientation: 'landscape',
+  },
+  {
+    src: '/photos/kitchen/score-mapping.webp',
+    alt: {
+      ru: 'Разметка партитуры сцен: история, свет, музыка, роли',
+      en: 'Mapping the scene score: story, light, music, roles',
+    },
+    orientation: 'portrait',
+  },
+  {
+    src: '/photos/kitchen/writing-floor.webp',
+    alt: {
+      ru: 'Труппа записывает сценарии на полу репетиционного зала',
+      en: 'The company writes scenarios on the studio floor',
+    },
+    orientation: 'landscape',
+  },
+  {
+    src: '/photos/kitchen/tech-desk.webp',
+    alt: {
+      ru: 'Стол техконтура: двенадцать нейрогарнитур Neiry перед настройкой',
+      en: 'The tech desk: twelve Neiry headsets before setup',
+    },
+    orientation: 'portrait',
+  },
+];
+
+export const backstageQuotes: BackstageQuote[] = [
+  {
+    text: {
+      ru: '«Двенадцать живых потоков сознания, вплетённых в действие на сцене. За этот год мы углубились в методологию драматургии, физику процесса, нейрофизиологию и философию природы реальности и сознания. Не для того, чтобы рассказать об этом, — для того, чтобы показать».',
+      en: '"Twelve living streams of consciousness woven into the action on stage. Over this year we went deep into dramaturgy methodology, process physics, neurophysiology and the philosophy of reality and consciousness. Not to tell about it — to show it."',
+    },
+    source: {
+      ru: 'Из анонса постановки · Telegram, апрель 2026',
+      en: 'From the production announcement · Telegram, April 2026',
+    },
+    href: 'https://t.me/odadream/739',
+  },
+  {
+    text: {
+      ru: '«Мы все готовимся к многовариантности событий! Но парадокс в том, что до конца подготовиться к этому невозможно — с каждой новой репетицией всплывают всё новые сценарии. Какая реальность встретит нас на самом спектакле?»',
+      en: '"We are all preparing for a multiplicity of outcomes! But the paradox is that you cannot fully prepare — every new rehearsal surfaces new scenarios. Which reality will meet us at the performance itself?"',
+    },
+    source: {
+      ru: 'Из репетиционного дневника · Telegram, май 2026',
+      en: 'From the rehearsal diary · Telegram, May 2026',
+    },
+    href: 'https://t.me/odadream/746',
+  },
+];
+
+export const backstageLinkLabel: I18nString = {
+  ru: 'Читать пост в Telegram →',
+  en: 'Read the post on Telegram →',
+};
 
 // ---------------------------------------------------------------------------
 // CHRONICLE
@@ -580,10 +722,19 @@ export const chronicleEvents: ChronicleEvent[] = [
     year: '16 мая 2026 / May 16, 2026',
     label: { ru: 'Интерференция — Премьера', en: 'Interference — World Premiere' },
     description: {
-      ru: 'XIV Циолковский Фест, ИКЦ, Калуга. Первый показ с полной системой ЭЭГ и MoCap.',
-      en: 'XIV Tsiolkovsky Fest, ICC, Kaluga. First performance with full EEG and MoCap system.',
+      ru: 'Спектакль открыл XIV Циолковский Фест (ИКЦ, Калуга) и состоялся при полной системе: ЭЭГ-гиперсканирование ×12, трекинг танцовщиков, live-свет и live-звук, тифлокомментарий и перевод на РЖЯ.',
+      en: 'The performance opened the XIV Tsiolkovsky Fest (ICC, Kaluga) with the full system running: EEG hyperscanning ×12, dancer tracking, live light and sound, audio description and sign language interpretation.',
     },
     type: 'show',
+  },
+  {
+    year: 'Лето 2026 / Summer 2026',
+    label: { ru: '«Золотая Маска» — заявка', en: 'Golden Mask — Submission' },
+    description: {
+      ru: 'Подача на Российскую национальную театральную премию: конкурс спектаклей балета, номинация «Современный танец» (сезон 2025–2026).',
+      en: 'Submission to the Russian National Theatre Award: ballet competition, Contemporary Dance nomination (2025–2026 season).',
+    },
+    type: 'award',
   },
 ];
 
@@ -669,8 +820,8 @@ export const heroCTAPrimary: I18nString = {
 };
 
 export const heroCTASecondary: I18nString = {
-  ru: 'Узнать больше',
-  en: 'Learn more',
+  ru: 'Как это было',
+  en: 'See how it was',
 };
 
 // ---------------------------------------------------------------------------
