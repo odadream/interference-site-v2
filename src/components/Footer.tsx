@@ -1,43 +1,32 @@
 import Divider from './Divider';
 import { t } from '../styles/typography';
 import { s } from '../styles/spacing';
-import { SHOW_MEDIA } from '../data/features';
-
-const NAV_LINKS = [
-  { id: 'about', label: 'О проекте' },
-  { id: 'program', label: 'Программа' },
-  { id: 'context', label: 'Контекст' },
-  { id: 'faq', label: 'FAQ' },
-  { id: 'authors', label: 'Авторы' },
-  { id: 'institutions', label: 'Институциям' },
-  { id: 'chronicle', label: 'Хроника' },
-  ...(SHOW_MEDIA ? [{ id: 'materials', label: 'Медиа' }] : []),
-];
+import { useLang } from '../hooks/useLang';
+import { footerNav, footerLabels, footerTagline } from '../data/content';
+import type { I18nString } from '../data/content';
 
 interface ExternalGroup {
-  title: string;
-  links: { label: string; href: string }[];
+  title: I18nString;
+  links: { label: I18nString; href: string }[];
 }
 
-const EXTERNAL_GROUPS: ExternalGroup[] = [
+const ODA_LINKS: { label: I18nString; href: string }[] = [
+  { label: { ru: 'Сайт', en: 'Website' }, href: 'https://odadream.art/' },
+  { label: { ru: 'Telegram', en: 'Telegram' }, href: 'https://t.me/odadream' },
+  { label: { ru: 'Dzen', en: 'Dzen' }, href: 'https://dzen.ru/odadream' },
+];
+
+const OTHER_GROUPS: ExternalGroup[] = [
   {
-    title: 'Фестиваль',
+    title: { ru: 'Фестиваль', en: 'Festival' },
     links: [
-      { label: 'Сайт', href: 'https://t-fest.online/' },
-      { label: 'ВКонтакте', href: 'https://vk.com/tsiolkovsky_fest' },
+      { label: { ru: 'Сайт', en: 'Website' }, href: 'https://t-fest.online/' },
+      { label: { ru: 'ВКонтакте', en: 'VKontakte' }, href: 'https://vk.com/tsiolkovsky_fest' },
     ],
   },
   {
-    title: 'Площадка',
-    links: [{ label: 'ИКЦ', href: 'https://www.icc40.ru/' }],
-  },
-  {
-    title: 'ODA.dream',
-    links: [
-      { label: 'Сайт', href: 'https://odadream.art/' },
-      { label: 'Telegram', href: 'https://t.me/odadream' },
-      { label: 'Dzen', href: 'https://dzen.ru/odadream' },
-    ],
+    title: { ru: 'Площадка', en: 'Venue' },
+    links: [{ label: { ru: 'ИКЦ', en: 'ICC' }, href: 'https://www.icc40.ru/' }],
   },
 ];
 
@@ -68,6 +57,7 @@ interface FooterProps {
 }
 
 export default function Footer({ onNavigate }: FooterProps) {
+  const { lang } = useLang();
   const currentYear = new Date().getFullYear();
 
   return (
@@ -80,53 +70,55 @@ export default function Footer({ onNavigate }: FooterProps) {
             <button onClick={() => onNavigate('hero')} className={`block ${s.mbSm}`}>
               <InterferenceTitleSmall />
             </button>
-            <p className={`${t.caption} text-text-muted max-w-xs`}>
-              Нейроспектакль-импровизация на стыке науки, технологий и перформанса.
-            </p>
+            <p className={`${t.caption} text-text-muted max-w-xs`}>{footerTagline[lang]}</p>
           </div>
 
           {/* Navigation */}
           <div className="lg:col-span-1">
-            <span className={`${t.highlight} text-text-primary ${s.mbSm} block`}>Навигация</span>
+            <span className={`${t.highlight} text-text-primary ${s.mbSm} block`}>
+              {footerLabels.navigation[lang]}
+            </span>
             <nav className={`flex flex-col ${s.stack}`}>
-              {NAV_LINKS.map((link) => (
+              {footerNav.map((link) => (
                 <button
                   key={link.id}
                   onClick={() => onNavigate(link.id)}
                   className={`${t.navLink} text-text-muted hover:text-accent-primary transition-colors text-left`}
                 >
-                  {link.label}
+                  {link.label[lang]}
                 </button>
               ))}
             </nav>
           </div>
 
-          {/* External links left column — ODA.dream + Contacts (higher priority) */}
+          {/* ODA.dream + Contacts */}
           <div className={`lg:col-span-1 flex flex-col ${s.gapMd6}`}>
             <div>
               <span className={`${t.highlight} text-text-primary ${s.mbSm} block`}>ODA.dream</span>
               <div className={`flex flex-col ${s.stack}`}>
-                {EXTERNAL_GROUPS.find((g) => g.title === 'ODA.dream')!.links.map((link) => (
+                {ODA_LINKS.map((link) => (
                   <a
-                    key={link.label}
+                    key={link.href}
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
                     className={`${t.caption} text-text-muted hover:text-accent-primary transition-colors`}
                   >
-                    {link.label}
+                    {link.label[lang]}
                   </a>
                 ))}
               </div>
             </div>
             <div>
-              <span className={`${t.highlight} text-text-primary ${s.mbSm} block`}>Контакты</span>
+              <span className={`${t.highlight} text-text-primary ${s.mbSm} block`}>
+                {footerLabels.contacts[lang]}
+              </span>
               <div className={`flex flex-col ${s.stack}`}>
                 <a
                   href="mailto:hi@odadream.art?subject=Show inquiry / Запрос на показ"
                   className={`${t.navLink} text-accent-primary hover:text-accent-secondary transition-colors break-all`}
                 >
-                  Заказать показ →
+                  {footerLabels.bookShow[lang]}
                 </a>
                 <a
                   href="https://t.me/odadream_info"
@@ -146,23 +138,23 @@ export default function Footer({ onNavigate }: FooterProps) {
             </div>
           </div>
 
-          {/* External links right column — Festival, Registration, Venue */}
+          {/* Festival, Venue */}
           <div className={`lg:col-span-1 flex flex-col ${s.gapMd6}`}>
-            {EXTERNAL_GROUPS.filter((g) => g.title !== 'ODA.dream').map((group) => (
-              <div key={group.title}>
+            {OTHER_GROUPS.map((group) => (
+              <div key={group.title.ru}>
                 <span className={`${t.highlight} text-text-primary ${s.mbSm} block`}>
-                  {group.title}
+                  {group.title[lang]}
                 </span>
                 <div className={`flex flex-col ${s.stack}`}>
                   {group.links.map((link) => (
                     <a
-                      key={link.label}
+                      key={link.href}
                       href={link.href}
                       target="_blank"
                       rel="noopener noreferrer"
                       className={`${t.caption} text-text-muted hover:text-accent-primary transition-colors`}
                     >
-                      {link.label}
+                      {link.label[lang]}
                     </a>
                   ))}
                 </div>
@@ -178,7 +170,7 @@ export default function Footer({ onNavigate }: FooterProps) {
           className={`${s.footerBar} flex flex-col sm:flex-row items-center justify-center ${s.footerBarGap}`}
         >
           <span className={`${t.label} text-text-subtle`}>
-            © {currentYear} ODA.dream. Все права защищены.
+            © {currentYear} ODA.dream. {footerLabels.rights[lang]}
           </span>
           <a
             href="https://github.com/odadream/interference-site-v2"
@@ -189,11 +181,9 @@ export default function Footer({ onNavigate }: FooterProps) {
             <svg viewBox="0 0 16 16" fill="currentColor" className="w-4 h-4">
               <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
             </svg>
-            Исходный код на GitHub
+            {footerLabels.sourceCode[lang]}
           </a>
-          <span className={`${t.label} text-text-subtle`}>
-            Премьера · 16 мая 2026 · ИКЦ, Калуга
-          </span>
+          <span className={`${t.label} text-text-subtle`}>{footerLabels.premiereLine[lang]}</span>
         </div>
       </div>
     </footer>

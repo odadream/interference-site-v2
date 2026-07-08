@@ -1,7 +1,18 @@
 import SectionTag from '../components/SectionTag';
-import TeamCard from '../components/TeamCard';
 import { useScrollReveal } from '../hooks/useScrollReveal';
-import { teamMembers, performers, venueInfo, partners, organizers } from '../data/content';
+import { useLang } from '../hooks/useLang';
+import {
+  headings,
+  creditsGroups,
+  ensembleTitle,
+  ensembleNames,
+  audienceCredit,
+  venueBlock,
+  organizers,
+  partners,
+  organizersLabel,
+  partnersLabel,
+} from '../data/content';
 import { t } from '../styles/typography';
 import { s } from '../styles/spacing';
 
@@ -9,38 +20,63 @@ const BASE = import.meta.env.BASE_URL;
 
 export default function Authors() {
   const revealRef = useScrollReveal<HTMLElement>();
+  const { lang } = useLang();
+  const h = headings.authors;
 
   return (
     <section ref={revealRef} id="authors" className={`${s.section} bg-bg-primary reveal`}>
       <div className={`max-w-5xl mx-auto ${s.container}`}>
-        <SectionTag number="08">Авторы</SectionTag>
+        <SectionTag number="08">{h.tag[lang]}</SectionTag>
 
         <h2 className={`${t.h2} ${s.mbSm}`}>
-          <span className="text-peach">Творческая</span>{' '}
-          <span className="text-text-primary">группа</span>
+          <span className="text-peach">{h.titleA[lang]}</span>{' '}
+          <span className="text-text-primary">{h.titleB[lang]}</span>
         </h2>
 
-        <p className={`${t.bodySecondary} text-text-muted ${s.mbLg} max-w-xl`}>
-          Спектакль создан командой, для которой границы между наукой, технологией и искусством
-          стёрты намеренно.
+        <p className={`${t.bodySecondary} text-text-muted ${s.mbLg} max-w-2xl`}>
+          {h.intro?.[lang]}
         </p>
 
-        {/* Team grid */}
-        <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 ${s.gapMd} ${s.mbLg}`}>
-          {teamMembers.map((member) => (
-            <TeamCard
-              key={member.name + member.role}
-              name={member.name}
-              role={member.role}
-              description={member.description}
-            />
-          ))}
+        {/* Credits list */}
+        <div className={`border border-border bg-bg-secondary ${s.mbLg}`}>
+          <div className="divide-y divide-border">
+            {creditsGroups.map((group) => (
+              <div
+                key={group.role.ru}
+                className={`grid grid-cols-1 md:grid-cols-[minmax(0,15rem)_1fr] gap-1 md:gap-6 ${s.cardSm}`}
+              >
+                <span className={`${t.label} text-accent-primary md:text-right pt-0.5`}>
+                  {group.role[lang]}
+                </span>
+                <div className="flex flex-col gap-0.5">
+                  {group.names.map((name) => (
+                    <span key={name} className={`${t.bodySecondary} text-text-primary`}>
+                      {name}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
 
-        {/* Performers */}
-        <div className={`${s.card} border border-border bg-bg-secondary ${s.mbLg}`}>
-          <span className={`${t.badge} text-accent-primary mb-2 block`}>Исполнители</span>
-          <p className={`${t.bodyPrimary} text-text-primary`}>{performers}</p>
+        {/* Ensemble */}
+        <div className={`${s.cardLg} border border-border bg-bg-secondary ${s.mbLg}`}>
+          <span className={`${t.badge} text-accent-primary mb-3 block`}>{ensembleTitle[lang]}</span>
+          <div className={`flex flex-wrap gap-x-6 gap-y-1`}>
+            {ensembleNames.map((name) => (
+              <span key={name} className={`${t.bodySecondary} text-text-primary`}>
+                {name}
+              </span>
+            ))}
+          </div>
+          <div className="mt-4 flex items-center gap-2">
+            <span className="relative flex h-[5px] w-[5px]">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 bg-accent-primary" />
+              <span className="relative inline-flex rounded-full h-[5px] w-[5px] bg-accent-primary" />
+            </span>
+            <span className={`${t.badge} text-peach`}>{audienceCredit[lang]}</span>
+          </div>
         </div>
 
         {/* Venue & Festival */}
@@ -49,18 +85,24 @@ export default function Authors() {
         >
           <div className={`grid grid-cols-1 md:grid-cols-2 ${s.gapMd6}`}>
             <div>
-              <span className={`${t.badge} text-accent-primary mb-2 block`}>Площадка</span>
-              <h3 className={`${t.highlight} text-text-primary mb-1`}>{venueInfo.name}</h3>
-              <p className={`${t.caption} text-text-muted`}>{venueInfo.address}</p>
+              <span className={`${t.badge} text-accent-primary mb-2 block`}>
+                {venueBlock.venueLabel[lang]}
+              </span>
+              <h3 className={`${t.highlight} text-text-primary mb-1`}>
+                {venueBlock.venueName[lang]}
+              </h3>
+              <p className={`${t.caption} text-text-muted`}>{venueBlock.address[lang]}</p>
             </div>
             <div>
-              <span className={`${t.badge} text-accent-primary mb-2 block`}>Фестиваль</span>
-              <h3 className={`${t.highlight} text-text-primary mb-1`}>{venueInfo.festival}</h3>
-              <p className={`${t.caption} text-text-muted`}>{venueInfo.festivalDates}</p>
+              <span className={`${t.badge} text-accent-primary mb-2 block`}>
+                {venueBlock.festivalLabel[lang]}
+              </span>
+              <h3 className={`${t.highlight} text-text-primary mb-1`}>
+                {venueBlock.festivalName[lang]}
+              </h3>
+              <p className={`${t.caption} text-text-muted`}>{venueBlock.festivalDates[lang]}</p>
               <p className={`${t.caption} text-text-muted mt-2`}>
-                Художественный руководитель: {venueInfo.artisticDirector}
-                <br />
-                Координатор: {venueInfo.coordinator}
+                {venueBlock.artisticDirector[lang]}
               </p>
             </div>
           </div>
@@ -68,7 +110,7 @@ export default function Authors() {
 
         {/* Organizers */}
         <div className={s.mbLg}>
-          <h3 className={`${t.badge} text-text-muted ${s.mbMd}`}>Организаторы</h3>
+          <h3 className={`${t.badge} text-text-muted ${s.mbMd}`}>{organizersLabel[lang]}</h3>
           <div className={`flex flex-wrap ${s.gapSm}`}>
             {organizers.map((org) => (
               <a
@@ -83,12 +125,12 @@ export default function Authors() {
                     src={`${BASE}${org.logo.slice(1)}`}
                     alt={org.shortName}
                     loading="lazy"
-                    className="h-8 md:h-10 w-auto object-contain shrink-0"
+                    className="h-7 md:h-9 w-auto max-w-[52px] object-contain shrink-0"
                   />
                 )}
                 <div>
                   <span className={`${t.highlight} text-text-primary block`}>{org.shortName}</span>
-                  <span className={`${t.label} text-text-muted mt-1 block`}>{org.name}</span>
+                  <span className={`${t.label} text-text-muted mt-1 block`}>{org.name[lang]}</span>
                 </div>
               </a>
             ))}
@@ -97,7 +139,7 @@ export default function Authors() {
 
         {/* Partners */}
         <div>
-          <h3 className={`${t.badge} text-text-muted ${s.mbSm}`}>Партнёры</h3>
+          <h3 className={`${t.badge} text-text-muted ${s.mbSm}`}>{partnersLabel[lang]}</h3>
           <div className={`flex flex-wrap ${s.gapSm}`}>
             {partners.map((partner) => (
               <a
@@ -112,13 +154,15 @@ export default function Authors() {
                     src={`${BASE}${partner.logo.slice(1)}`}
                     alt={partner.name}
                     loading="lazy"
-                    className="h-8 md:h-10 w-auto object-contain shrink-0"
+                    className="h-7 md:h-9 w-auto max-w-[52px] object-contain shrink-0"
                   />
                 )}
                 <div>
                   <span className={`${t.highlight} text-text-primary block`}>{partner.name}</span>
                   {partner.note && (
-                    <span className={`${t.label} text-text-muted mt-1 block`}>{partner.note}</span>
+                    <span className={`${t.label} text-text-muted mt-1 block`}>
+                      {partner.note[lang]}
+                    </span>
                   )}
                 </div>
               </a>

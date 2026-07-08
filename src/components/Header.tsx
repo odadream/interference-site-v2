@@ -1,6 +1,6 @@
 import { t } from '../styles/typography';
 import { s } from '../styles/spacing';
-import { SHOW_MEDIA } from '../data/features';
+import { menuAria } from '../data/content';
 import { useLang } from '../hooks/useLang';
 import type { Lang } from '../context/LangContext';
 
@@ -12,22 +12,19 @@ interface HeaderProps {
 
 const NAV_LINKS = [
   { id: 'gallery', label: { ru: 'Фото', en: 'Photos' }, hideBelow: 'none' as const },
-  { id: 'about', label: { ru: 'О проекте', en: 'About' }, hideBelow: 'none' as const },
-  { id: 'program', label: { ru: 'Пять фаз', en: 'Five Phases' }, hideBelow: 'lg' as const },
-  { id: 'backstage', label: { ru: 'Кухня', en: 'Backstage' }, hideBelow: 'xl' as const },
-  { id: 'context', label: { ru: 'Контекст', en: 'Context' }, hideBelow: 'xl' as const },
+  { id: 'about', label: { ru: 'О спектакле', en: 'About' }, hideBelow: 'none' as const },
+  { id: 'program', label: { ru: 'Пять фаз', en: 'Five phases' }, hideBelow: 'lg' as const },
+  { id: 'context', label: { ru: 'Теория', en: 'Theory' }, hideBelow: 'xl' as const },
   { id: 'interference', label: { ru: 'Лаборатория', en: 'Lab' }, hideBelow: 'xl' as const },
+  { id: 'backstage', label: { ru: 'Кухня', en: 'Backstage' }, hideBelow: 'xl' as const },
   { id: 'faq', label: { ru: 'FAQ', en: 'FAQ' }, hideBelow: 'xl' as const },
-  { id: 'authors', label: { ru: 'Авторы', en: 'Team' }, hideBelow: 'lg' as const },
+  { id: 'authors', label: { ru: 'Титры', en: 'Credits' }, hideBelow: 'lg' as const },
   {
     id: 'institutions',
     label: { ru: 'Институциям', en: 'Institutions' },
     hideBelow: 'none' as const,
   },
   { id: 'chronicle', label: { ru: 'Хроника', en: 'Chronicle' }, hideBelow: 'lg' as const },
-  ...(SHOW_MEDIA
-    ? [{ id: 'materials', label: { ru: 'Медиа', en: 'Media' }, hideBelow: 'lg' as const }]
-    : []),
 ];
 
 function LangToggle() {
@@ -92,7 +89,7 @@ export default function Header({ menuOpen, setMenuOpen, onNavigate }: HeaderProp
             <button
               onClick={() => setMenuOpen(!menuOpen)}
               className="md:hidden relative w-10 h-10 flex flex-col items-center justify-center gap-1.5"
-              aria-label={menuOpen ? 'Закрыть меню' : 'Открыть меню'}
+              aria-label={menuOpen ? menuAria.close[lang] : menuAria.open[lang]}
             >
               <span
                 className={`block w-6 h-[2px] bg-text-primary transition-transform duration-300 ${menuOpen ? 'rotate-45 translate-y-[5px]' : ''}`}

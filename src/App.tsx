@@ -1,4 +1,4 @@
-import { useState, useEffect, lazy, Suspense } from 'react';
+import { useState, useEffect } from 'react';
 import { LangProvider } from './context/LangContext';
 import Header from './components/Header';
 import ScrollProgress from './components/ScrollProgress';
@@ -16,9 +16,6 @@ import Institutions from './sections/Institutions';
 import Chronicle from './sections/Chronicle';
 import Footer from './components/Footer';
 import StyleGuide from './components/StyleGuide';
-import { SHOW_MEDIA } from './data/features';
-
-const Media = lazy(() => import('./sections/Media'));
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -56,18 +53,13 @@ function App() {
           <PhotoGallery />
           <About />
           <Program />
-          <Backstage />
           <Context />
           <InterferenceLab />
+          <Backstage />
           <FAQ />
           <Authors />
           <Institutions onNavigate={scrollToSection} />
           <Chronicle />
-          {SHOW_MEDIA && (
-            <Suspense fallback={null}>
-              <Media />
-            </Suspense>
-          )}
         </main>
         <Footer onNavigate={scrollToSection} />
       </div>

@@ -2,7 +2,7 @@ import SectionTag from '../components/SectionTag';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { useLang } from '../hooks/useLang';
 import {
-  backstageTitle,
+  headings,
   backstageIntro,
   backstagePhotos,
   backstageQuotes,
@@ -16,17 +16,16 @@ const BASE = import.meta.env.BASE_URL;
 export default function Backstage() {
   const revealRef = useScrollReveal<HTMLElement>();
   const { lang } = useLang();
+  const h = headings.backstage;
 
   return (
     <section ref={revealRef} id="backstage" className={`${s.section} bg-bg-primary reveal`}>
       <div className={`max-w-5xl mx-auto ${s.container}`}>
-        <SectionTag number="04">{backstageTitle[lang]}</SectionTag>
+        <SectionTag number="06">{h.tag[lang]}</SectionTag>
 
         <h2 className={`${t.h2} ${s.mbSm}`}>
-          <span className="text-text-primary">
-            {lang === 'ru' ? 'Как собирался' : 'How it was'}
-          </span>{' '}
-          <span className="text-peach">{lang === 'ru' ? 'спектакль' : 'made'}</span>
+          <span className="text-text-primary">{h.titleA[lang]}</span>{' '}
+          <span className="text-peach">{h.titleB[lang]}</span>
         </h2>
 
         <p className={`${t.bodySecondary} text-text-muted ${s.mbLg} max-w-2xl`}>

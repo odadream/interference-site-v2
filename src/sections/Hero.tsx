@@ -3,11 +3,14 @@ import { useParticles } from '../hooks/useParticles';
 import QuantumButton from '../components/QuantumButton';
 import { useLang } from '../hooks/useLang';
 import {
+  heroFestivalLine,
+  heroFestivalName,
   heroFormat,
   heroPremiereBadge,
   heroQuote,
   heroCTAPrimary,
   heroCTASecondary,
+  heroScroll,
 } from '../data/content';
 import { t } from '../styles/typography';
 import { s } from '../styles/spacing';
@@ -82,18 +85,14 @@ export default function Hero({ onNavigate }: HeroProps) {
         >
           {/* 1. Festival name */}
           <div className={s.mbMd}>
-            <span className={`${t.label} text-peach/80 block mb-1`}>
-              {lang === 'ru'
-                ? 'XIV Фестиваль современного искусства'
-                : 'XIV Contemporary Art Festival'}
-            </span>
+            <span className={`${t.label} text-peach/80 block mb-1`}>{heroFestivalLine[lang]}</span>
             <a
               href="https://t-fest.online/"
               target="_blank"
               rel="noopener noreferrer"
               className={`${t.navLinkLarge} text-peach hover:text-accent-primary transition-colors`}
             >
-              {lang === 'ru' ? '«Циолковский Фест»' : 'Tsiolkovsky Fest'}
+              {heroFestivalName[lang]}
             </a>
           </div>
 
@@ -139,7 +138,7 @@ export default function Hero({ onNavigate }: HeroProps) {
       <div
         className={`absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center ${s.gapSm} z-10`}
       >
-        <span className={`${t.label} text-text-muted`}>Scroll</span>
+        <span className={`${t.label} text-text-muted`}>{heroScroll[lang]}</span>
         <div className="w-[1px] h-6 bg-gradient-to-b from-accent-primary to-transparent animate-pulse" />
       </div>
     </section>

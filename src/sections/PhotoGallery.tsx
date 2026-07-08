@@ -3,7 +3,7 @@ import SectionTag from '../components/SectionTag';
 import Lightbox from '../components/Lightbox';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { useLang } from '../hooks/useLang';
-import { galleryPhotos } from '../data/content';
+import { headings, galleryPhotos } from '../data/content';
 import { t } from '../styles/typography';
 import { s } from '../styles/spacing';
 
@@ -24,24 +24,21 @@ export default function PhotoGallery() {
   const mosaicPhotos = galleryPhotos.filter((photo) => photo.size !== 'wide');
   const closingPhoto = galleryPhotos.find((photo) => photo.size === 'wide');
   const closingIndex = closingPhoto ? galleryPhotos.indexOf(closingPhoto) : -1;
+  const h = headings.gallery;
 
   return (
     <section ref={revealRef} id="gallery" className={`${s.section} bg-bg-primary reveal`}>
       <div className={`max-w-5xl mx-auto ${s.container}`}>
         <div className={s.mbSm}>
-          <SectionTag number="01">{lang === 'ru' ? 'Фотографии' : 'Photography'}</SectionTag>
+          <SectionTag number="01">{h.tag[lang]}</SectionTag>
         </div>
 
         <h2 className={`${t.h2} ${s.mbSm}`}>
-          <span className="text-text-primary">{lang === 'ru' ? 'Как это' : 'How it'}</span>{' '}
-          <span className="text-peach">{lang === 'ru' ? 'было' : 'was'}</span>
+          <span className="text-text-primary">{h.titleA[lang]}</span>{' '}
+          <span className="text-peach">{h.titleB[lang]}</span>
         </h2>
 
-        <p className={`${t.bodySecondary} text-text-muted ${s.mbLg} max-w-xl`}>
-          {lang === 'ru'
-            ? 'Премьера 16 мая 2026, ИКЦ, Калуга. Фотографии — Юлия Дударева. Нажмите на кадр, чтобы рассмотреть его на весь экран.'
-            : 'Premiere on May 16, 2026, ICC, Kaluga. Photography by Yulia Dudareva. Click any frame to view it fullscreen.'}
-        </p>
+        <p className={`${t.bodySecondary} text-text-muted ${s.mbLg} max-w-xl`}>{h.intro?.[lang]}</p>
 
         <div
           className={`grid grid-cols-2 md:grid-cols-4 grid-flow-dense ${s.gapSm} auto-rows-[180px] md:auto-rows-[200px]`}

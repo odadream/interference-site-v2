@@ -2,28 +2,27 @@ import SectionTag from '../components/SectionTag';
 import StatusDot from '../components/StatusDot';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { useLang } from '../hooks/useLang';
-import { chronicleEvents } from '../data/content';
+import { headings, chronicleEvents, chronicleIntro, chronicleContinues } from '../data/content';
 import { t } from '../styles/typography';
 import { s } from '../styles/spacing';
 
 export default function Chronicle() {
   const revealRef = useScrollReveal<HTMLElement>();
   const { lang } = useLang();
+  const h = headings.chronicle;
 
   return (
     <section ref={revealRef} id="chronicle" className={`${s.section} bg-bg-primary reveal`}>
       <div className={`max-w-5xl mx-auto ${s.container}`}>
-        <SectionTag number="10">{lang === 'ru' ? 'Хроника' : 'Chronicle'}</SectionTag>
+        <SectionTag number="10">{h.tag[lang]}</SectionTag>
 
         <h2 className={`${t.h2} ${s.mbSm}`}>
-          <span className="text-text-primary">{lang === 'ru' ? 'История' : 'History of'}</span>{' '}
-          <span className="text-peach">{lang === 'ru' ? 'произведения' : 'the work'}</span>
+          <span className="text-text-primary">{h.titleA[lang]}</span>{' '}
+          <span className="text-peach">{h.titleB[lang]}</span>
         </h2>
 
         <p className={`${t.bodySecondary} text-text-muted ${s.mbLg} max-w-xl`}>
-          {lang === 'ru'
-            ? 'От зарождения идеи до публичных показов. Каждый этап — архивная версия сайта.'
-            : 'From the birth of the idea to public performances. Each stage links to an archived site version.'}
+          {chronicleIntro[lang]}
         </p>
 
         <div className="relative">
@@ -69,22 +68,16 @@ export default function Chronicle() {
                     >
                       {event.label[lang]}
                     </h3>
-                    {event.link && !isPre && (
+                    {event.link && (
                       <a
                         href={event.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className={`${t.label} text-accent-secondary hover:text-accent-primary transition-colors whitespace-nowrap`}
-                      >
-                        {lang === 'ru' ? 'Архив →' : 'Archive →'}
-                      </a>
-                    )}
-                    {event.link && isPre && (
-                      <a
-                        href={event.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={`${t.label} text-text-subtle hover:text-text-muted transition-colors whitespace-nowrap`}
+                        className={`${t.label} transition-colors whitespace-nowrap ${
+                          isPre
+                            ? 'text-text-subtle hover:text-text-muted'
+                            : 'text-accent-secondary hover:text-accent-primary'
+                        }`}
                       >
                         odadream.art →
                       </a>
@@ -109,18 +102,12 @@ export default function Chronicle() {
               <div className="flex items-center gap-2">
                 <StatusDot color="mauve" />
                 <span className={`${t.caption} text-text-subtle italic`}>
-                  {lang === 'ru' ? 'История продолжается...' : 'History continues...'}
+                  {chronicleContinues[lang]}
                 </span>
               </div>
             </div>
           </div>
         </div>
-
-        <p className={`${t.caption} text-text-subtle mt-10`}>
-          {lang === 'ru'
-            ? 'Каждая версия сайта сохраняется на отдельном поддомене как архивный документ.'
-            : 'Each version of the site is preserved on a separate subdomain as an archival document.'}
-        </p>
       </div>
     </section>
   );

@@ -1,7 +1,19 @@
 import { useRef, useEffect, useState, useCallback } from 'react';
 import { t } from '../styles/typography';
 import { s } from '../styles/spacing';
+import { useLang } from '../hooks/useLang';
 import InlineMath from './InlineMath';
+
+const L = {
+  dragHint: { ru: 'Перетащите источники', en: 'Drag the sources' },
+  dragHintSub: { ru: 'мышью или пальцем', en: 'with a mouse or a finger' },
+  controls: { ru: 'Управление', en: 'Controls' },
+  pause: { ru: '⏸ Пауза', en: '⏸ Pause' },
+  play: { ru: '▶ Запуск', en: '▶ Play' },
+  reset: { ru: 'Сброс', en: 'Reset' },
+  sources: { ru: 'Источники', en: 'Sources' },
+  source: { ru: 'Источник', en: 'Source' },
+};
 
 interface Source {
   x: number;
@@ -51,6 +63,7 @@ function colormap(val: number, out: Uint8ClampedArray, i4: number) {
 }
 
 export default function WaveInterference() {
+  const { lang } = useLang();
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const wrapRef = useRef<HTMLDivElement>(null);
   const rafRef = useRef<number>(0);
@@ -363,8 +376,8 @@ export default function WaveInterference() {
             <div className="absolute inset-0 flex items-center justify-center bg-bg-primary/50 backdrop-blur-[2px] z-20 pointer-events-none">
               <div className={`${t.caption} text-text-primary text-center px-4`}>
                 <span className={`${t.number} block mb-2`}>↔</span>
-                Перетащите источники
-                <span className="block text-text-muted mt-1">мышью или пальцем</span>
+                {L.dragHint[lang]}
+                <span className="block text-text-muted mt-1">{L.dragHintSub[lang]}</span>
               </div>
             </div>
           )}
@@ -372,7 +385,7 @@ export default function WaveInterference() {
 
         <div className="w-full lg:w-64 border-t lg:border-t-0 lg:border-l border-border bg-bg-secondary flex flex-col shrink-0">
           <div className="px-4 py-3 border-b border-border">
-            <span className={`${t.label} text-text-muted block`}>Управление</span>
+            <span className={`${t.label} text-text-muted block`}>{L.controls[lang]}</span>
           </div>
 
           <div className={`${s.cardSm} ${s.stack} flex-1 overflow-y-auto`}>
@@ -385,18 +398,18 @@ export default function WaveInterference() {
                     : 'border-border bg-bg-primary text-text-muted hover:border-accent-secondary/40'
                 }`}
               >
-                {isPlaying ? '⏸ Пауза' : '▶ Запуск'}
+                {isPlaying ? L.pause[lang] : L.play[lang]}
               </button>
               <button
                 onClick={reset}
                 className={`${t.caption} py-2 px-3 border border-border bg-bg-primary text-text-muted hover:border-accent-secondary/40 transition-colors`}
               >
-                Сброс
+                {L.reset[lang]}
               </button>
             </div>
 
             <div className="pt-2 border-t border-border">
-              <span className={`${t.label} text-text-muted block mb-3`}>Источники</span>
+              <span className={`${t.label} text-text-muted block mb-3`}>{L.sources[lang]}</span>
               <div className={s.stack}>
                 {sources.map((source, i) => (
                   <div
@@ -413,7 +426,7 @@ export default function WaveInterference() {
                         style={{ backgroundColor: i === 0 ? '#c2659d' : '#8d4e79' }}
                       />
                       <span className={`${t.caption} text-text-primary flex-1`}>
-                        Источник {i + 1}
+                        {L.source[lang]} {i + 1}
                       </span>
                       <input
                         type="checkbox"

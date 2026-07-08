@@ -3,11 +3,13 @@ import QuantumButton from '../components/QuantumButton';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { useLang } from '../hooks/useLang';
 import {
-  institutionsHeadline,
+  headings,
   institutionsPitch,
   institutionFormats,
   institutionsTechSpecs,
+  institutionsTechLabel,
   institutionsCTA,
+  institutionsArchiveNote,
 } from '../data/content';
 import { t } from '../styles/typography';
 import { s } from '../styles/spacing';
@@ -19,15 +21,16 @@ interface InstitutionsProps {
 export default function Institutions({ onNavigate: _onNavigate }: InstitutionsProps) {
   const revealRef = useScrollReveal<HTMLElement>();
   const { lang } = useLang();
+  const h = headings.institutions;
 
   return (
     <section ref={revealRef} id="institutions" className={`${s.section} bg-bg-secondary reveal`}>
       <div className={`max-w-5xl mx-auto ${s.container}`}>
-        <SectionTag number="09">{institutionsHeadline[lang]}</SectionTag>
+        <SectionTag number="09">{h.tag[lang]}</SectionTag>
 
         <h2 className={`${t.h2} ${s.mbSm}`}>
-          <span className="text-text-primary">{lang === 'ru' ? 'Заказать' : 'Book'}</span>{' '}
-          <span className="text-peach">{lang === 'ru' ? 'показ' : 'a show'}</span>
+          <span className="text-text-primary">{h.titleA[lang]}</span>{' '}
+          <span className="text-peach">{h.titleB[lang]}</span>
         </h2>
 
         <p className={`${t.bodyPrimary} text-text-primary ${s.mbLg} max-w-2xl`}>
@@ -53,13 +56,18 @@ export default function Institutions({ onNavigate: _onNavigate }: InstitutionsPr
         </div>
 
         {/* Technical specs */}
-        <div className={`border border-border bg-bg-primary/30 ${s.card} ${s.mbLg}`}>
+        <div className={`border border-border bg-bg-primary/30 ${s.card} ${s.mbSm}`}>
           <p className={`${t.caption} text-text-subtle`}>
             <span className={`${t.label} text-text-muted uppercase tracking-widest mr-2`}>
-              {lang === 'ru' ? 'Технические требования:' : 'Technical requirements:'}
+              {institutionsTechLabel[lang]}
             </span>
             {institutionsTechSpecs[lang]}
           </p>
+        </div>
+
+        {/* Archive / recording available on request */}
+        <div className={`border border-border bg-bg-primary/30 ${s.card} ${s.mbLg}`}>
+          <p className={`${t.caption} text-text-subtle`}>{institutionsArchiveNote[lang]}</p>
         </div>
 
         {/* CTA */}
