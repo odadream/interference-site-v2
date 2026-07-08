@@ -17,10 +17,17 @@ const ORGANIZERS = [
     offset: '',
   },
   {
+    src: '/partners/ITB.svg',
+    href: 'https://www.icc40.ru/collectives/innovatsionnyy-teatr-baleta',
+    alt: 'Инновационный театр балета',
+    h: 'h-6 md:h-7',
+    offset: '',
+  },
+  {
     src: '/partners/TSIALKOV.svg',
     href: 'https://t-fest.online/',
     alt: 'Циолковский Фест',
-    h: 'h-10 md:h-12 max-w-[200px]',
+    h: 'h-8 md:h-10',
     offset: '',
   },
   {
