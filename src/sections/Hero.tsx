@@ -84,8 +84,8 @@ export default function Hero({ onNavigate }: HeroProps) {
           className={`bg-bg-primary/60 backdrop-blur-md ${s.cardLg} border border-border w-full`}
         >
           {/* 1. Festival name */}
-          <div className={s.mbMd}>
-            <span className={`${t.label} text-peach/80 block mb-1`}>{heroFestivalLine[lang]}</span>
+          <div className={`flex flex-col ${s.gapTight} ${s.mbMd}`}>
+            <span className={`${t.label} text-peach/80`}>{heroFestivalLine[lang]}</span>
             <a
               href="https://t-fest.online/"
               target="_blank"
@@ -97,13 +97,13 @@ export default function Hero({ onNavigate }: HeroProps) {
           </div>
 
           {/* 2. Format */}
-          <p className={`${t.label} text-text-muted mb-5`}>{heroFormat[lang]}</p>
+          <p className={`${t.label} text-text-muted ${s.mbMd}`}>{heroFormat[lang]}</p>
 
           {/* 3. Title */}
           <InterferenceTitle />
 
           {/* 4. Premiere badge */}
-          <div className="mt-5 mb-5 flex items-center justify-center gap-2">
+          <div className={`${s.mbMd} flex items-center justify-center ${s.gapInline}`}>
             <span className="relative flex h-[5px] w-[5px]">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 bg-accent-primary" />
               <span className="relative inline-flex rounded-full h-[5px] w-[5px] bg-accent-primary" />

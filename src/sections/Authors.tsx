@@ -37,41 +37,34 @@ export default function Authors() {
           {h.intro?.[lang]}
         </p>
 
-        {/* Credits list */}
-        <div className={`border border-border bg-bg-secondary ${s.mbLg}`}>
-          <div className="divide-y divide-border">
+        {/* Credits list — compact two-column */}
+        <div className={`border border-border bg-bg-secondary ${s.cardSm} ${s.mbLg}`}>
+          <div className={`grid grid-cols-1 md:grid-cols-2 ${s.gapMd}`}>
             {creditsGroups.map((group) => (
-              <div
-                key={group.role.ru}
-                className={`grid grid-cols-1 md:grid-cols-[minmax(0,15rem)_1fr] gap-1 md:gap-6 ${s.cardSm}`}
-              >
-                <span className={`${t.label} text-accent-primary md:text-right pt-0.5`}>
-                  {group.role[lang]}
-                </span>
-                <div className="flex flex-col gap-0.5">
-                  {group.names.map((name) => (
-                    <span key={name} className={`${t.bodySecondary} text-text-primary`}>
-                      {name}
-                    </span>
-                  ))}
-                </div>
+              <div key={group.role.ru} className={`flex min-w-0 flex-col ${s.gapTight}`}>
+                <span className={`${t.label} text-accent-primary`}>{group.role[lang]}</span>
+                <p className={`${t.caption} text-text-primary`}>
+                  {group.names.map((name) => name[lang]).join(' · ')}
+                </p>
               </div>
             ))}
           </div>
         </div>
 
         {/* Ensemble */}
-        <div className={`${s.cardLg} border border-border bg-bg-secondary ${s.mbLg}`}>
-          <span className={`${t.badge} text-accent-primary mb-3 block`}>{ensembleTitle[lang]}</span>
-          <div className={`flex flex-wrap gap-x-6 gap-y-1`}>
+        <div
+          className={`border border-border bg-bg-secondary ${s.cardSm} ${s.mbLg} flex flex-col ${s.gapSm}`}
+        >
+          <span className={`${t.badge} text-accent-primary`}>{ensembleTitle[lang]}</span>
+          <div className={`grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 ${s.gapSm}`}>
             {ensembleNames.map((name) => (
-              <span key={name} className={`${t.bodySecondary} text-text-primary`}>
-                {name}
+              <span key={name.ru} className={`${t.caption} text-text-primary`}>
+                {name[lang]}
               </span>
             ))}
           </div>
-          <div className="mt-4 flex items-center gap-2">
-            <span className="relative flex h-[5px] w-[5px]">
+          <div className={`flex items-center ${s.gapInline}`}>
+            <span className="relative flex h-[5px] w-[5px] shrink-0">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 bg-accent-primary" />
               <span className="relative inline-flex rounded-full h-[5px] w-[5px] bg-accent-primary" />
             </span>
@@ -83,27 +76,23 @@ export default function Authors() {
         <div
           className={`${s.cardLg} border border-accent-primary/30 bg-accent-primary/5 ${s.mbLg}`}
         >
-          <div className={`grid grid-cols-1 md:grid-cols-2 ${s.gapMd6}`}>
-            <div>
-              <span className={`${t.badge} text-accent-primary mb-2 block`}>
+          <div className={`grid grid-cols-1 md:grid-cols-2 ${s.gapMdLg}`}>
+            <div className={`flex flex-col ${s.gapTight}`}>
+              <span className={`${t.badge} text-accent-primary`}>
                 {venueBlock.venueLabel[lang]}
               </span>
-              <h3 className={`${t.highlight} text-text-primary mb-1`}>
-                {venueBlock.venueName[lang]}
-              </h3>
+              <h3 className={`${t.highlight} text-text-primary`}>{venueBlock.venueName[lang]}</h3>
               <p className={`${t.caption} text-text-muted`}>{venueBlock.address[lang]}</p>
             </div>
-            <div>
-              <span className={`${t.badge} text-accent-primary mb-2 block`}>
+            <div className={`flex flex-col ${s.gapTight}`}>
+              <span className={`${t.badge} text-accent-primary`}>
                 {venueBlock.festivalLabel[lang]}
               </span>
-              <h3 className={`${t.highlight} text-text-primary mb-1`}>
+              <h3 className={`${t.highlight} text-text-primary`}>
                 {venueBlock.festivalName[lang]}
               </h3>
               <p className={`${t.caption} text-text-muted`}>{venueBlock.festivalDates[lang]}</p>
-              <p className={`${t.caption} text-text-muted mt-2`}>
-                {venueBlock.artisticDirector[lang]}
-              </p>
+              <p className={`${t.caption} text-text-muted`}>{venueBlock.artisticDirector[lang]}</p>
             </div>
           </div>
         </div>
@@ -128,9 +117,9 @@ export default function Authors() {
                     className="h-7 md:h-9 w-auto max-w-[52px] object-contain shrink-0"
                   />
                 )}
-                <div>
-                  <span className={`${t.highlight} text-text-primary block`}>{org.shortName}</span>
-                  <span className={`${t.label} text-text-muted mt-1 block`}>{org.name[lang]}</span>
+                <div className={`flex flex-col ${s.gapTight} min-w-0`}>
+                  <span className={`${t.highlight} text-text-primary`}>{org.shortName}</span>
+                  <span className={`${t.label} text-text-muted`}>{org.name[lang]}</span>
                 </div>
               </a>
             ))}
@@ -157,12 +146,10 @@ export default function Authors() {
                     className="h-7 md:h-9 w-auto max-w-[52px] object-contain shrink-0"
                   />
                 )}
-                <div>
-                  <span className={`${t.highlight} text-text-primary block`}>{partner.name}</span>
+                <div className={`flex flex-col ${s.gapTight} min-w-0`}>
+                  <span className={`${t.highlight} text-text-primary`}>{partner.name}</span>
                   {partner.note && (
-                    <span className={`${t.label} text-text-muted mt-1 block`}>
-                      {partner.note[lang]}
-                    </span>
+                    <span className={`${t.label} text-text-muted`}>{partner.note[lang]}</span>
                   )}
                 </div>
               </a>

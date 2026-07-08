@@ -672,84 +672,141 @@ export const faqIntro: I18nNode = {
 
 export interface CreditGroup {
   role: I18nString;
-  names: string[];
+  names: I18nString[];
 }
 
 export const creditsGroups: CreditGroup[] = [
   {
     role: { ru: 'Авторы идеи', en: 'Concept & idea' },
-    names: ['ODA.dream® — Ольга и Далер Арабовы', 'Ксения Голыжбина'],
+    names: [
+      { ru: 'ODA.dream® — Ольга и Далер Арабовы', en: 'ODA.dream® — Olga and Daler Arabov' },
+      { ru: 'Ксения Голыжбина', en: 'Ksenia Golyzhbina' },
+    ],
   },
   {
     role: { ru: 'Хореограф-постановщик', en: 'Choreographer-director' },
-    names: ['Ксения Голыжбина'],
+    names: [{ ru: 'Ксения Голыжбина', en: 'Ksenia Golyzhbina' }],
   },
   {
     role: { ru: 'Пластическая разработка', en: 'Movement development' },
-    names: ['Ксения Голыжбина совместно с труппой'],
+    names: [
+      { ru: 'Ксения Голыжбина совместно с труппой', en: 'Ksenia Golyzhbina with the company' },
+    ],
   },
   {
     role: { ru: 'Структура и драматургия', en: 'Structure & dramaturgy' },
-    names: ['Ксения Голыжбина', 'Ольга Арабова', 'Артём Савин'],
+    names: [
+      { ru: 'Ксения Голыжбина', en: 'Ksenia Golyzhbina' },
+      { ru: 'Ольга Арабова', en: 'Olga Arabova' },
+      { ru: 'Артём Савин', en: 'Artem Savin' },
+    ],
   },
   {
     role: { ru: 'Рефлексия · коучинг · фасилитация', en: 'Reflection · coaching · facilitation' },
-    names: ['Ольга Арабова', 'Ксения Голыжбина'],
+    names: [
+      { ru: 'Ольга Арабова', en: 'Olga Arabova' },
+      { ru: 'Ксения Голыжбина', en: 'Ksenia Golyzhbina' },
+    ],
   },
   {
     role: {
       ru: 'Исполнительный продюсер · худрук «Циолковский фест»',
       en: 'Executive producer · Tsiolkovsky Fest artistic director',
     },
-    names: ['Анна Сенатова'],
+    names: [{ ru: 'Анна Сенатова', en: 'Anna Senatova' }],
   },
-  { role: { ru: 'Продюсер', en: 'Producer' }, names: ['Далер Арабов'] },
+  {
+    role: { ru: 'Продюсер', en: 'Producer' },
+    names: [{ ru: 'Далер Арабов', en: 'Daler Arabov' }],
+  },
   {
     role: { ru: 'Композитор · live-set · sound-design', en: 'Composer · live-set · sound design' },
-    names: ['Александр Шестернин'],
+    names: [{ ru: 'Александр Шестернин', en: 'Alexander Shesternin' }],
   },
-  { role: { ru: 'Художник по свету', en: 'Lighting designer' }, names: ['Аркадий Лаврентьев'] },
-  { role: { ru: 'Звукорежиссёр', en: 'Sound engineer' }, names: ['Александр Рощин'] },
-  { role: { ru: 'Голос спектакля', en: 'Voice of the performance' }, names: ['Кирилл Бессонов'] },
-  { role: { ru: 'Ведущая', en: 'Host' }, names: ['Виолетта Савельева'] },
+  {
+    role: { ru: 'Художник по свету', en: 'Lighting designer' },
+    names: [{ ru: 'Аркадий Лаврентьев', en: 'Arkady Lavrentyev' }],
+  },
+  {
+    role: { ru: 'Звукорежиссёр', en: 'Sound engineer' },
+    names: [{ ru: 'Александр Рощин', en: 'Alexander Roshchin' }],
+  },
+  {
+    role: { ru: 'Голос спектакля', en: 'Voice of the performance' },
+    names: [{ ru: 'Кирилл Бессонов', en: 'Kirill Bessonov' }],
+  },
+  {
+    role: { ru: 'Ведущая', en: 'Host' },
+    names: [{ ru: 'Виолетта Савельева', en: 'Violetta Savelyeva' }],
+  },
   {
     role: {
       ru: 'Техническая реализация · визуал · афиша · сайт · тексты голоса',
       en: 'Technical realisation · visuals · poster · website · voice texts',
     },
-    names: ['Далер Арабов совместно с ИИ-ассистентами'],
+    names: [
+      {
+        ru: 'Далер Арабов совместно с ИИ-ассистентами',
+        en: 'Daler Arabov with AI assistants',
+      },
+    ],
   },
-  { role: { ru: 'Тифлокомментатор', en: 'Audio description' }, names: ['Дарья Казаку'] },
+  {
+    role: { ru: 'Тифлокомментатор', en: 'Audio description' },
+    names: [{ ru: 'Дарья Казаку', en: 'Darya Kazaku' }],
+  },
   {
     role: { ru: 'Переводчик русского жестового языка', en: 'Russian sign-language interpreter' },
-    names: ['Александр Казаку'],
+    names: [{ ru: 'Александр Казаку', en: 'Alexander Kazaku' }],
   },
   {
     role: { ru: 'Оператор-постановщик · монтаж', en: 'Director of photography · editing' },
-    names: ['Алексей Шмелёв'],
+    names: [{ ru: 'Алексей Шмелёв', en: 'Alexey Shmelev' }],
   },
-  { role: { ru: 'Фотограф', en: 'Photographer' }, names: ['Юлия Дударева'] },
-  { role: { ru: 'Видеоинженер', en: 'Video engineer' }, names: ['Влад Зуев'] },
+  {
+    role: { ru: 'Фотограф', en: 'Photographer' },
+    names: [{ ru: 'Юлия Дударева', en: 'Yulia Dudareva' }],
+  },
+  {
+    role: { ru: 'Видеоинженер', en: 'Video engineer' },
+    names: [{ ru: 'Влад Зуев', en: 'Vlad Zuev' }],
+  },
   {
     role: { ru: 'Технологический партнёр', en: 'Technology partner' },
-    names: ['Группа компаний Neiry — Александр Дымов'],
+    names: [
+      {
+        ru: 'Группа компаний Neiry — Александр Дымов',
+        en: 'Neiry group of companies — Alexander Dymov',
+      },
+    ],
   },
   {
     role: { ru: 'Предоставленное оборудование', en: 'Equipment provided by' },
-    names: ['Антон Романовский', 'Кирилл Малышев'],
+    names: [
+      { ru: 'Антон Романовский', en: 'Anton Romanovsky' },
+      { ru: 'Кирилл Малышев', en: 'Kirill Malyshev' },
+    ],
   },
   {
     role: { ru: 'ИИ-ассистенты', en: 'AI assistants' },
-    names: ['ChatGPT', 'Claude', 'Cursor', 'Kimi'],
+    names: [
+      { ru: 'ChatGPT', en: 'ChatGPT' },
+      { ru: 'Claude', en: 'Claude' },
+      { ru: 'Cursor', en: 'Cursor' },
+      { ru: 'Kimi', en: 'Kimi' },
+    ],
   },
   {
     role: {
       ru: 'Творческий союз художников России (ТСХР)',
       en: 'Russian Union of Artists (TSKhR)',
     },
-    names: ['Ирина Арнаут'],
+    names: [{ ru: 'Ирина Арнаут', en: 'Irina Arnaut' }],
   },
-  { role: { ru: 'Особая благодарность', en: 'Special thanks' }, names: ['Олег Хузин'] },
+  {
+    role: { ru: 'Особая благодарность', en: 'Special thanks' },
+    names: [{ ru: 'Олег Хузин', en: 'Oleg Khuzin' }],
+  },
 ];
 
 export const ensembleTitle: I18nString = {
@@ -757,19 +814,19 @@ export const ensembleTitle: I18nString = {
   en: 'Performers & co-authors of the movement language · Innovative Ballet Theatre, ICC',
 };
 
-export const ensembleNames: string[] = [
-  'Артур Микоян',
-  'Екатерина Афанасьева',
-  'Дмитрий Данилов',
-  'Полина Каверина',
-  'Антон Кузнецов',
-  'Дарья Каменская',
-  'Артём Савин',
-  'Артём Самойлов',
-  'София Карташова',
-  'Ирина Якухнова',
-  'Вадим Лавренцов',
-  'Виолетта Савельева',
+export const ensembleNames: I18nString[] = [
+  { ru: 'Артур Микоян', en: 'Artur Mikoyan' },
+  { ru: 'Екатерина Афанасьева', en: 'Ekaterina Afanasyeva' },
+  { ru: 'Дмитрий Данилов', en: 'Dmitry Danilov' },
+  { ru: 'Полина Каверина', en: 'Polina Kaverina' },
+  { ru: 'Антон Кузнецов', en: 'Anton Kuznetsov' },
+  { ru: 'Дарья Каменская', en: 'Darya Kamenskaya' },
+  { ru: 'Артём Савин', en: 'Artem Savin' },
+  { ru: 'Артём Самойлов', en: 'Artem Samoylov' },
+  { ru: 'София Карташова', en: 'Sofia Kartashova' },
+  { ru: 'Ирина Якухнова', en: 'Irina Yakukhnova' },
+  { ru: 'Вадим Лавренцов', en: 'Vadim Lavrentsov' },
+  { ru: 'Виолетта Савельева', en: 'Violetta Savelyeva' },
 ];
 
 export const audienceCredit: I18nString = {
@@ -971,7 +1028,7 @@ export const galleryPhotos: GalleryPhoto[] = [
       ru: 'Сцена 4 · красная световая партитура, силуэты в контровом свете',
       en: 'Scene 4 · a red light score, silhouettes in backlight',
     },
-    size: 'landscape',
+    size: 'wide',
   },
   {
     src: '/photos/premiere/bows.webp',
@@ -979,7 +1036,7 @@ export const galleryPhotos: GalleryPhoto[] = [
       ru: 'Поклоны · труппа и постановщики; на экране — кадры спектакля',
       en: 'Bows · the company and the creators; performance footage on screen',
     },
-    size: 'wide',
+    size: 'landscape',
   },
 ];
 

@@ -119,7 +119,7 @@ export default function Header({ menuOpen, setMenuOpen, onNavigate }: HeaderProp
               {link.label[lang]}
             </button>
           ))}
-          <div className={`flex items-center ${s.gapSm} mt-4`}>
+          <div className={`flex items-center ${s.gapSm} ${s.mbSm}`}>
             <button
               onClick={() => setLang('ru')}
               className={`${t.navLink} transition-colors ${lang === 'ru' ? 'text-accent-primary' : 'text-text-subtle'}`}

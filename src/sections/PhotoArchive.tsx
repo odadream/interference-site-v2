@@ -160,9 +160,9 @@ export default function PhotoArchive() {
       </div>
 
       {/* Dots + caption */}
-      <div className={`max-w-5xl mx-auto ${s.container}`}>
+      <div className={`max-w-5xl mx-auto ${s.container} flex flex-col items-center ${s.gapSm}`}>
         {/* Pagination dots */}
-        <div className="flex justify-center items-center gap-2 mt-4">
+        <div className={`flex justify-center items-center ${s.gapInline}`}>
           {PHOTOS.map((_, i) => (
             <button
               key={i}
@@ -182,7 +182,7 @@ export default function PhotoArchive() {
           ))}
         </div>
 
-        <p className={`${t.caption} text-text-muted text-center mt-3`}>
+        <p className={`${t.caption} text-text-muted text-center`}>
           Спектакль «Проект Шрёдингер» · XIII Фестиваль современного искусства «
           <a
             href="https://t-fest.online/"

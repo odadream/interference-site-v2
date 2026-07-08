@@ -374,10 +374,12 @@ export default function WaveInterference() {
           <canvas ref={canvasRef} className="block w-full h-full" />
           {showHint && (
             <div className="absolute inset-0 flex items-center justify-center bg-bg-primary/50 backdrop-blur-[2px] z-20 pointer-events-none">
-              <div className={`${t.caption} text-text-primary text-center px-4`}>
-                <span className={`${t.number} block mb-2`}>↔</span>
+              <div
+                className={`${t.caption} text-text-primary text-center px-4 flex flex-col ${s.gapTight}`}
+              >
+                <span className={t.number}>↔</span>
                 {L.dragHint[lang]}
-                <span className="block text-text-muted mt-1">{L.dragHintSub[lang]}</span>
+                <span className="text-text-muted">{L.dragHintSub[lang]}</span>
               </div>
             </div>
           )}
@@ -408,8 +410,8 @@ export default function WaveInterference() {
               </button>
             </div>
 
-            <div className="pt-2 border-t border-border">
-              <span className={`${t.label} text-text-muted block mb-3`}>{L.sources[lang]}</span>
+            <div className={`${s.stack} pt-2 border-t border-border`}>
+              <span className={`${t.label} text-text-muted block`}>{L.sources[lang]}</span>
               <div className={s.stack}>
                 {sources.map((source, i) => (
                   <div
@@ -420,43 +422,45 @@ export default function WaveInterference() {
                         : 'border-border bg-bg-primary'
                     }`}
                   >
-                    <div className="flex items-center gap-2 mb-2">
-                      <div
-                        className="w-3 h-3 rounded-full shrink-0"
-                        style={{ backgroundColor: i === 0 ? '#c2659d' : '#8d4e79' }}
-                      />
-                      <span className={`${t.caption} text-text-primary flex-1`}>
-                        {L.source[lang]} {i + 1}
-                      </span>
-                      <input
-                        type="checkbox"
-                        checked={source.active}
-                        onChange={() => toggleSource(i)}
-                        className="w-4 h-4 accent-accent-primary"
-                      />
-                    </div>
-
-                    {source.active && (
-                      <div className="flex items-center gap-2 min-w-0">
-                        <label
-                          className={`${t.label} text-text-muted w-auto shrink-0 whitespace-nowrap`}
-                        >
-                          <InlineMath tex="\lambda" /> factor
-                        </label>
-                        <input
-                          type="range"
-                          min="0.3"
-                          max="2.5"
-                          step="0.1"
-                          value={source.wavelength}
-                          onChange={(e) => updateWl(i, +e.target.value)}
-                          className="flex-1 min-w-0 accent-accent-primary"
+                    <div className={`flex flex-col ${s.gapTight}`}>
+                      <div className={`flex items-center ${s.gapInline}`}>
+                        <div
+                          className="w-3 h-3 rounded-full shrink-0"
+                          style={{ backgroundColor: i === 0 ? '#c2659d' : '#8d4e79' }}
                         />
-                        <span className={`${t.label} text-text-primary w-6 text-right`}>
-                          {source.wavelength.toFixed(1)}
+                        <span className={`${t.caption} text-text-primary flex-1`}>
+                          {L.source[lang]} {i + 1}
                         </span>
+                        <input
+                          type="checkbox"
+                          checked={source.active}
+                          onChange={() => toggleSource(i)}
+                          className="w-4 h-4 accent-accent-primary"
+                        />
                       </div>
-                    )}
+
+                      {source.active && (
+                        <div className={`flex items-center ${s.gapInline} min-w-0`}>
+                          <label
+                            className={`${t.label} text-text-muted w-auto shrink-0 whitespace-nowrap`}
+                          >
+                            <InlineMath tex="\lambda" /> factor
+                          </label>
+                          <input
+                            type="range"
+                            min="0.3"
+                            max="2.5"
+                            step="0.1"
+                            value={source.wavelength}
+                            onChange={(e) => updateWl(i, +e.target.value)}
+                            className="flex-1 min-w-0 accent-accent-primary"
+                          />
+                          <span className={`${t.label} text-text-primary w-6 text-right`}>
+                            {source.wavelength.toFixed(1)}
+                          </span>
+                        </div>
+                      )}
+                    </div>
                   </div>
                 ))}
               </div>

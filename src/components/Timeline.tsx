@@ -52,11 +52,13 @@ export default function Timeline({ items }: TimelineProps) {
                   isLeft ? 'md:pr-8 md:text-right' : 'md:pl-8 md:text-left'
                 }`}
               >
-                <span className={`${t.highlight} text-accent-primary mb-1 block`}>{item.time}</span>
-                <h4 className={`${t.highlight} uppercase tracking-wide text-text-primary mb-2`}>
-                  {item.title}
-                </h4>
-                <div className={`${t.caption} text-text-muted`}>{item.description}</div>
+                <div className={`flex flex-col ${s.gapTight}`}>
+                  <span className={`${t.highlight} text-accent-primary`}>{item.time}</span>
+                  <h4 className={`${t.highlight} uppercase tracking-wide text-text-primary`}>
+                    {item.title}
+                  </h4>
+                  <div className={`${t.caption} text-text-muted`}>{item.description}</div>
+                </div>
               </div>
             </div>
           );

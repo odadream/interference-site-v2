@@ -23,6 +23,7 @@ const W_CLS: Record<number, string> = {
 // Lookup: gap, 1:1
 const GAP_CLS: Record<number, string> = {
   0: 'gap-0',
+  4: 'gap-1',
   8: 'gap-2',
   12: 'gap-3',
   16: 'gap-4',
@@ -248,7 +249,27 @@ const HORIZONTAL = [
 // gapPx = mobile, deskGapPx = desktop. Где разные — два демо-блока с цветами.
 const GAPS = [
   {
+    n: 'U00',
+    role: 'gapTight',
+    desc: 'gap-1',
+    gapPx: 4,
+    deskGapPx: 4,
+    mob: '4px',
+    desk: '4px',
+    where: 'Метка → значение',
+  },
+  {
     n: 'U01',
+    role: 'gapInline',
+    desc: 'gap-2',
+    gapPx: 8,
+    deskGapPx: 8,
+    mob: '8px',
+    desk: '8px',
+    where: 'Иконка + подпись',
+  },
+  {
+    n: 'U02',
     role: 'gapSm',
     desc: 'gap-3',
     gapPx: 12,
@@ -258,7 +279,7 @@ const GAPS = [
     where: 'Кнопки, иконки',
   },
   {
-    n: 'U02',
+    n: 'U03',
     role: 'gapMd',
     desc: 'gap-4',
     gapPx: 16,
@@ -266,16 +287,6 @@ const GAPS = [
     mob: '16px',
     desk: '16px',
     where: 'Карточки, flex-ряды',
-  },
-  {
-    n: 'U03',
-    role: 'gapMd6',
-    desc: 'gap-6',
-    gapPx: 24,
-    deskGapPx: 24,
-    mob: '24px',
-    desk: '24px',
-    where: 'Промежуточный',
   },
   {
     n: 'U04',
@@ -483,7 +494,7 @@ export default function StyleGuide() {
             03 · ОТСТУПЫ — 27 ролей · 1:1
         ══════════════════════════════════════════════ */}
         <div className="my-10">
-          <p className={`${t.label} text-text-muted mb-6`}>03 · Отступы — 27 ролей · 1:1</p>
+          <p className={`${t.label} text-text-muted mb-6`}>03 · Отступы — 28 ролей · 1:1</p>
 
           {/* ── 03-V · Вертикальные (10) ─────────────── */}
           <p className={`${t.label} text-text-subtle mb-2`}>
@@ -602,7 +613,7 @@ export default function StyleGuide() {
           </div>
 
           {/* ── 03-U · Gap (8) ───────────────────────── */}
-          <p className={`${t.label} text-text-subtle mb-2`}>03-U · Универсальные gap — 8 ролей</p>
+          <p className={`${t.label} text-text-subtle mb-2`}>03-U · Универсальные gap — 9 ролей</p>
           <p className={`${t.label} text-text-subtle/30 mb-2`}>
             квадраты 14×14px · зазор = реальный px · где responsive — два демо
           </p>

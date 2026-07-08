@@ -1,4 +1,6 @@
+import { useState } from 'react';
 import SectionTag from '../components/SectionTag';
+import Lightbox from '../components/Lightbox';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { useLang } from '../hooks/useLang';
 import {
@@ -8,6 +10,7 @@ import {
   backstageQuotes,
   backstageLinkLabel,
 } from '../data/content';
+import type { GalleryPhoto } from '../data/content';
 import { t } from '../styles/typography';
 import { s } from '../styles/spacing';
 
@@ -17,6 +20,14 @@ export default function Backstage() {
   const revealRef = useScrollReveal<HTMLElement>();
   const { lang } = useLang();
   const h = headings.backstage;
+
+  const kitchenPhotos: GalleryPhoto[] = backstagePhotos.map((photo) => ({
+    src: photo.src,
+    alt: photo.alt,
+    size: photo.orientation === 'portrait' ? 'portrait' : 'landscape',
+  }));
+
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
   return (
     <section ref={revealRef} id="backstage" className={`${s.section} bg-bg-primary reveal`}>
@@ -34,8 +45,14 @@ export default function Backstage() {
 
         {/* Rehearsal photos */}
         <div className={`grid grid-cols-2 md:grid-cols-4 ${s.gapSm} ${s.mbLg} items-start`}>
-          {backstagePhotos.map((photo) => (
-            <figure key={photo.src} className="group">
+          {backstagePhotos.map((photo, i) => (
+            <button
+              key={photo.src}
+              type="button"
+              onClick={() => setLightboxIndex(i)}
+              aria-label={photo.alt[lang]}
+              className={`group flex flex-col ${s.gapTight} text-left cursor-zoom-in bg-transparent p-0 border-0 w-full`}
+            >
               <div
                 className={`overflow-hidden ${photo.orientation === 'portrait' ? 'aspect-[3/4]' : 'aspect-[4/3]'}`}
               >
@@ -47,10 +64,8 @@ export default function Backstage() {
                   className="w-full h-full object-cover saturate-[0.85] group-hover:saturate-100 transition-all duration-500"
                 />
               </div>
-              <figcaption className={`${t.caption} text-text-subtle mt-2`}>
-                {photo.alt[lang]}
-              </figcaption>
-            </figure>
+              <span className={`${t.caption} text-text-subtle`}>{photo.alt[lang]}</span>
+            </button>
           ))}
         </div>
 
@@ -62,7 +77,7 @@ export default function Backstage() {
               className={`border border-border bg-surface flex flex-col justify-between ${s.cardLg}`}
             >
               <p className={`${t.quote} text-text-primary/85 ${s.mbMd}`}>{quote.text[lang]}</p>
-              <div className="flex flex-col gap-2">
+              <div className={`flex flex-col ${s.gapInline}`}>
                 <span className={`${t.caption} text-text-muted`}>{quote.source[lang]}</span>
                 <a
                   href={quote.href}
@@ -77,6 +92,16 @@ export default function Backstage() {
           ))}
         </div>
       </div>
+
+      {lightboxIndex !== null && (
+        <Lightbox
+          photos={kitchenPhotos}
+          index={lightboxIndex}
+          lang={lang}
+          onClose={() => setLightboxIndex(null)}
+          onNavigate={(idx) => setLightboxIndex(idx)}
+        />
+      )}
     </section>
   );
 }

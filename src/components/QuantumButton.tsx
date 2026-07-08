@@ -19,7 +19,8 @@ export default function QuantumButton({
   className = '',
 }: QuantumButtonProps) {
   const baseStyles = `
-    inline-flex items-center justify-center gap-2
+    inline-flex items-center justify-center
+    ${s.gapInline}
     ${s.buttonPadding}
     ${s.gapSm}
     ${t.button}

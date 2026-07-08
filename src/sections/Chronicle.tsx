@@ -52,44 +52,39 @@ export default function Chronicle() {
                     />
                   </div>
 
-                  {/* Year */}
-                  <span
-                    className={`${t.label} block mb-1 ${
-                      isPre ? 'text-text-subtle' : 'text-accent-primary'
-                    }`}
-                  >
-                    {event.year}
-                  </span>
-
-                  {/* Label */}
-                  <div className="flex items-start gap-3 flex-wrap">
-                    <h3
-                      className={`${t.highlight} uppercase tracking-wide ${isPre ? 'text-text-muted' : 'text-text-primary'}`}
+                  <div className={`flex flex-col ${s.gapTight}`}>
+                    <span
+                      className={`${t.label} ${isPre ? 'text-text-subtle' : 'text-accent-primary'}`}
                     >
-                      {event.label[lang]}
-                    </h3>
-                    {event.link && (
-                      <a
-                        href={event.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={`${t.label} transition-colors whitespace-nowrap ${
-                          isPre
-                            ? 'text-text-subtle hover:text-text-muted'
-                            : 'text-accent-secondary hover:text-accent-primary'
-                        }`}
-                      >
-                        odadream.art →
-                      </a>
-                    )}
-                  </div>
+                      {event.year}
+                    </span>
 
-                  {/* Description */}
-                  <p
-                    className={`${t.caption} mt-1 ${isPre ? 'text-text-subtle' : 'text-text-muted'}`}
-                  >
-                    {event.description[lang]}
-                  </p>
+                    <div className={`flex items-start flex-wrap ${s.gapSm}`}>
+                      <h3
+                        className={`${t.highlight} uppercase tracking-wide ${isPre ? 'text-text-muted' : 'text-text-primary'}`}
+                      >
+                        {event.label[lang]}
+                      </h3>
+                      {event.link && (
+                        <a
+                          href={event.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={`${t.label} transition-colors whitespace-nowrap ${
+                            isPre
+                              ? 'text-text-subtle hover:text-text-muted'
+                              : 'text-accent-secondary hover:text-accent-primary'
+                          }`}
+                        >
+                          odadream.art →
+                        </a>
+                      )}
+                    </div>
+
+                    <p className={`${t.caption} ${isPre ? 'text-text-subtle' : 'text-text-muted'}`}>
+                      {event.description[lang]}
+                    </p>
+                  </div>
                 </div>
               );
             })}
@@ -99,7 +94,7 @@ export default function Chronicle() {
               <div className="absolute left-0 top-1 w-[15px] h-[15px] rounded-full border border-border bg-bg-primary flex items-center justify-center">
                 <div className="w-[5px] h-[5px] rounded-full bg-border" />
               </div>
-              <div className="flex items-center gap-2">
+              <div className={`flex items-center ${s.gapInline}`}>
                 <StatusDot color="mauve" />
                 <span className={`${t.caption} text-text-subtle italic`}>
                   {chronicleContinues[lang]}

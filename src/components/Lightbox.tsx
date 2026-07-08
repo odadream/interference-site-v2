@@ -1,6 +1,7 @@
 import { useEffect, useCallback } from 'react';
 import { createPortal } from 'react-dom';
 import { t } from '../styles/typography';
+import { s } from '../styles/spacing';
 import type { GalleryPhoto } from '../data/content';
 import type { Lang } from '../context/LangContext';
 
@@ -77,7 +78,7 @@ export default function Lightbox({ photos, index, lang, onClose, onNavigate }: L
 
       {/* Caption + nav */}
       <div
-        className="shrink-0 px-4 md:px-8 py-4 flex items-center justify-between gap-4"
+        className={`shrink-0 px-4 md:px-8 py-4 flex items-center justify-between ${s.gapMd}`}
         onClick={(e) => e.stopPropagation()}
       >
         <button
