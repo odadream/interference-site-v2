@@ -41,7 +41,7 @@ export default function Timeline({ items, onStillClick }: TimelineProps) {
               onMouseEnter={() => setActiveIndex(index)}
             >
               {/* Dot — pinned to the top edge so it lines up with the still's corner */}
-              <div className="absolute top-0 left-[15px] md:left-1/2 -translate-x-1/2 md:-translate-x-1/2 z-10">
+              <div className="absolute top-0 -translate-y-1/2 left-[15px] md:left-1/2 -translate-x-1/2 md:-translate-x-1/2 z-10">
                 <div
                   className={`w-2 h-2 rounded-full transition-all duration-300 ${
                     isActive

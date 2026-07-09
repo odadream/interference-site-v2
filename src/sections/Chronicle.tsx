@@ -35,7 +35,7 @@ export default function Chronicle() {
               return (
                 <div
                   key={i}
-                  className={`relative pl-8 transition-opacity ${isPre ? 'opacity-40' : 'opacity-100'}`}
+                  className={`relative pl-8 transition-opacity duration-300 ${isPre ? 'opacity-40 hover:opacity-100 active:opacity-100 focus-within:opacity-100' : 'opacity-100'}`}
                 >
                   {/* Dot on timeline */}
                   <div

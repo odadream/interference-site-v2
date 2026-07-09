@@ -142,3 +142,66 @@ input:focus-visible {
     display: none;
   }
 }
+
+/* --- Layer card animated geometric backdrops (About section) --- */
+.layer-backdrop {
+  position: absolute;
+  inset: auto -10% -20% auto;
+  width: 70%;
+  height: 70%;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+@keyframes layer-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.animate-layer-rotate {
+  animation: layer-rotate 60s linear infinite;
+  transform-origin: 50% 50%;
+}
+
+@keyframes layer-wave {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-40px);
+  }
+}
+.animate-layer-wave {
+  animation: layer-wave 6s linear infinite;
+}
+.animate-layer-wave-slow {
+  animation: layer-wave 10s linear infinite;
+}
+
+@keyframes layer-ripple {
+  0% {
+    transform: scale(0.4);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(3.2);
+    opacity: 0;
+  }
+}
+.animate-layer-ripple {
+  animation: layer-ripple 4.8s ease-out infinite;
+  transform-origin: 50% 50%;
+  transform-box: fill-box;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-layer-rotate,
+  .animate-layer-wave,
+  .animate-layer-wave-slow,
+  .animate-layer-ripple {
+    animation: none;
+  }
+}

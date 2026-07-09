@@ -34,7 +34,7 @@ export default function About() {
         <div className={`max-w-2xl ${s.mbLg}`}>
           <p className={`${t.bodyPrimary} text-text-primary ${s.mbSm}`}>{showDescription[lang]}</p>
           <p className={`${t.bodySecondary} text-text-muted ${s.mbSm}`}>{showLead[lang]}</p>
-          <p className={`${t.bodySecondary} text-text-muted italic`}>{showQuestion[lang]}</p>
+          <p className={`${t.bodySecondary} text-text-muted`}>{showQuestion[lang]}</p>
         </div>
 
         {/* Three Layers */}

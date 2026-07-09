@@ -26,7 +26,21 @@ interface HeroProps {
   onNavigate: (id: string) => void;
 }
 
-function InterferenceTitle() {
+function InterferenceTitle({ lang }: { lang: 'ru' | 'en' }) {
+  // Both lockups share the signature displaced-syllable move:
+  // RU drops the «Я» of ИНТЕРФЕРЕНЦИЯ down; EN pulls the "OF" up into
+  // the second line, keeping both lines 12/11 monospaced characters.
+  if (lang === 'en') {
+    return (
+      <div className="select-none">
+        <div className={`${t.display} text-accent-primary`}>INTERFERENCE</div>
+        <div className={t.display}>
+          <span className="text-accent-primary">OF</span>
+          <span className="text-text-primary">REALITIES</span>
+        </div>
+      </div>
+    );
+  }
   return (
     <div className="select-none">
       <div className={`${t.display} text-accent-primary`}>ИНТЕРФЕРЕНЦИ</div>
@@ -133,7 +147,7 @@ export default function Hero({ onNavigate }: HeroProps) {
           <p className={`${t.label} text-text-muted ${s.mbMd}`}>{heroFormat[lang]}</p>
 
           {/* 3. Title */}
-          <InterferenceTitle />
+          <InterferenceTitle lang={lang} />
 
           {/* 4. Premiere badge */}
           <div className={`${s.mbMd} flex items-center justify-center ${s.gapInline}`}>

@@ -211,10 +211,10 @@ export const programTimeline: ProgramItem[] = [
       en: 'A screensaver-style intro in the spirit of “The Matrix” — a nod to the hypothesis of a computable world. Performers, indistinguishable from the audience, surface in the auditorium and move onto the stage, switching their dance on and off. Under their outer clothes — large navigation markers: a public offering of oneself to the system, a wish to be read, understood, digitised.',
     },
     still: {
-      src: '/stills/boot-up.webp',
+      src: '/stills/boot-screensaver.webp',
       alt: {
-        ru: 'Проявление: артисты сходятся на сцену в тумане, на спинах — навигационные маркеры',
-        en: 'Emergence: performers converge on the foggy stage, navigation markers on their backs',
+        ru: 'Загрузка: тёмный зал, на экране — скринсейвер в духе «Матрицы»',
+        en: 'Boot-up: a dark hall, a Matrix-style screensaver on the screen',
       },
     },
   },
@@ -226,10 +226,10 @@ export const programTimeline: ProgramItem[] = [
       en: 'Eight strict formations — line, pairs, diagonals, wedge. On the mirror-screen the same figures assemble: the real and the virtual worlds are forcibly synchronised, and the spectator learns to read the link between them.',
     },
     still: {
-      src: '/stills/mirror.webp',
+      src: '/stills/calibration-square.webp',
       alt: {
-        ru: 'Ансамбль спиной к залу, на видео-стене — зеркальное отражение той же фигуры',
-        en: 'The ensemble with their backs to the hall, the same figure mirrored on the video wall',
+        ru: 'Калибровка: квадрат из артистов на сцене и тот же квадрат на экране-зазеркалье',
+        en: 'Calibration: a square of performers on stage and the same square on the mirror screen',
       },
     },
   },
@@ -536,49 +536,6 @@ export const contextItems: ContextItem[] = [
       ),
     },
   },
-  {
-    id: 'about-performance',
-    title: {
-      ru: 'Спектакль о спектакле',
-      en: 'A performance about performance',
-    },
-    content: {
-      ru: 'По аналогии с «фильмом о фильме», «Интерференция реальностей» — спектакль о спектакле: мы показываем бэкстейдж сборки — как из выбора темы, музыки, света и ролей на глазах зала рождается сценическая вселенная. Сам процесс отсылает к тому, что делает театр волшебным: мир возникает, когда зритель отдаёт ему внимание. А внимание, как и наблюдение, всегда двустороннее. В этом смысле спектакль ещё и образовательный: он не рассказывает о том, как устроены театр и медиатехнологии, — он показывает это изнутри, разбирая собственный язык прямо во время действия.',
-      en: 'By analogy with a “film about film”, “Interference of Realities” is a performance about performance: we show the backstage of the build — how, from a choice of theme, music, light and roles, a scenic universe is born in front of the room. The process itself points to what makes theatre magical: a world appears when the spectator gives it attention. And attention, like observation, is always two-way. In this sense the piece is also educational: it does not tell you how theatre and media technology work — it shows it from the inside, unpacking its own language right during the action.',
-    },
-  },
-  {
-    id: 'neiry',
-    title: { ru: 'Технологический партнёр: Neiry', en: 'Technology partner: Neiry' },
-    content: {
-      ru: (
-        <>
-          Группа компаний {extLink('https://neiry.ru', 'Neiry')} — технологический партнёр
-          спектакля. Нейрогарнитуры {extLink('https://neiry.ru', 'Neiry Headband')} считывают
-          электрическую активность мозга через кожу головы, регистрируя ритмы: от медленной дельты
-          (1–4 Гц) до быстрой гаммы (30–100 Гц). Эти данные в реальном времени передаются в
-          медиасистему спектакля и влияют на сценографию, звук и поведение виртуальной сцены.
-        </>
-      ),
-      en: (
-        <>
-          The {extLink('https://neiry.ru', 'Neiry')} group is the technology partner of the show.
-          The {extLink('https://neiry.ru', 'Neiry Headband')} neuro-headsets read the brain’s
-          electrical activity through the scalp, registering rhythms from slow delta (1–4 Hz) to
-          fast gamma (30–100 Hz). These data are passed to the show’s media system in real time and
-          shape the scenography, the sound and the behaviour of the virtual stage.
-        </>
-      ),
-    },
-  },
-  {
-    id: 'now',
-    title: { ru: 'Зачем это сейчас', en: 'Why now' },
-    content: {
-      ru: 'В мире растущей неопределённости спектакль предлагает рассматривать коллективное внимание и синхронизацию как ресурс. Не утверждение — опыт. Не ответ — вопрос.',
-      en: 'In a world of growing uncertainty, the performance proposes treating collective attention and synchronisation as a resource. Not a claim — an experience. Not an answer — a question.',
-    },
-  },
 ];
 
 // ---------------------------------------------------------------------------
@@ -655,35 +612,6 @@ export const faqItems: ContextItem[] = [
     content: {
       ru: 'Компьютерное зрение фиксирует траектории движения танцовщиков по навигационным маркерам на костюмах. В связке с ЭЭГ-данными это создаёт двухканальную систему: внешнее движение тел и внутренние состояния участников вместе управляют виртуальной сценой. Оба потока обрабатываются в реальном времени.',
       en: 'Computer vision captures the dancers’ trajectories via navigation markers on their costumes. Combined with the EEG data, this makes a two-channel system: the outer movement of bodies and the inner states of participants together drive the virtual stage. Both streams are processed in real time.',
-    },
-  },
-  {
-    id: 'booking',
-    title: { ru: 'Как организовать показ?', en: 'How can we host a show?' },
-    content: {
-      ru: (
-        <>
-          Спектакль готов к гастролям. Монтаж — 1 день, площадка от 50 м² с затемнением и
-          аудиосистемой. Команда 6–8 человек, нейрогарнитуры на 30 зрителей. Напишите нам на{' '}
-          {extLink(
-            'mailto:hi@odadream.art?subject=Show inquiry / Запрос на показ',
-            'hi@odadream.art'
-          )}{' '}
-          или в {extLink('https://t.me/odadream_info', 'Telegram')} — обсудим формат и даты.
-        </>
-      ),
-      en: (
-        <>
-          The show is tour-ready. Setup takes one day; a venue from 50 m² with blackout and an audio
-          system. A team of 6–8, neuro-headsets for 30 spectators. Write to us at{' '}
-          {extLink(
-            'mailto:hi@odadream.art?subject=Show inquiry / Запрос на показ',
-            'hi@odadream.art'
-          )}{' '}
-          or on {extLink('https://t.me/odadream_info', 'Telegram')} — we will discuss format and
-          dates.
-        </>
-      ),
     },
   },
 ];

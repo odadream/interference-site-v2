@@ -87,12 +87,16 @@ export default function Institutions({ onNavigate: _onNavigate }: InstitutionsPr
         </div>
 
         {/* CTA */}
-        <div className={`flex flex-col sm:flex-row items-start sm:items-center ${s.gapMd}`}>
+        <div className={`group flex flex-col sm:flex-row items-start sm:items-center ${s.gapMd}`}>
           <QuantumButton href="mailto:hi@odadream.art?subject=Show inquiry / Запрос на показ">
             {institutionsCTA[lang]}
           </QuantumButton>
           <div className={`flex flex-col ${s.gapSm}`}>
-            <span className={`${t.caption} text-text-subtle`}>hi@odadream.art</span>
+            <span
+              className={`${t.caption} text-text-subtle transition-all duration-300 group-hover:text-accent-primary group-hover:[text-shadow:0_0_12px_rgba(194,101,157,0.5)]`}
+            >
+              hi@odadream.art
+            </span>
             <a
               href="https://t.me/odadream_info"
               target="_blank"

@@ -31,16 +31,22 @@ export default function CinematicDivider({ data }: CinematicDividerProps) {
           backgroundPosition: 'center 25%',
         }}
       />
-      <div className="absolute inset-0 bg-gradient-to-r from-bg-primary/85 via-bg-primary/30 to-bg-primary/60" />
+      <div className="absolute inset-0 bg-gradient-to-r from-bg-primary/95 via-bg-primary/50 to-bg-primary/60" />
       <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-bg-primary via-bg-primary/60 to-transparent" />
       <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-bg-primary via-bg-primary/60 to-transparent" />
 
       <div className="relative max-w-5xl mx-auto px-6 md:px-10 py-40 md:py-56">
         <blockquote className="max-w-2xl">
-          <p className={`${t.quote} text-peach text-lg md:text-2xl leading-relaxed mb-4`}>
+          <p
+            className={`${t.quote} text-peach text-lg md:text-2xl leading-relaxed mb-4 [text-shadow:0_2px_18px_rgba(14,15,21,0.95),0_0_4px_rgba(14,15,21,0.9)]`}
+          >
             «{data.quote[lang]}»
           </p>
-          <cite className={`${t.label} text-text-muted not-italic`}>{data.attribution[lang]}</cite>
+          <cite
+            className={`${t.label} text-text-muted not-italic [text-shadow:0_1px_10px_rgba(14,15,21,0.95)]`}
+          >
+            {data.attribution[lang]}
+          </cite>
         </blockquote>
       </div>
     </section>
