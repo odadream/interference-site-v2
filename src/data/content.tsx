@@ -271,10 +271,10 @@ export const programTimeline: ProgramItem[] = [
       en: 'An open conversation with the audience: questions, explanations, comments on what was seen. Integrating the lived experience is an obligatory part of the show.',
     },
     still: {
-      src: '/stills/audience-waving.webp',
+      src: '/stills/reflection-qa.webp',
       alt: {
-        ru: 'Зал в зелёном свете, зрители с поднятыми руками — совместное действие',
-        en: 'The hall in green light, spectators with raised arms — a shared action',
+        ru: 'Зрительница с микрофоном задаёт вопрос — открытый разговор после спектакля',
+        en: 'An audience member with a microphone asks a question — the open conversation after the show',
       },
     },
   },
