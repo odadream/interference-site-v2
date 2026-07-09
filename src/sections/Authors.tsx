@@ -103,7 +103,7 @@ export default function Authors() {
           <div className={`flex flex-wrap ${s.gapSm}`}>
             {organizers.map((org) => (
               <a
-                key={org.shortName}
+                key={org.shortName.ru}
                 href={org.href}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -112,13 +112,13 @@ export default function Authors() {
                 {org.logo && (
                   <img
                     src={`${BASE}${org.logo.slice(1)}`}
-                    alt={org.shortName}
+                    alt={org.shortName[lang]}
                     loading="lazy"
                     className="h-7 md:h-9 w-auto max-w-[52px] object-contain shrink-0"
                   />
                 )}
                 <div className={`flex flex-col ${s.gapTight} min-w-0`}>
-                  <span className={`${t.highlight} text-text-primary`}>{org.shortName}</span>
+                  <span className={`${t.highlight} text-text-primary`}>{org.shortName[lang]}</span>
                   <span className={`${t.label} text-text-muted`}>{org.name[lang]}</span>
                 </div>
               </a>
@@ -132,7 +132,7 @@ export default function Authors() {
           <div className={`flex flex-wrap ${s.gapSm}`}>
             {partners.map((partner) => (
               <a
-                key={partner.name}
+                key={partner.name.ru}
                 href={partner.href}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -141,13 +141,13 @@ export default function Authors() {
                 {partner.logo && (
                   <img
                     src={`${BASE}${partner.logo.slice(1)}`}
-                    alt={partner.name}
+                    alt={partner.name[lang]}
                     loading="lazy"
                     className="h-7 md:h-9 w-auto max-w-[52px] object-contain shrink-0"
                   />
                 )}
                 <div className={`flex flex-col ${s.gapTight} min-w-0`}>
-                  <span className={`${t.highlight} text-text-primary`}>{partner.name}</span>
+                  <span className={`${t.highlight} text-text-primary`}>{partner.name[lang]}</span>
                   {partner.note && (
                     <span className={`${t.label} text-text-muted`}>{partner.note[lang]}</span>
                   )}

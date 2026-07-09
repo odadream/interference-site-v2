@@ -45,8 +45,10 @@ function LangToggle() {
     </button>
   );
 
+  // Always visible (mobile included) — a language switch is a first-visit
+  // decision, not something to bury inside the hamburger menu.
   return (
-    <div className="hidden md:flex items-center gap-1 border border-border p-0.5">
+    <div className="flex items-center gap-1 border border-border p-0.5">
       {btn('ru', 'RU')}
       {btn('en', 'EN')}
     </div>
@@ -54,7 +56,7 @@ function LangToggle() {
 }
 
 export default function Header({ menuOpen, setMenuOpen, onNavigate }: HeaderProps) {
-  const { lang, setLang } = useLang();
+  const { lang } = useLang();
 
   return (
     <>
@@ -122,22 +124,6 @@ export default function Header({ menuOpen, setMenuOpen, onNavigate }: HeaderProp
               {link.label[lang]}
             </button>
           ))}
-          <div className={`flex items-center ${s.gapSm} ${s.mbSm}`}>
-            <button
-              onClick={() => setLang('ru')}
-              aria-pressed={lang === 'ru'}
-              className={`${t.navLink} px-3 py-1.5 border transition-all ${lang === 'ru' ? 'border-accent-primary/60 bg-accent-primary/15 text-accent-primary shadow-[0_0_12px_rgba(194,101,157,0.35)]' : 'border-border text-text-subtle'}`}
-            >
-              RU
-            </button>
-            <button
-              onClick={() => setLang('en')}
-              aria-pressed={lang === 'en'}
-              className={`${t.navLink} px-3 py-1.5 border transition-all ${lang === 'en' ? 'border-accent-primary/60 bg-accent-primary/15 text-accent-primary shadow-[0_0_12px_rgba(194,101,157,0.35)]' : 'border-border text-text-subtle'}`}
-            >
-              EN
-            </button>
-          </div>
         </nav>
       </div>
     </>

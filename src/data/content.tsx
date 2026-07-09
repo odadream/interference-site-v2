@@ -834,7 +834,7 @@ export const venueBlock = {
 // ---------------------------------------------------------------------------
 
 export interface Partner {
-  name: string;
+  name: I18nString;
   note?: I18nString;
   href?: string;
   logo?: string;
@@ -842,7 +842,7 @@ export interface Partner {
 
 export interface Organizer {
   name: I18nString;
-  shortName: string;
+  shortName: I18nString;
   href?: string;
   logo?: string;
 }
@@ -852,7 +852,7 @@ export const partnersLabel: I18nString = { ru: 'Партнёры', en: 'Partners
 
 export const partners: Partner[] = [
   {
-    name: 'Neiry',
+    name: { ru: 'Neiry', en: 'Neiry' },
     note: {
       ru: 'технологический партнёр — лидер в области нейротехнологий',
       en: 'technology partner — a leader in neurotechnology',
@@ -861,7 +861,7 @@ export const partners: Partner[] = [
     logo: '/partners/NEIRY.svg',
   },
   {
-    name: 'ТСХР',
+    name: { ru: 'ТСХР', en: 'TSKhR' },
     note: {
       ru: 'Творческий союз художников России',
       en: 'Russian Union of Artists',
@@ -877,7 +877,7 @@ export const organizers: Organizer[] = [
       ru: 'Министерство культуры и туризма Калужской области',
       en: 'Ministry of Culture and Tourism of the Kaluga Region',
     },
-    shortName: 'Минкульт КО',
+    shortName: { ru: 'Минкульт КО', en: 'MinKult KO' },
     href: 'https://vk.com/min_kult_ko',
     logo: '/partners/MINKULT_KO.svg',
   },
@@ -886,7 +886,7 @@ export const organizers: Organizer[] = [
       ru: 'Инновационный культурный центр, Калуга',
       en: 'Innovative Cultural Centre, Kaluga',
     },
-    shortName: 'ИКЦ',
+    shortName: { ru: 'ИКЦ', en: 'ICC' },
     href: 'https://www.icc40.ru/',
     logo: '/partners/IKC.svg',
   },
@@ -895,7 +895,7 @@ export const organizers: Organizer[] = [
       ru: 'Инновационный театр балета при ИКЦ',
       en: 'Innovative Ballet Theatre at the ICC',
     },
-    shortName: 'ИТБ',
+    shortName: { ru: 'ИТБ', en: 'ITB' },
     href: 'https://www.icc40.ru/collectives/innovatsionnyy-teatr-baleta',
     logo: '/partners/ITB.svg',
   },
@@ -904,7 +904,7 @@ export const organizers: Organizer[] = [
       ru: 'XIV Фестиваль современного искусства, тема года — «Горизонты»',
       en: '14th Contemporary Art Festival, this year’s theme — “Horizons”',
     },
-    shortName: 'Циолковский Фест',
+    shortName: { ru: 'Циолковский Фест', en: 'Tsiolkovsky Fest' },
     href: 'https://t-fest.online/',
     logo: '/partners/TSIALKOV.svg',
   },
@@ -913,7 +913,7 @@ export const organizers: Organizer[] = [
       ru: 'Творческий дуэт Ольги и Далера Арабовых',
       en: 'The creative duo of Olga and Daler Arabov',
     },
-    shortName: 'ODA.dream',
+    shortName: { ru: 'ODA.dream', en: 'ODA.dream' },
     href: 'https://odadream.art/',
     logo: '/partners/ODA.svg',
   },

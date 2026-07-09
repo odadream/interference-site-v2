@@ -30,7 +30,33 @@ const OTHER_GROUPS: ExternalGroup[] = [
   },
 ];
 
-function InterferenceTitleSmall() {
+function InterferenceTitleSmall({ lang }: { lang: 'ru' | 'en' }) {
+  // Mirrors the Hero lockup (incl. its displaced-syllable move) at footer scale.
+  if (lang === 'en') {
+    return (
+      <div className="select-none">
+        <div className={`flex gap-1 ${t.displaySm}`}>
+          {'INTERFERENCE'.split('').map((c, i) => (
+            <span key={i} className="text-accent-primary">
+              {c}
+            </span>
+          ))}
+        </div>
+        <div className={`flex gap-1 ${t.displaySm}`}>
+          {'OF '.split('').map((c, i) => (
+            <span key={'a' + i} className="text-accent-primary">
+              {c}
+            </span>
+          ))}
+          {'REALITIES'.split('').map((c, i) => (
+            <span key={'b' + i} className="text-text-primary">
+              {c}
+            </span>
+          ))}
+        </div>
+      </div>
+    );
+  }
   return (
     <div className="select-none">
       <div className={`flex gap-1 ${t.displaySm}`}>
@@ -68,7 +94,7 @@ export default function Footer({ onNavigate }: FooterProps) {
           {/* Brand */}
           <div className="col-span-3 lg:col-span-1">
             <button onClick={() => onNavigate('hero')} className={`block ${s.mbSm}`}>
-              <InterferenceTitleSmall />
+              <InterferenceTitleSmall lang={lang} />
             </button>
             <p className={`${t.caption} text-text-muted max-w-xs`}>{footerTagline[lang]}</p>
           </div>
