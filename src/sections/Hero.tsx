@@ -29,7 +29,7 @@ interface HeroProps {
 function InterferenceTitle({ lang }: { lang: 'ru' | 'en' }) {
   // Both lockups share the signature displaced-syllable move:
   // RU drops the «Я» of ИНТЕРФЕРЕНЦИЯ down; EN pulls the "OF" up into
-  // the second line, keeping both lines 12/11 monospaced characters.
+  // the second line, keeping both lines 12/12 monospaced characters.
   if (lang === 'en') {
     return (
       <div className="select-none">

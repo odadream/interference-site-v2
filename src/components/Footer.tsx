@@ -43,8 +43,14 @@ function InterferenceTitleSmall({ lang }: { lang: 'ru' | 'en' }) {
           ))}
         </div>
         <div className={`flex gap-1 ${t.displaySm}`}>
-          {'OF '.split('').map((c, i) => (
-            <span key={'a' + i} className="text-accent-primary">
+          {'OF '.split('').map((c, i) => (
+            <span
+              key={'a' + i}
+              className="text-accent-primary"
+              // Per-character flex children collapse a lone space to 0 width;
+              // `pre` keeps its cell the same width as every letter.
+              style={c === ' ' ? { whiteSpace: 'pre' } : undefined}
+            >
               {c}
             </span>
           ))}

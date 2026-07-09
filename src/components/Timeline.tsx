@@ -95,7 +95,7 @@ export default function Timeline({ items, onStillClick }: TimelineProps) {
                     onClick={() => onStillClick?.(index)}
                     aria-label={item.still.alt}
                     className={`block w-full border overflow-hidden cursor-zoom-in text-left transition-all duration-500 ${
-                      isActive ? 'border-accent-primary/50' : 'border-border'
+                      isActive ? 'border-accent-primary/40' : 'border-border'
                     }`}
                   >
                     <img

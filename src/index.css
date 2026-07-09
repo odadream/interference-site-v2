@@ -10,6 +10,7 @@
   --accent-secondary: #8d4e79;
   --text-primary: #e9d0c5;
   --text-muted: #888092;
+  --border-faint: rgba(194, 101, 157, 0.1);
   --border: rgba(194, 101, 157, 0.2);
   --border-hover: rgba(194, 101, 157, 0.4);
 }

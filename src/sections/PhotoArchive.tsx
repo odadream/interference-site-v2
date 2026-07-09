@@ -91,7 +91,7 @@ export default function PhotoArchive() {
         {/* Nav arrows */}
         <button
           onClick={() => scroll('left')}
-          className="flex items-center justify-center absolute left-2 md:left-4 top-1/2 -translate-y-1/2 z-20 w-8 h-8 md:w-10 md:h-10 rounded-full border border-border/60 text-text-muted hover:border-accent-primary hover:text-accent-primary transition-colors bg-bg-primary/80 backdrop-blur-sm"
+          className="flex items-center justify-center absolute left-2 md:left-4 top-1/2 -translate-y-1/2 z-20 w-8 h-8 md:w-10 md:h-10 rounded-full border border-border-hover text-text-muted hover:border-accent-primary/40 hover:text-accent-primary transition-colors bg-bg-primary/80 backdrop-blur-sm"
           aria-label="Предыдущее фото"
         >
           <svg
@@ -109,7 +109,7 @@ export default function PhotoArchive() {
         </button>
         <button
           onClick={() => scroll('right')}
-          className="flex items-center justify-center absolute right-2 md:right-4 top-1/2 -translate-y-1/2 z-20 w-8 h-8 md:w-10 md:h-10 rounded-full border border-border/60 text-text-muted hover:border-accent-primary hover:text-accent-primary transition-colors bg-bg-primary/80 backdrop-blur-sm"
+          className="flex items-center justify-center absolute right-2 md:right-4 top-1/2 -translate-y-1/2 z-20 w-8 h-8 md:w-10 md:h-10 rounded-full border border-border-hover text-text-muted hover:border-accent-primary/40 hover:text-accent-primary transition-colors bg-bg-primary/80 backdrop-blur-sm"
           aria-label="Следующее фото"
         >
           <svg

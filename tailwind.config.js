@@ -20,9 +20,14 @@ export default {
         // Special
         peach: '#d2aa98',
         'warm-gray': '#b3816f',
-        // Functional tokens
-        border: 'rgba(194, 101, 157, 0.2)',
-        'border-hover': 'rgba(194, 101, 157, 0.4)',
+        // Functional tokens — baked-in rgba (not plain hex), so Tailwind's
+        // opacity modifier (`border-border/40`) CANNOT scale these further —
+        // the modifier silently no-ops and the class renders at the alpha
+        // baked in below. Never suffix `border`/`border-hover`/`border-faint`
+        // with `/NN`; add a new named weight instead if one is needed.
+        'border-faint': 'rgba(194, 101, 157, 0.1)', // true hairline (photo mosaics)
+        border: 'rgba(194, 101, 157, 0.2)', // standard frame weight (cards, stills)
+        'border-hover': 'rgba(194, 101, 157, 0.4)', // emphasis / active weight
       },
       fontFamily: {
         mono: ['"JetBrains Mono"', 'monospace'],
