@@ -25,14 +25,23 @@
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://interference.odadream.art" />
     <meta property="og:site_name" content="ODA.dream" />
-    <meta property="og:image" content="https://interference.odadream.art/og-image.webp" />
+    <!-- JPG first: the widest-compatible format for link-preview crawlers
+         (Facebook/LinkedIn/WhatsApp have a history of mishandling WebP).
+         WEBP listed second as a lighter alternative for crawlers that support it. -->
+    <meta property="og:image" content="https://interference.odadream.art/og-image.jpg" />
+    <meta property="og:image:type" content="image/jpeg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta
       property="og:image:alt"
       content="Афиша спектакля «Интерференция реальностей» — нейроспектакль-импровизация"
     />
+    <meta property="og:image" content="https://interference.odadream.art/og-image.webp" />
+    <meta property="og:image:type" content="image/webp" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta property="og:locale" content="ru_RU" />
+    <meta property="og:locale:alternate" content="en_US" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -41,7 +50,7 @@
       name="twitter:description"
       content="Нейроспектакль-импровизация, созданный вместе со зрителями. Премьера состоялась 16 мая 2026, ИКЦ, Калуга."
     />
-    <meta name="twitter:image" content="https://interference.odadream.art/og-image.webp" />
+    <meta name="twitter:image" content="https://interference.odadream.art/og-image.jpg" />
 
     <link rel="canonical" href="https://interference.odadream.art" />
     <link rel="apple-touch-icon" href="%BASE_URL%favicon.svg" />

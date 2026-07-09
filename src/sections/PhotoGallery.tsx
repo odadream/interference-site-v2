@@ -51,7 +51,7 @@ export default function PhotoGallery() {
                   key={photo.src}
                   onClick={() => setLightboxIndex(i)}
                   aria-label={photo.alt[lang]}
-                  className={`relative group overflow-hidden cursor-zoom-in text-left ${sizeClasses[photo.size] ?? 'col-span-1 row-span-1'}`}
+                  className={`relative group overflow-hidden cursor-zoom-in text-left border border-border/40 hover:border-accent-primary/40 transition-colors duration-300 ${sizeClasses[photo.size] ?? 'col-span-1 row-span-1'}`}
                 >
                   <img
                     src={`${BASE}${photo.src.slice(1)}`}
@@ -73,7 +73,7 @@ export default function PhotoGallery() {
             <button
               onClick={() => setLightboxIndex(closingIndex)}
               aria-label={closingPhoto.alt[lang]}
-              className={`relative group overflow-hidden cursor-zoom-in text-left w-full`}
+              className="relative group overflow-hidden cursor-zoom-in text-left w-full border border-border/40 hover:border-accent-primary/40 transition-colors duration-300"
             >
               <img
                 src={`${BASE}${closingPhoto.src.slice(1)}`}
