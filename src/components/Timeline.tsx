@@ -4,10 +4,13 @@ import { s } from '../styles/spacing';
 
 import type { ReactNode } from 'react';
 
+const BASE = import.meta.env.BASE_URL;
+
 interface TimelineItem {
   time: string;
   title: string;
   description: ReactNode;
+  still?: { src: string; alt: string };
 }
 
 interface TimelineProps {
@@ -58,8 +61,44 @@ export default function Timeline({ items }: TimelineProps) {
                     {item.title}
                   </h4>
                   <div className={`${t.caption} text-text-muted`}>{item.description}</div>
+
+                  {/* Film still — mobile: inline under the text */}
+                  {item.still && (
+                    <figure className="mt-3 md:hidden border border-border overflow-hidden">
+                      <img
+                        src={`${BASE}${item.still.src.slice(1)}`}
+                        alt={item.still.alt}
+                        loading="lazy"
+                        className="w-full h-auto saturate-[0.9]"
+                      />
+                    </figure>
+                  )}
                 </div>
               </div>
+
+              {/* Film still — desktop: fills the opposite column */}
+              {item.still && (
+                <div
+                  className={`hidden md:block md:w-[calc(50%-2rem)] ${
+                    isLeft ? 'md:pl-8' : 'md:pr-8'
+                  }`}
+                >
+                  <figure
+                    className={`border overflow-hidden transition-all duration-500 ${
+                      isActive ? 'border-accent-primary/50' : 'border-border'
+                    }`}
+                  >
+                    <img
+                      src={`${BASE}${item.still.src.slice(1)}`}
+                      alt={item.still.alt}
+                      loading="lazy"
+                      className={`w-full h-auto transition-all duration-500 ${
+                        isActive ? 'saturate-100' : 'saturate-[0.7] opacity-80'
+                      }`}
+                    />
+                  </figure>
+                </div>
+              )}
             </div>
           );
         })}

@@ -198,6 +198,8 @@ export interface ProgramItem {
   time: I18nString;
   title: I18nString;
   description: I18nString;
+  /** Optional film still from the recording, shown beside the phase */
+  still?: { src: string; alt: I18nString };
 }
 
 export const programTimeline: ProgramItem[] = [
@@ -208,6 +210,13 @@ export const programTimeline: ProgramItem[] = [
       ru: 'Заставка-скринсейвер в духе «Матрицы» — отсылка к гипотезе вычислимого мира. Артисты, неотличимые от публики, проявляются в зрительном зале и выходят на сцену, «включая» и «выключая» танец. Под верхней одеждой — крупные навигационные маркеры: публичное предъявление себя системе, желание быть считанным, понятым, оцифрованным.',
       en: 'A screensaver-style intro in the spirit of “The Matrix” — a nod to the hypothesis of a computable world. Performers, indistinguishable from the audience, surface in the auditorium and move onto the stage, switching their dance on and off. Under their outer clothes — large navigation markers: a public offering of oneself to the system, a wish to be read, understood, digitised.',
     },
+    still: {
+      src: '/stills/dawn.webp',
+      alt: {
+        ru: 'Сцена проявляется из темноты: красный свет заливает ансамбль, на экране — граф виртуальной сцены',
+        en: 'The stage emerges from darkness: red light floods the ensemble, the virtual-scene graph on screen',
+      },
+    },
   },
   {
     time: { ru: 'Фаза 02', en: 'Phase 02' },
@@ -215,6 +224,13 @@ export const programTimeline: ProgramItem[] = [
     description: {
       ru: 'Восемь строгих фигур — линия, пары, диагонали, клин. На экране-зазеркалье выстраиваются те же фигуры: реальный и виртуальный миры принудительно синхронизируются, и зритель учится читать связь между ними.',
       en: 'Eight strict formations — line, pairs, diagonals, wedge. On the mirror-screen the same figures assemble: the real and the virtual worlds are forcibly synchronised, and the spectator learns to read the link between them.',
+    },
+    still: {
+      src: '/stills/mirror.webp',
+      alt: {
+        ru: 'Ансамбль спиной к залу, на видео-стене — зеркальное отражение той же фигуры',
+        en: 'The ensemble with their backs to the hall, the same figure mirrored on the video wall',
+      },
     },
   },
   {
@@ -224,6 +240,13 @@ export const programTimeline: ProgramItem[] = [
       ru: 'Восемь сольных эпизодов: свет, звук, тело, мозг, технологии, волны, реальность, драматургия. Голос спектакля описывает сам язык постановки, а танцовщик переводит слова в пластику. Рядом работает переводчик русского жестового языка — ещё одна форма трансформации информации.',
       en: 'Eight solo episodes: light, sound, body, brain, technology, waves, reality, dramaturgy. The voice of the performance describes the very language of the piece, while a dancer translates the words into movement. A Russian sign-language interpreter works alongside — one more form of transforming information.',
     },
+    still: {
+      src: '/stills/interference.webp',
+      alt: {
+        ru: 'Соло на фоне экрана с инфографикой «Явления волн» — в списке буквально значится интерференция',
+        en: 'A solo against the “Wave phenomena” infographic screen — interference is literally on the list',
+      },
+    },
   },
   {
     time: { ru: 'Фаза 04', en: 'Phase 04' },
@@ -232,6 +255,13 @@ export const programTimeline: ProgramItem[] = [
       ru: 'Зал вместе с труппой собирает мини-спектакль из пяти сцен по законам драматургии: темы, истории, музыка, свет и роли выбираются здесь и сейчас. Композитор и художник по свету строят партитуру в реальном времени, а в эксперименте четвёртой сцены продолжение выбирает «мозг зала» — по данным нейрогарнитур. В финале весь созданный спектакль воспроизводится целиком.',
       en: 'Together with the company, the audience assembles a mini-performance of five scenes by the laws of dramaturgy: themes, stories, music, light and roles are chosen here and now. The composer and the lighting designer build the score in real time, and in the experiment of the fourth scene the continuation is chosen by “the brain of the room” — from the neuro-headset data. In the finale the whole assembled performance is played back in full.',
     },
+    still: {
+      src: '/stills/headsets-olya.webp',
+      alt: {
+        ru: 'Зрителям-участникам надевают нейрогарнитуры перед экспериментом четвёртой сцены',
+        en: 'Audience volunteers are fitted with neuro-headsets before the fourth-scene experiment',
+      },
+    },
   },
   {
     time: { ru: 'Фаза 05', en: 'Phase 05' },
@@ -239,6 +269,13 @@ export const programTimeline: ProgramItem[] = [
     description: {
       ru: 'Открытый разговор со зрителями: вопросы, пояснения, комментарии к увиденному. Интеграция пережитого опыта — обязательная часть спектакля.',
       en: 'An open conversation with the audience: questions, explanations, comments on what was seen. Integrating the lived experience is an obligatory part of the show.',
+    },
+    still: {
+      src: '/stills/audience-waving.webp',
+      alt: {
+        ru: 'Зал в зелёном свете, зрители с поднятыми руками — совместное действие',
+        en: 'The hall in green light, spectators with raised arms — a shared action',
+      },
     },
   },
 ];
@@ -1333,4 +1370,97 @@ export const footerLabels = {
 export const menuAria = {
   open: { ru: 'Открыть меню', en: 'Open menu' } as I18nString,
   close: { ru: 'Закрыть меню', en: 'Close menu' } as I18nString,
+};
+
+// ---------------------------------------------------------------------------
+// TRAILER
+// ---------------------------------------------------------------------------
+
+/** Local web-optimised copy served from the repo (34 MB, 1080p). */
+export const TRAILER_LOCAL_SRC = '/video/interference-trailer-2026.mp4';
+/** Fill in after uploading to the platforms (see press/trailer/descriptions.md
+    in the event repo) — external buttons appear automatically once non-empty. */
+export const TRAILER_YOUTUBE_URL = '';
+export const TRAILER_VK_URL = '';
+
+export const trailerLabels = {
+  watch: { ru: 'Смотреть трейлер', en: 'Watch the trailer' } as I18nString,
+  title: { ru: 'Трейлер · 1:24', en: 'Trailer · 1:24' } as I18nString,
+  youtube: { ru: 'Смотреть на YouTube', en: 'Watch on YouTube' } as I18nString,
+  vk: { ru: 'Смотреть в VK Видео', en: 'Watch on VK Video' } as I18nString,
+  close: { ru: 'Закрыть', en: 'Close' } as I18nString,
+};
+
+// ---------------------------------------------------------------------------
+// FILM STILLS & CINEMATIC DIVIDERS (frames from the premiere recording)
+// ---------------------------------------------------------------------------
+
+export interface CinematicDividerData {
+  image: string;
+  quote: I18nString;
+  attribution: I18nString;
+}
+
+export const dividerWave: CinematicDividerData = {
+  image: '/stills/human-wave.webp',
+  quote: {
+    ru: 'И тогда человек — это тоже волна',
+    en: 'And then a human being is also a wave',
+  },
+  attribution: {
+    ru: 'голос спектакля · фаза «Теория»',
+    en: 'voice of the performance · Theory phase',
+  },
+};
+
+export const dividerReality: CinematicDividerData = {
+  image: '/stills/hands-lasers.webp',
+  quote: {
+    ru: 'Возможно, реальность — это не фиксированная сцена, а непрерывный процесс совместного создания мира',
+    en: 'Perhaps reality is not a fixed stage, but a continuous process of co-creating the world',
+  },
+  attribution: {
+    ru: 'голос спектакля · финал',
+    en: 'voice of the performance · finale',
+  },
+};
+
+export const institutionsStill = {
+  src: '/stills/laser-cones.webp',
+  alt: {
+    ru: 'Лазерные конусы над сценой, силуэты зрителей на переднем плане — система в полной сборке',
+    en: 'Laser cones over the stage, spectator silhouettes in the foreground — the system at full power',
+  } as I18nString,
+  caption: {
+    ru: 'Сцена 5 · нейросинхронизация зала и танцовщиков в реальном времени',
+    en: 'Scene 5 · real-time neuro-synchronisation of the audience and the dancers',
+  } as I18nString,
+};
+
+// ---------------------------------------------------------------------------
+// THEORY POSTERS — the on-stage infographics (projected during the Theory phase)
+// ---------------------------------------------------------------------------
+
+export interface TheoryPoster {
+  src: string;
+  title: I18nString;
+}
+
+export const theoryPosters: TheoryPoster[] = [
+  { src: '/theory-posters/01_light.webp', title: { ru: 'Свет', en: 'Light' } },
+  { src: '/theory-posters/02_sound.webp', title: { ru: 'Звук', en: 'Sound' } },
+  { src: '/theory-posters/03_dance.webp', title: { ru: 'Тело · танец', en: 'Body · dance' } },
+  { src: '/theory-posters/04_brain.webp', title: { ru: 'Мозг и ЭЭГ', en: 'Brain & EEG' } },
+  { src: '/theory-posters/05_technology.webp', title: { ru: 'Технологии', en: 'Technology' } },
+  { src: '/theory-posters/06_waves.webp', title: { ru: 'Волны', en: 'Waves' } },
+  { src: '/theory-posters/07_reality.webp', title: { ru: 'Реальность', en: 'Reality' } },
+  { src: '/theory-posters/08_dramaturgy.webp', title: { ru: 'Драматургия', en: 'Dramaturgy' } },
+];
+
+export const theoryPostersBlock = {
+  title: { ru: 'Инфографика со сцены', en: 'The on-stage infographics' } as I18nString,
+  intro: {
+    ru: 'Восемь плакатов, которые проецировались на экран во время фазы «Теория», — по одному на каждый эпизод. Нажмите, чтобы рассмотреть.',
+    en: 'Eight posters projected on screen during the Theory phase — one per episode. Click to explore.',
+  } as I18nString,
 };

@@ -15,6 +15,7 @@ export default function Program() {
     time: p.time[lang],
     title: p.title[lang],
     description: p.description[lang],
+    still: p.still ? { src: p.still.src, alt: p.still.alt[lang] } : undefined,
   }));
 
   return (

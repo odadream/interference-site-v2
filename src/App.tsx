@@ -16,6 +16,8 @@ import Institutions from './sections/Institutions';
 import Chronicle from './sections/Chronicle';
 import Footer from './components/Footer';
 import StyleGuide from './components/StyleGuide';
+import CinematicDivider from './components/CinematicDivider';
+import { dividerWave, dividerReality } from './data/content';
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -52,12 +54,14 @@ function App() {
           <PartnersStrip />
           <PhotoGallery />
           <About />
+          <CinematicDivider data={dividerWave} />
           <Program />
           <Context />
           <InterferenceLab />
           <Backstage />
           <FAQ />
           <Authors />
+          <CinematicDivider data={dividerReality} />
           <Institutions onNavigate={scrollToSection} />
           <Chronicle />
         </main>

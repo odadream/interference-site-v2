@@ -1,6 +1,7 @@
-import { useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useParticles } from '../hooks/useParticles';
 import QuantumButton from '../components/QuantumButton';
+import TrailerModal from '../components/TrailerModal';
 import { useLang } from '../hooks/useLang';
 import {
   heroFestivalLine,
@@ -9,8 +10,8 @@ import {
   heroPremiereBadge,
   heroQuote,
   heroCTAPrimary,
-  heroCTASecondary,
   heroScroll,
+  trailerLabels,
 } from '../data/content';
 import { t } from '../styles/typography';
 import { s } from '../styles/spacing';
@@ -36,6 +37,17 @@ export default function Hero({ onNavigate }: HeroProps) {
   const fgCanvasRef = useRef<HTMLCanvasElement>(null);
   const cardRef = useRef<HTMLDivElement>(null);
   const { lang } = useLang();
+  const [trailerOpen, setTrailerOpen] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const v = videoRef.current;
+    if (!v) return;
+    v.muted = true;
+    v.play().catch(() => {
+      /* autoplay blocked — the poster image stays as the cover */
+    });
+  }, []);
 
   // Background particles — flow around card
   useParticles(bgCanvasRef, {
@@ -66,6 +78,21 @@ export default function Hero({ onNavigate }: HeroProps) {
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url('${import.meta.env.BASE_URL}poster-bg.webp')` }}
+      />
+      {/* Ambient video cover (Kinopoisk-style): silent 11s loop from the finale
+          laser scene, ~2 MB. The poster image above stays as the instant
+          fallback while the video streams in. Playback is started imperatively:
+          React does not render `muted` as a DOM attribute, which breaks the
+          declarative autoplay path in Chrome. */}
+      <video
+        ref={videoRef}
+        className="absolute inset-0 w-full h-full object-cover"
+        src={`${import.meta.env.BASE_URL}video/hero-loop.mp4`}
+        loop
+        playsInline
+        preload="auto"
+        aria-hidden="true"
+        poster={`${import.meta.env.BASE_URL}poster-bg.webp`}
       />
       <div className="absolute inset-0 bg-gradient-to-t from-bg-primary via-bg-primary/60 to-bg-primary/40" />
 
@@ -118,11 +145,11 @@ export default function Hero({ onNavigate }: HeroProps) {
 
           {/* 6. Buttons */}
           <div className={`flex flex-col sm:flex-row items-center justify-center ${s.gapSm}`}>
-            <QuantumButton onClick={() => onNavigate('institutions')}>
-              {heroCTAPrimary[lang]}
+            <QuantumButton onClick={() => setTrailerOpen(true)}>
+              ▶ {trailerLabels.watch[lang]}
             </QuantumButton>
-            <QuantumButton variant="ghost" onClick={() => onNavigate('gallery')}>
-              {heroCTASecondary[lang]}
+            <QuantumButton variant="ghost" onClick={() => onNavigate('institutions')}>
+              {heroCTAPrimary[lang]}
             </QuantumButton>
           </div>
         </div>
@@ -141,6 +168,8 @@ export default function Hero({ onNavigate }: HeroProps) {
         <span className={`${t.label} text-text-muted`}>{heroScroll[lang]}</span>
         <div className="w-[1px] h-6 bg-gradient-to-b from-accent-primary to-transparent animate-pulse" />
       </div>
+
+      {trailerOpen && <TrailerModal lang={lang} onClose={() => setTrailerOpen(false)} />}
     </section>
   );
 }
