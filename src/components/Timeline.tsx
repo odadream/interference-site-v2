@@ -15,9 +15,11 @@ interface TimelineItem {
 
 interface TimelineProps {
   items: TimelineItem[];
+  /** Called with the item index when a film still is clicked (open a lightbox). */
+  onStillClick?: (index: number) => void;
 }
 
-export default function Timeline({ items }: TimelineProps) {
+export default function Timeline({ items, onStillClick }: TimelineProps) {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
@@ -38,8 +40,8 @@ export default function Timeline({ items }: TimelineProps) {
               }`}
               onMouseEnter={() => setActiveIndex(index)}
             >
-              {/* Dot */}
-              <div className="absolute left-[15px] md:left-1/2 -translate-x-1/2 md:-translate-x-1/2 z-10">
+              {/* Dot — pinned to the top edge so it lines up with the still's corner */}
+              <div className="absolute top-0 left-[15px] md:left-1/2 -translate-x-1/2 md:-translate-x-1/2 z-10">
                 <div
                   className={`w-2 h-2 rounded-full transition-all duration-300 ${
                     isActive
@@ -64,27 +66,35 @@ export default function Timeline({ items }: TimelineProps) {
 
                   {/* Film still — mobile: inline under the text */}
                   {item.still && (
-                    <figure className="mt-3 md:hidden border border-border overflow-hidden">
+                    <button
+                      type="button"
+                      onClick={() => onStillClick?.(index)}
+                      aria-label={item.still.alt}
+                      className="mt-3 md:hidden border border-border overflow-hidden cursor-zoom-in text-left"
+                    >
                       <img
                         src={`${BASE}${item.still.src.slice(1)}`}
                         alt={item.still.alt}
                         loading="lazy"
                         className="w-full h-auto saturate-[0.9]"
                       />
-                    </figure>
+                    </button>
                   )}
                 </div>
               </div>
 
-              {/* Film still — desktop: fills the opposite column */}
+              {/* Film still — desktop: fills the opposite column, top-aligned with the dot */}
               {item.still && (
                 <div
                   className={`hidden md:block md:w-[calc(50%-2rem)] ${
                     isLeft ? 'md:pl-8' : 'md:pr-8'
                   }`}
                 >
-                  <figure
-                    className={`border overflow-hidden transition-all duration-500 ${
+                  <button
+                    type="button"
+                    onClick={() => onStillClick?.(index)}
+                    aria-label={item.still.alt}
+                    className={`block w-full border overflow-hidden cursor-zoom-in text-left transition-all duration-500 ${
                       isActive ? 'border-accent-primary/50' : 'border-border'
                     }`}
                   >
@@ -96,7 +106,7 @@ export default function Timeline({ items }: TimelineProps) {
                         isActive ? 'saturate-100' : 'saturate-[0.7] opacity-80'
                       }`}
                     />
-                  </figure>
+                  </button>
                 </div>
               )}
             </div>

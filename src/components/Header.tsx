@@ -29,23 +29,26 @@ const NAV_LINKS = [
 
 function LangToggle() {
   const { lang, setLang } = useLang();
-  const toggle = (l: Lang) => setLang(l);
+
+  const btn = (l: Lang, label: string) => (
+    <button
+      key={l}
+      onClick={() => setLang(l)}
+      aria-pressed={lang === l}
+      className={`${t.button} px-2.5 py-1 transition-all duration-300 ${
+        lang === l
+          ? 'bg-accent-primary/15 text-accent-primary shadow-[0_0_10px_rgba(194,101,157,0.35)] border border-accent-primary/50'
+          : 'text-text-muted hover:text-text-primary border border-transparent'
+      }`}
+    >
+      {label}
+    </button>
+  );
 
   return (
-    <div className={`hidden md:flex items-center ${s.gapSm}`}>
-      <button
-        onClick={() => toggle('ru')}
-        className={`${t.label} transition-colors ${lang === 'ru' ? 'text-accent-primary' : 'text-text-subtle hover:text-text-muted'}`}
-      >
-        RU
-      </button>
-      <span className={`${t.label} text-text-subtle`}>/</span>
-      <button
-        onClick={() => toggle('en')}
-        className={`${t.label} transition-colors ${lang === 'en' ? 'text-accent-primary' : 'text-text-subtle hover:text-text-muted'}`}
-      >
-        EN
-      </button>
+    <div className="hidden md:flex items-center gap-1 border border-border p-0.5">
+      {btn('ru', 'RU')}
+      {btn('en', 'EN')}
     </div>
   );
 }
@@ -122,14 +125,15 @@ export default function Header({ menuOpen, setMenuOpen, onNavigate }: HeaderProp
           <div className={`flex items-center ${s.gapSm} ${s.mbSm}`}>
             <button
               onClick={() => setLang('ru')}
-              className={`${t.navLink} transition-colors ${lang === 'ru' ? 'text-accent-primary' : 'text-text-subtle'}`}
+              aria-pressed={lang === 'ru'}
+              className={`${t.navLink} px-3 py-1.5 border transition-all ${lang === 'ru' ? 'border-accent-primary/60 bg-accent-primary/15 text-accent-primary shadow-[0_0_12px_rgba(194,101,157,0.35)]' : 'border-border text-text-subtle'}`}
             >
               RU
             </button>
-            <span className={`${t.navLink} text-text-subtle`}>/</span>
             <button
               onClick={() => setLang('en')}
-              className={`${t.navLink} transition-colors ${lang === 'en' ? 'text-accent-primary' : 'text-text-subtle'}`}
+              aria-pressed={lang === 'en'}
+              className={`${t.navLink} px-3 py-1.5 border transition-all ${lang === 'en' ? 'border-accent-primary/60 bg-accent-primary/15 text-accent-primary shadow-[0_0_12px_rgba(194,101,157,0.35)]' : 'border-border text-text-subtle'}`}
             >
               EN
             </button>

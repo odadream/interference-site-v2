@@ -211,10 +211,10 @@ export const programTimeline: ProgramItem[] = [
       en: 'A screensaver-style intro in the spirit of “The Matrix” — a nod to the hypothesis of a computable world. Performers, indistinguishable from the audience, surface in the auditorium and move onto the stage, switching their dance on and off. Under their outer clothes — large navigation markers: a public offering of oneself to the system, a wish to be read, understood, digitised.',
     },
     still: {
-      src: '/stills/dawn.webp',
+      src: '/stills/boot-up.webp',
       alt: {
-        ru: 'Сцена проявляется из темноты: красный свет заливает ансамбль, на экране — граф виртуальной сцены',
-        en: 'The stage emerges from darkness: red light floods the ensemble, the virtual-scene graph on screen',
+        ru: 'Проявление: артисты сходятся на сцену в тумане, на спинах — навигационные маркеры',
+        en: 'Emergence: performers converge on the foggy stage, navigation markers on their backs',
       },
     },
   },
@@ -1319,8 +1319,13 @@ export const heroFormat: I18nString = {
 };
 
 export const heroPremiereBadge: I18nString = {
-  ru: 'Спектакль состоялся · 16 мая 2026 · Калуга',
-  en: 'Performance completed · 16 May 2026 · Kaluga',
+  ru: 'Спектакль состоялся',
+  en: 'Performance completed',
+};
+
+export const heroPremiereDate: I18nString = {
+  ru: '16 мая 2026 · Калуга',
+  en: '16 May 2026 · Kaluga',
 };
 
 export const heroQuote: I18nString = {
@@ -1414,7 +1419,7 @@ export const dividerWave: CinematicDividerData = {
 };
 
 export const dividerReality: CinematicDividerData = {
-  image: '/stills/hands-lasers.webp',
+  image: '/stills/finale-warm.webp',
   quote: {
     ru: 'Возможно, реальность — это не фиксированная сцена, а непрерывный процесс совместного создания мира',
     en: 'Perhaps reality is not a fixed stage, but a continuous process of co-creating the world',
@@ -1463,4 +1468,30 @@ export const theoryPostersBlock = {
     ru: 'Восемь плакатов, которые проецировались на экран во время фазы «Теория», — по одному на каждый эпизод. Нажмите, чтобы рассмотреть.',
     en: 'Eight posters projected on screen during the Theory phase — one per episode. Click to explore.',
   } as I18nString,
+};
+
+// ---------------------------------------------------------------------------
+// HERO VIDEO LOOPS — one is picked at random per visit (Kinopoisk-style cover
+// that changes between visits). All are short verified-continuous scenes.
+// ---------------------------------------------------------------------------
+
+export const HERO_LOOPS: string[] = [
+  '/video/loop-dawn.mp4',
+  '/video/loop-human-wave.mp4',
+  '/video/loop-red-peak.mp4',
+  '/video/loop-hands-lasers.mp4',
+  '/video/loop-finale-warm.mp4',
+  '/video/loop-solo-beams.mp4',
+];
+
+export const dividerStory: CinematicDividerData = {
+  image: '/stills/audience-waving.webp',
+  quote: {
+    ru: 'Сегодня мы попробуем создать историю не из фактов, а из состояний',
+    en: 'Today we will try to create a story not out of facts, but out of states',
+  },
+  attribution: {
+    ru: 'ведущая — залу · фаза «Практика»',
+    en: 'the host to the audience · Practice phase',
+  },
 };

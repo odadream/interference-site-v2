@@ -8,13 +8,19 @@ import {
   heroFestivalName,
   heroFormat,
   heroPremiereBadge,
+  heroPremiereDate,
   heroQuote,
   heroCTAPrimary,
   heroScroll,
   trailerLabels,
+  HERO_LOOPS,
 } from '../data/content';
 import { t } from '../styles/typography';
 import { s } from '../styles/spacing';
+
+// A different ambient scene on every page load (picked once at module load,
+// outside render — Math.random() is impure inside a component body)
+const loopSrc = HERO_LOOPS[Math.floor(Math.random() * HERO_LOOPS.length)];
 
 interface HeroProps {
   onNavigate: (id: string) => void;
@@ -87,7 +93,7 @@ export default function Hero({ onNavigate }: HeroProps) {
       <video
         ref={videoRef}
         className="absolute inset-0 w-full h-full object-cover"
-        src={`${import.meta.env.BASE_URL}video/hero-loop.mp4`}
+        src={`${import.meta.env.BASE_URL}${loopSrc.slice(1)}`}
         loop
         playsInline
         preload="auto"
@@ -136,6 +142,9 @@ export default function Hero({ onNavigate }: HeroProps) {
               <span className="relative inline-flex rounded-full h-[5px] w-[5px] bg-accent-primary" />
             </span>
             <p className={`${t.eventDate} text-peach`}>{heroPremiereBadge[lang]}</p>
+          </div>
+          <div className={`${s.mbMd} -mt-3`}>
+            <p className={`${t.eventDate} text-text-muted`}>{heroPremiereDate[lang]}</p>
           </div>
 
           {/* 5. Flavour quote */}
