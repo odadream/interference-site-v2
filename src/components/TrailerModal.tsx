@@ -56,12 +56,31 @@ export default function TrailerModal({ lang, onClose }: TrailerModalProps) {
         onClick={(e) => e.stopPropagation()}
       >
         <video
+          key={lang}
           src={`${BASE}${TRAILER_LOCAL_SRC.slice(1)}`}
           controls
           autoPlay
           playsInline
+          crossOrigin="anonymous"
           className="max-w-full max-h-full border border-border bg-black"
-        />
+        >
+          {/* Subtitles default to the site's current language; the viewer can
+              still switch tracks from the player's own CC menu. */}
+          <track
+            kind="subtitles"
+            src={`${BASE}video/trailer-ru.vtt`}
+            srcLang="ru"
+            label="Русский"
+            default={lang === 'ru'}
+          />
+          <track
+            kind="subtitles"
+            src={`${BASE}video/trailer-en.vtt`}
+            srcLang="en"
+            label="English"
+            default={lang === 'en'}
+          />
+        </video>
       </div>
 
       {/* External platform links (appear once the URLs are filled in) */}

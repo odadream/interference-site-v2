@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import SectionTag from '../components/SectionTag';
 import QuantumButton from '../components/QuantumButton';
 import { useScrollReveal } from '../hooks/useScrollReveal';
@@ -16,6 +17,7 @@ import { t } from '../styles/typography';
 import { s } from '../styles/spacing';
 
 const BASE = import.meta.env.BASE_URL;
+const EMAIL = 'hi@odadream.art';
 
 interface InstitutionsProps {
   onNavigate: (id: string) => void;
@@ -25,6 +27,17 @@ export default function Institutions({ onNavigate: _onNavigate }: InstitutionsPr
   const revealRef = useScrollReveal<HTMLElement>();
   const { lang } = useLang();
   const h = headings.institutions;
+  const [copied, setCopied] = useState(false);
+
+  const copyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(EMAIL);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch {
+      /* clipboard unavailable — the visible email text remains selectable */
+    }
+  };
 
   return (
     <section ref={revealRef} id="institutions" className={`${s.section} bg-bg-secondary reveal`}>
@@ -86,22 +99,27 @@ export default function Institutions({ onNavigate: _onNavigate }: InstitutionsPr
           <p className={`${t.caption} text-text-subtle`}>{institutionsArchiveNote[lang]}</p>
         </div>
 
-        {/* CTA */}
-        <div className={`group flex flex-col sm:flex-row items-start sm:items-center ${s.gapMd}`}>
-          <QuantumButton href="mailto:hi@odadream.art?subject=Show inquiry / Запрос на показ">
-            {institutionsCTA[lang]}
-          </QuantumButton>
+        {/* CTA — each hover target lights up only its own contact line */}
+        <div className={`flex flex-col sm:flex-row items-start sm:items-center ${s.gapMd}`}>
+          <div className="peer/cta">
+            <QuantumButton href="mailto:hi@odadream.art?subject=Show inquiry / Запрос на показ">
+              {institutionsCTA[lang]}
+            </QuantumButton>
+          </div>
           <div className={`flex flex-col ${s.gapSm}`}>
-            <span
-              className={`${t.caption} text-text-subtle transition-all duration-300 group-hover:text-accent-primary group-hover:[text-shadow:0_0_12px_rgba(194,101,157,0.5)]`}
+            <button
+              type="button"
+              onClick={copyEmail}
+              aria-label={lang === 'ru' ? 'Скопировать адрес почты' : 'Copy email address'}
+              className={`${t.caption} text-left text-text-subtle transition-all duration-300 hover:text-accent-primary hover:[text-shadow:0_0_12px_rgba(194,101,157,0.5)] peer-hover/cta:text-accent-primary peer-hover/cta:[text-shadow:0_0_12px_rgba(194,101,157,0.5)]`}
             >
-              hi@odadream.art
-            </span>
+              {copied ? (lang === 'ru' ? 'Скопировано ✓' : 'Copied ✓') : EMAIL}
+            </button>
             <a
               href="https://t.me/odadream_info"
               target="_blank"
               rel="noopener noreferrer"
-              className={`${t.caption} text-text-subtle hover:text-accent-primary transition-colors`}
+              className={`${t.caption} text-text-subtle hover:text-accent-primary hover:[text-shadow:0_0_12px_rgba(194,101,157,0.5)] transition-all duration-300`}
             >
               Telegram: @odadream_info
             </a>

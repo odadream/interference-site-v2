@@ -35,7 +35,7 @@ function InterferenceTitle({ lang }: { lang: 'ru' | 'en' }) {
       <div className="select-none">
         <div className={`${t.display} text-accent-primary`}>INTERFERENCE</div>
         <div className={t.display}>
-          <span className="text-accent-primary">OF</span>
+          <span className="text-accent-primary">OF </span>
           <span className="text-text-primary">REALITIES</span>
         </div>
       </div>

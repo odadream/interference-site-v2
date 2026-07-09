@@ -47,7 +47,7 @@ export default function Context() {
         <Accordion items={items} />
 
         {/* On-stage infographic posters */}
-        <div className="mt-16">
+        <div className={s.subsectionGap}>
           <h3 className={`${t.h3} text-text-primary ${s.mbSm}`}>
             {theoryPostersBlock.title[lang]}
           </h3>

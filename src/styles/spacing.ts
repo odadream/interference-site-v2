@@ -88,4 +88,10 @@ export const s = {
 
   /** Divider — вертикальные отступы */
   divider: 'my-8 md:my-12',
+
+  /** Внутренний отступ полноширинного кинематографического divider'а */
+  cinematicPadding: 'px-6 md:px-10 py-40 md:py-56',
+
+  /** Отступ перед подразделом внутри секции (например, блок постеров в Context) */
+  subsectionGap: 'mt-16',
 } as const;
