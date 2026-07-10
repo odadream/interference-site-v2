@@ -1313,8 +1313,8 @@ export const menuAria = {
 export const TRAILER_LOCAL_SRC = '/video/interference-trailer-2026.mp4';
 /** Fill in after uploading to the platforms (see press/trailer/descriptions.md
     in the event repo) — external buttons appear automatically once non-empty. */
-export const TRAILER_YOUTUBE_URL = '';
-export const TRAILER_VK_URL = '';
+export const TRAILER_YOUTUBE_URL = 'https://youtu.be/42hS8Zpkd4A';
+export const TRAILER_VK_URL = 'https://vkvideo.ru/video-216369995_456239017';
 
 export const trailerLabels = {
   watch: { ru: 'Смотреть трейлер', en: 'Watch the trailer' } as I18nString,
