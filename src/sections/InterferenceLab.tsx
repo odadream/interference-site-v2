@@ -52,8 +52,8 @@ export default function InterferenceLab() {
             </p>
             <p className={`${t.bodySecondary} text-text-muted ${s.mbSm}`}>
               {ru
-                ? 'Параллель с мозгом прямолинейна: нейроны тоже генерируют волны. ЭЭГ регистрирует их интерференцию — суммарную активность миллиардов клеток. Когда зрители синхронизируют внимание, их ритмы накладываются друг на друга, усиливая или ослабляя общий сигнал. Альфа, бета, гамма — это не абстракции, а физические колебания, которые мы превращаем в свет, звук и движение.'
-                : 'The parallel with the brain is direct: neurons also generate waves. EEG registers their interference — the summed activity of billions of cells. When spectators synchronise their attention, their rhythms overlap, amplifying or damping the shared signal. Alpha, beta, gamma are not abstractions but physical oscillations that we turn into light, sound and movement.'}
+                ? 'Связь с нейрофизиологией здесь не буквальная, а художественная и вычислительная. EEG регистрирует на поверхности головы электрические сигналы, связанные с активностью мозга. При одновременной записи нескольких участников система вычисляет метрики нейросинхронизации в выбранных частотных диапазонах и переводит их в линии виртуальной сцены. Эта визуализация не читает мысли или эмоции и не управляет самостоятельно светом, звуком или движением.'
+                : 'The connection to neurophysiology here is artistic and computational, not literal. EEG records electrical signals at the scalp that are associated with brain activity. With simultaneous recordings from several participants, the system computes neural-synchronisation metrics in selected frequency bands and maps them to lines on the virtual stage. This visualisation neither reads thoughts or emotions nor independently controls light, sound or movement.'}
             </p>
             <p className={`${t.caption} text-text-subtle`}>
               {ru ? (

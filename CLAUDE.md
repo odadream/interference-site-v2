@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project
 
-Landing page for the neuro-performance "Интерференция реальностей" (Interference of Realities), deployed at [interference.odadream.art](https://interference.odadream.art/). Stack: React 19, TypeScript 6, Vite 8, Tailwind CSS 3.4, KaTeX.
+Landing page for the participatory art–science performance-lecture "Интерференция реальностей" (Interference of Realities), deployed at [interference.odadream.art](https://interference.odadream.art/). The work combines live theatre, neurotechnology, computer vision and EEG hyperscanning to form a parallel stage reality. Stack: React 19, TypeScript 6, Vite 8, Tailwind CSS 3.4, KaTeX.
 
 ## Commands
 
