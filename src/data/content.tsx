@@ -117,8 +117,8 @@ export const showDescription: I18nString = {
 };
 
 export const showLead: I18nString = {
-  ru: 'На сцене действуют две цифровые системы. Внешняя — компьютерное зрение считывает движение танцовщиков по навигационным маркерам, встроенным в костюм. Внутренняя — EEG-гиперсканирование двенадцати участников: танцовщиков и зрителей. На экране они формируют параллельную сценическую реальность: виртуальные альтер-эго, частицы и линии, которые визуализируют вычисленные паттерны нейросинхронизации.',
-  en: 'Two digital systems operate on stage. The outer one — computer vision — tracks the dancers through navigation markers built into their costumes. The inner one is EEG hyperscanning of twelve participants: dancers and audience members. On screen they form a parallel stage reality of virtual alter-egos, particles and lines that visualise computed patterns of neural synchronisation.',
+  ru: 'Компьютерное зрение, нейротехнологии и генеративная графика становятся частью гибридного сценического языка. Параллельный мир живёт по собственным правилам и лишь иногда синхронизируется с физическим действием — заставляя зрителя наблюдать, интерпретировать и сомневаться.',
+  en: 'Computer vision, neurotechnology and generative media become part of a hybrid stage language. The parallel world follows its own rules and only sometimes synchronises with physical action — inviting the audience to observe, interpret and doubt.',
 };
 
 export const showQuestion: I18nString = {
@@ -155,8 +155,8 @@ export const layers: Layer[] = [
     number: '02',
     title: { ru: 'Внутренний слой', en: 'Inner layer' },
     description: {
-      ru: 'EEG регистрирует нейрофизиологические сигналы участников, а гиперсканирование сопоставляет одновременные записи группы. Вычисленные метрики нейросинхронизации переводятся в линии виртуальной сцены. Это художественная визуализация данных, а не чтение мыслей, эмоций или медицинская диагностика.',
-      en: 'EEG records the participants’ neurophysiological signals, while hyperscanning compares simultaneous recordings across the group. Computed neural-synchronisation metrics are mapped to lines on the virtual stage. This is an artistic data visualisation, not mind or emotion reading, and not a medical diagnosis.',
+      ru: 'Нейротехнологии вводят в спектакль образ внутреннего измерения и коллективного внимания. EEG здесь не читает мысли или эмоции и не является медицинской диагностикой: данные и их интерпретация остаются разными уровнями реальности.',
+      en: 'Neurotechnology introduces the image of inner measurement and collective attention. EEG does not read thoughts or emotions and is not a medical diagnosis: data and their interpretation remain different layers of reality.',
     },
   },
   {
@@ -181,8 +181,8 @@ export const conceptQuote: { text: I18nString; source: I18nNode } = {
 };
 
 export const aboutCtaNote: I18nString = {
-  ru: 'Премьера состоялась. Спектакль готов к гастролям — следующий показ может пройти на вашей площадке.',
-  en: 'The premiere has happened. The show is tour-ready — the next performance could take place at your venue.',
+  ru: 'Премьера состоялась. Мы ищем площадки и партнёров для реприз, международных показов и развития следующей сценической версии.',
+  en: 'The premiere has happened. We are looking for presenting venues and partners for revivals, international shows and the next stage version.',
 };
 
 export const aboutCtaLabel: I18nString = {
@@ -252,8 +252,8 @@ export const programTimeline: ProgramItem[] = [
     time: { ru: 'Фаза 04', en: 'Phase 04' },
     title: { ru: 'Практика', en: 'Practice' },
     description: {
-      ru: 'Зал вместе с труппой собирает мини-спектакль из пяти сцен по законам драматургии: темы, истории, музыка, свет и роли выбираются здесь и сейчас. Композитор и художник по свету строят партитуру в реальном времени. В четвёртой сцене EEG добавляет к виртуальному пространству визуализацию нейросинхронизации, но не определяет драматургию самостоятельно. В финале весь созданный спектакль воспроизводится целиком.',
-      en: 'Together with the company, the audience assembles a mini-performance of five scenes through choices made here and now: themes, stories, music, light and roles. The composer and lighting designer build the score live. In the fourth scene, EEG adds a visualisation of neural synchronisation to the virtual space, but does not determine the dramaturgy on its own. In the finale, the entire assembled performance is played back.',
+      ru: 'Зал вместе с труппой собирает мини-спектакль из пяти сцен по законам драматургии: темы, истории, музыка, свет и роли выбираются здесь и сейчас. Композитор и художник по свету строят партитуру в реальном времени. В четвёртой сцене нейрогарнитуры входят в художественный интерфейс, а виртуальный мир оставляет открытым источник возникающих связей. В финале весь созданный спектакль воспроизводится целиком.',
+      en: 'Together with the company, the audience assembles a mini-performance of five scenes through choices made here and now: themes, stories, music, light and roles. The composer and lighting designer build the score live. In the fourth scene, neuro-headsets enter the artistic interface while the virtual world leaves the origin of its connections unresolved. In the finale, the entire assembled performance is played back.',
     },
     still: {
       src: '/stills/headsets-olya.webp',
@@ -450,8 +450,8 @@ export const contextItems: ContextItem[] = [
           зрителя: сцена показывает не только сюжет, а поле восприятия и внутренних процессов.
           Зритель не пассивный наблюдатель ремесла, а активный со-творец смысла. У Евреинова этот
           «внутренний спектакль» оставался невидимым — мы пытаемся его материализовать: поочерёдные
-          ходы зала и танцора формализуют со-творчество, а линии нейросинхронизации предлагают
-          визуальную модель коллективного поля.
+          ходы зала и танцора формализуют со-творчество, а линии параллельной виртуальной сцены
+          предлагают художественную модель коллективного поля.
         </>
       ),
       en: (
@@ -462,7 +462,7 @@ export const contextItems: ContextItem[] = [
           process. The spectator is not a passive observer of craft but an active co-creator of
           meaning. For Evreinov this “inner performance” stayed invisible — we try to materialise
           it: the alternating moves of room and dancer formalise co-authorship, while the lines of
-          neural synchronisation offer a visual model of the collective field.
+          the parallel virtual stage offer an artistic model of the collective field.
         </>
       ),
     },
@@ -507,13 +507,12 @@ export const contextItems: ContextItem[] = [
     content: {
       ru: (
         <>
-          Один и тот же слой в спектакле описывается через EEG (нейрофизиологические сигналы),
-          гиперсканирование (одновременная запись нейрофизиологических сигналов группы) и
-          визуализация данных. Когда EEG подключена, между объектами виртуальной сцены появляются
-          линии, отображающие вычисленную метрику нейросинхронизации между парами сигналов. Цвет
-          линии относится к выбранному частотному диапазону — например, голубой к альфа-, зелёный к
-          бета-ритму. Это сценическая интерпретация измерений, а не доказательство общего состояния
-          или чтение мыслей и эмоций. Идея созвучна мысли нейрофизиолога{' '}
+          Исследовательская архитектура связывает EEG (нейрофизиологические сигналы),
+          гиперсканирование (одновременную запись группы) и визуализацию данных. В развиваемой
+          live-версии линии между объектами виртуальной сцены могут отображать валидированную
+          метрику нейросинхронизации между парами сигналов, а цвет — выбранный частотный диапазон.
+          Это художественная и исследовательская модель, а не доказательство общего состояния или
+          чтение мыслей и эмоций. Идея созвучна мысли нейрофизиолога{' '}
           {extLink(
             'https://ru.wikipedia.org/wiki/%D0%9A%D0%B0%D0%BF%D0%BB%D0%B0%D0%BD,_%D0%90%D0%BB%D0%B5%D0%BA%D1%81%D0%B0%D0%BD%D0%B4%D1%80_%D0%AF%D0%BA%D0%BE%D0%B2%D0%BB%D0%B5%D0%B2%D0%B8%D1%87',
             'Александра Каплана'
@@ -523,13 +522,11 @@ export const contextItems: ContextItem[] = [
       ),
       en: (
         <>
-          The same layer is described through EEG (recording neurophysiological signals),
-          hyperscanning (simultaneous recording across a group) and data visualisation. When EEG is
-          connected, lines appear between objects on the virtual stage. They display a computed
-          neural-synchronisation metric between pairs of signals. A line’s colour refers to the
-          selected frequency band — for example, blue for alpha and green for beta. This is a scenic
-          interpretation of measurements, not proof of a shared state or a reading of thoughts and
-          emotions. The idea echoes neuroscientist{' '}
+          The research architecture connects EEG recording, simultaneous group hyperscanning and
+          data visualisation. In the developing live version, lines between virtual objects may
+          represent a validated neural-synchronisation metric between pairs of signals, with colour
+          mapped to a selected frequency band. This is an artistic and research model, not proof of
+          a shared state or a reading of thoughts and emotions. The idea echoes neuroscientist{' '}
           {extLink('https://en.wikipedia.org/wiki/Alexander_Kaplan', 'Alexander Kaplan')}
           ’s thought that perceived reality is a reconstruction the brain builds on its own.
         </>
@@ -550,8 +547,8 @@ export const faqItems: ContextItem[] = [
       en: 'How does neurotechnology contribute to the performance?',
     },
     content: {
-      ru: 'Портативные EEG-гарнитуры регистрируют нейрофизиологические сигналы танцовщиков и зрителей-участников. Гиперсканирование сопоставляет одновременные записи, а вычисленные паттерны нейросинхронизации визуализируются линиями параллельной сценической реальности. EEG — один из её контуров: он не читает мысли или эмоции и не управляет автономно светом, звуком, хореографией или всей драматургией.',
-      en: 'Portable EEG headsets record neurophysiological signals from dancers and participating audience members. Hyperscanning compares simultaneous recordings, and computed patterns of neural synchronisation are visualised as lines in the parallel stage reality. EEG is one layer of that reality: it does not read thoughts or emotions, nor does it autonomously control the light, sound, choreography or the entire dramaturgy.',
+      ru: 'Портативные EEG-гарнитуры, computer vision и генеративная графика входят в гибридную медиасистему и художественный язык спектакля. Виртуальная сцена не является приборным экраном и не раскрывает источник каждого совпадения. EEG не читает мысли или эмоции и не управляет спектаклем автономно.',
+      en: 'Portable EEG headsets, computer vision and generative media form part of the hybrid media system and artistic language. The virtual stage is not an instrument display and does not reveal the origin of every connection. EEG does not read thoughts or emotions and does not control the performance autonomously.',
     },
   },
   {
@@ -570,16 +567,17 @@ export const faqItems: ContextItem[] = [
         <>
           Мы используем {extLink('https://neiry.ru', 'Neiry Headband')} — портативные
           EEG-устройства. Электроды касаются кожи головы и пассивно регистрируют электрические
-          сигналы, связанные с активностью мозга. Устройства ничего не передают в мозг; в спектакле
-          данные используются как художественный материал, а не для диагностики.
+          сигналы, связанные с активностью мозга. Устройства ничего не передают в мозг. В
+          исследовательской архитектуре валидированные данные задуманы как художественный материал,
+          а не как диагностика.
         </>
       ),
       en: (
         <>
           We use the {extLink('https://neiry.ru', 'Neiry Headband')} — portable EEG devices.
           Electrodes touch the scalp and passively record electrical signals associated with brain
-          activity. The devices send nothing into the brain; in the performance, the data are used
-          as artistic material rather than for diagnosis.
+          activity. The devices send nothing into the brain. The research design treats validated
+          data as potential artistic material rather than diagnosis.
         </>
       ),
     },
@@ -588,8 +586,8 @@ export const faqItems: ContextItem[] = [
     id: 'safety',
     title: { ru: 'Это безопасно?', en: 'Is it safe?' },
     content: {
-      ru: 'Да. EEG пассивно регистрирует на поверхности головы электрические сигналы, связанные с активностью мозга. Устройства ничего не передают в мозг. В спектакле эти данные используются только как художественный материал и не предназначены для диагностики.',
-      en: 'Yes. EEG passively records electrical signals at the scalp that are associated with brain activity. The devices send nothing into the brain. In this performance, the data are used only as artistic material and are not intended for diagnosis.',
+      ru: 'Да. EEG пассивно регистрирует на поверхности головы электрические сигналы, связанные с активностью мозга, и ничего не передаёт в мозг. Исследовательский контур не предназначен для диагностики, а его метрики требуют отдельной валидации.',
+      en: 'Yes. EEG passively records electrical signals at the scalp and sends nothing into the brain. The research layer is not intended for diagnosis, and its metrics require separate validation.',
     },
   },
   {
@@ -615,8 +613,8 @@ export const faqItems: ContextItem[] = [
       en: 'What is the motion tracking in the show?',
     },
     content: {
-      ru: 'Компьютерное зрение фиксирует положение и движение танцовщиков по навигационным маркерам на костюмах. Вместе с EEG-гиперсканированием это создаёт два контура виртуальной сцены: внешний трекинг движения и внутренний слой нейрофизиологических сигналов. Оба потока обрабатываются в реальном времени и формируют визуальные элементы параллельной реальности.',
-      en: 'Computer vision captures the dancers’ position and movement through navigation markers on their costumes. Together with EEG hyperscanning, it creates two layers of the virtual stage: external movement tracking and an internal layer of neurophysiological signals. Both streams are processed in real time and form visual elements of the parallel reality.',
+      ru: 'Крупные ArUco-маркеры превращают принцип компьютерного зрения в видимую часть костюма: тело одновременно остаётся телом и становится объектом для возможного машинного наблюдения. Виртуальная сцена сохраняет неопределённость и не объясняет зрителю происхождение каждого движения.',
+      en: 'Oversized ArUco markers turn computer vision into a visible part of the costume: the body remains a body while becoming an object of possible machine observation. The virtual stage preserves uncertainty and does not explain the origin of every movement.',
     },
   },
 ];
@@ -1147,8 +1145,8 @@ export const chronicleEvents: ChronicleEvent[] = [
     year: '16 мая 2026 / 16 May 2026',
     label: { ru: 'Интерференция — премьера', en: 'Interference — world premiere' },
     description: {
-      ru: 'Спектакль открыл XIV Циолковский Фест (ИКЦ, Калуга) при полной системе: ЭЭГ-гиперсканирование ×12, трекинг танцовщиков, live-свет и live-звук, тифлокомментарий и перевод на РЖЯ.',
-      en: 'The performance opened the 14th Tsiolkovsky Fest (ICC, Kaluga) with the full system running: EEG hyperscanning ×12, dancer tracking, live light and sound, audio description and sign-language interpretation.',
+      ru: 'Спектакль открыл XIV Циолковский Фест (ИКЦ, Калуга). Зрители, артисты, композитор и художник по свету собрали пять сцен рядом с параллельной виртуальной реальностью. Показ сопровождали тифлокомментарий и перевод на РЖЯ.',
+      en: 'The performance opened the 14th Tsiolkovsky Fest (ICC, Kaluga). The audience, performers, composer and lighting artist assembled five scenes beside a parallel virtual reality. Audio description and sign-language interpretation accompanied the show.',
     },
     type: 'show',
   },
@@ -1184,8 +1182,8 @@ export interface InstitutionFormat {
 }
 
 export const institutionsPitch: I18nString = {
-  ru: '«Интерференция реальностей» — готовый к гастролям партисипативный art–science спектакль-лекция, соединяющий живой театр, нейротехнологии, компьютерное зрение и EEG-гиперсканирование. Команда и производственный пакет позволяют адаптировать показ под площадку партнёра в течение нескольких недель.',
-  en: '“Interference of Realities” is a tour-ready participatory art–science performance-lecture combining live theatre, neurotechnology, computer vision and EEG hyperscanning. The team and production package allow the show to be adapted to a partner venue within a few weeks.',
+  ru: '«Интерференция реальностей» — состоявшийся партисипативный art–science спектакль-лекция на пересечении танца, нейротехнологий и медиаарта. Мы ищем фестивали, театры, музеи и междисциплинарные программы для международных показов и развития следующей версии.',
+  en: '“Interference of Realities” is a completed participatory art–science performance-lecture combining dance, neurotechnology and media art. We are seeking festivals, theatres, museums and interdisciplinary programmes for international presentations and development partnerships.',
 };
 
 export const institutionFormats: InstitutionFormat[] = [
@@ -1216,8 +1214,8 @@ export const institutionFormats: InstitutionFormat[] = [
 ];
 
 export const institutionsTechSpecs: I18nString = {
-  ru: 'Технические требования: зал от 50 м², затемнение, аудиосистема. Нейрогарнитуры — до 30 зрителей одновременно. Монтаж — 1 день. Команда — 6–8 человек.',
-  en: 'Technical requirements: a hall from 50 m², blackout, an audio system. Neuro-headsets for up to 30 spectators at once. Setup — 1 day. Team — 6–8 people.',
+  ru: 'Базовые требования: затемнение, экран, аудиосистема и адаптируемый свет. Состав гибридной медиасистемы, команда, монтажный срок и резервная конфигурация согласуются после изучения технических параметров площадки.',
+  en: 'Core requirements are blackout, a screen, PA and adaptable lighting. The hybrid media configuration, touring party, setup period and fallback configuration are agreed after reviewing the venue specifications.',
 };
 
 export const institutionsTechLabel: I18nString = {
@@ -1275,8 +1273,8 @@ export const heroScroll: I18nString = { ru: 'Листайте', en: 'Scroll' };
 // ---------------------------------------------------------------------------
 
 export const footerTagline: I18nString = {
-  ru: 'Партисипативный art–science спектакль-лекция с компьютерным зрением и EEG-гиперсканированием.',
-  en: 'A participatory art–science performance-lecture with computer vision and EEG hyperscanning.',
+  ru: 'Партисипативный art–science спектакль-лекция о связи физической и параллельной виртуальной реальностей.',
+  en: 'A participatory art–science performance-lecture about physical and parallel virtual realities.',
 };
 
 export const footerNav: { id: string; label: I18nString }[] = [
@@ -1366,12 +1364,12 @@ export const dividerReality: CinematicDividerData = {
 export const institutionsStill = {
   src: '/stills/laser-cones.webp',
   alt: {
-    ru: 'Лазерные конусы над сценой, силуэты зрителей на переднем плане — система в полной сборке',
-    en: 'Laser cones over the stage, spectator silhouettes in the foreground — the system at full power',
+    ru: 'Лазерные конусы над сценой и силуэты зрителей на переднем плане',
+    en: 'Laser cones over the stage with spectator silhouettes in the foreground',
   } as I18nString,
   caption: {
-    ru: 'Сцена 5 · нейросинхронизация зала и танцовщиков в реальном времени',
-    en: 'Scene 5 · real-time neuro-synchronisation of the audience and the dancers',
+    ru: 'Сцена 5 · линии параллельной реальности',
+    en: 'Scene 5 · lines of the parallel reality',
   } as I18nString,
 };
 
