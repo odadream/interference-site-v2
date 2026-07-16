@@ -57,6 +57,7 @@ export default function TrailerModal({ lang, onClose }: TrailerModalProps) {
       >
         <video
           key={lang}
+          data-analytics-video="trailer"
           src={`${BASE}${TRAILER_LOCAL_SRC.slice(1)}`}
           controls
           autoPlay

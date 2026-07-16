@@ -5,12 +5,15 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "prebuild": "npm run analytics:check",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "format": "prettier --write \"src/**/*.{ts,tsx,css,js,jsx}\" \"*.html\" \"*.json\" \"*.js\" \"*.ts\"",
     "format:check": "prettier --check \"src/**/*.{ts,tsx,css,js,jsx}\" \"*.html\" \"*.json\" \"*.js\" \"*.ts\"",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "analytics:check": "node scripts/analytics-config.mjs check",
+    "analytics:verify-build": "node scripts/analytics-config.mjs verify-dist"
   },
   "dependencies": {
     "katex": "^0.16.45",

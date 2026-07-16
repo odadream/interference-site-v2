@@ -106,6 +106,7 @@ export default function Hero({ onNavigate }: HeroProps) {
           declarative autoplay path in Chrome. */}
       <video
         ref={videoRef}
+        data-analytics-ignore="true"
         className="absolute inset-0 w-full h-full object-cover"
         src={`${import.meta.env.BASE_URL}${loopSrc.slice(1)}`}
         loop
