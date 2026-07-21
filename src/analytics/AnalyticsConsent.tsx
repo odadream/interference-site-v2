@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
+import { LangContext } from '../context/LangContext';
 import {
   getAnalyticsConsent,
   isAnalyticsEnabled,
@@ -9,26 +10,23 @@ import {
 
 export default function AnalyticsConsentBanner() {
   const [consent, setConsent] = useState<AnalyticsConsent>(() => getAnalyticsConsent());
-  const [language, setLanguage] = useState(() => document.documentElement.lang || 'en');
+  // Single source of truth: the same context that renders the content, so the
+  // banner can never disagree with the page it sits on.
+  const { lang } = useContext(LangContext);
 
   useEffect(() => {
     const onConsent = (event: Event) => {
       setConsent((event as CustomEvent<AnalyticsConsent>).detail);
     };
-    const observer = new MutationObserver(() => {
-      setLanguage(document.documentElement.lang || 'en');
-    });
     window.addEventListener('oda:analytics:consent', onConsent);
-    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
     return () => {
       window.removeEventListener('oda:analytics:consent', onConsent);
-      observer.disconnect();
     };
   }, []);
 
   if (!isAnalyticsEnabled() || !isConsentRequired() || consent !== 'unknown') return null;
 
-  const russian = language.toLowerCase().startsWith('ru');
+  const russian = lang === 'ru';
   return (
     <aside
       className="fixed bottom-4 left-4 right-4 z-[200] mx-auto max-w-3xl border border-white/20 bg-black/95 p-4 text-white shadow-2xl backdrop-blur-md"

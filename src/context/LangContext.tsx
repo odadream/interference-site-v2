@@ -48,7 +48,18 @@ const RU_TIMEZONE_HINTS = [
 function detectLang(): Lang {
   if (typeof window === 'undefined') return 'ru';
 
-  // 1. Explicit prior choice always wins.
+  // 0. Explicit URL override wins over everything — this is what makes a
+  // shared/campaign link (e.g. ?lang=en on a Featured or outreach link) open
+  // in the language it was written for, regardless of the visitor's browser
+  // or a previous choice. Content and the consent banner both follow it.
+  try {
+    const urlLang = new URLSearchParams(window.location.search).get('lang');
+    if (urlLang === 'ru' || urlLang === 'en') return urlLang;
+  } catch {
+    // URL parsing may fail on exotic inputs — fall through to detection.
+  }
+
+  // 1. Explicit prior choice.
   try {
     const stored = window.localStorage.getItem(STORAGE_KEY);
     if (stored === 'ru' || stored === 'en') return stored;

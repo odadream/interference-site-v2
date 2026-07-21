@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { LangProvider } from './context/LangContext';
+import AnalyticsConsentBanner from './analytics/AnalyticsConsent';
 import Header from './components/Header';
 import ScrollProgress from './components/ScrollProgress';
 import Hero from './sections/Hero';
@@ -68,6 +69,9 @@ function App() {
         </main>
         <Footer onNavigate={scrollToSection} />
       </div>
+      {/* Inside LangProvider so the banner follows the same language source as
+          the content, with no document.documentElement.lang bridge to race. */}
+      <AnalyticsConsentBanner />
     </LangProvider>
   );
 }
